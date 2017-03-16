@@ -22,7 +22,7 @@ namespace FoodSupplementsSystem.UnitTests.Controllers
             ViewResult result = controller.Index() as ViewResult;
 
             // Assert
-            Assert.IsNotNull(result);
+            Assert.IsNotNull(null);
         }
 
         [TestMethod]
