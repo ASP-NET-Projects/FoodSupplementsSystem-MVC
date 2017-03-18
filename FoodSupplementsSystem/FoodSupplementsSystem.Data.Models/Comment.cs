@@ -17,6 +17,11 @@ namespace FoodSupplementsSystem.Data.Models
 
         public DateTime CreationDate { get; set; }
 
+        public string AuthorId { get; set; }
+
+        [ForeignKey("AuthorId")]
+        public virtual ApplicationUser Author { get; set; }
+
         public int TopicId { get; set; }
 
         [ForeignKey("TopicId")]
