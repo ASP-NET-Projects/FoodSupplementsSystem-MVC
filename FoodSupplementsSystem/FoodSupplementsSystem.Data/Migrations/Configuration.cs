@@ -1,8 +1,10 @@
+using FoodSupplementsSystem.Data.Models;
 using System.Data.Entity.Migrations;
+using System.Linq;
 
 namespace FoodSupplementsSystem.Data.Migrations
 {
-    internal sealed class Configuration : DbMigrationsConfiguration<FoodSupplementsSystemDbContext>
+    public sealed class Configuration : DbMigrationsConfiguration<FoodSupplementsSystemDbContext>
     {
         public Configuration()
         {
@@ -12,18 +14,31 @@ namespace FoodSupplementsSystem.Data.Migrations
 
         protected override void Seed(FoodSupplementsSystemDbContext context)
         {
-            //  This method will be called after migrating to the latest version.
+            if (context.Supplements.Any())
+            {
+                return;
+            }
 
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
+            var user = new ApplicationUser()
+            {
+                UserName = "Ana"
+            };
+
+            context.Users.Add(user);
+
+            context.SaveChanges();
+
+            var seed = new SeedData(user);
+
+            seed.Categories.ForEach(x => context.Categories.Add(x));
+
+            seed.Topics.ForEach(x => context.Topics.Add(x));
+
+            seed.Brands.ForEach(x => context.Brands.Add(x));
+
+            seed.Supplements.ForEach(x => context.Supplements.Add(x));
+
+            context.SaveChanges();
         }
     }
 }

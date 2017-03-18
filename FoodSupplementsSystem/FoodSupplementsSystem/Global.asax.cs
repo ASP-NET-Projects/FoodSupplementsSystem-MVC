@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FoodSupplementsSystem.App_Start;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,6 +13,7 @@ namespace FoodSupplementsSystem
     {
         protected void Application_Start()
         {
+            DatabaseConfig.RegisterDatabase();
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);

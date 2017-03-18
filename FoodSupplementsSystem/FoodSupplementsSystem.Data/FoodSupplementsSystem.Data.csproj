@@ -59,7 +59,12 @@
   <ItemGroup>
     <Compile Include="FoodSupplementsSystemDbContext.cs" />
     <Compile Include="IFoodSupplementsDbContext.cs" />
+    <Compile Include="Migrations\201703181726489_FoodSupplementsSystem.cs" />
+    <Compile Include="Migrations\201703181726489_FoodSupplementsSystem.Designer.cs">
+      <DependentUpon>201703181726489_FoodSupplementsSystem.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Migrations\SeedData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -71,6 +76,11 @@
       <Project>{7aee180c-4344-4cf5-8e7f-b304b4ffce1e}</Project>
       <Name>FoodSupplementsSystem.Data.Models</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201703181726489_FoodSupplementsSystem.resx">
+      <DependentUpon>201703181726489_FoodSupplementsSystem.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
