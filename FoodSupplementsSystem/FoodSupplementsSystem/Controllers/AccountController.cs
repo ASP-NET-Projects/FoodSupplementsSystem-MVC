@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using FoodSupplementsSystem.Models;
+using FoodSupplementsSystem.Data.Models;
 
 namespace FoodSupplementsSystem.Controllers
 {

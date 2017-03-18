@@ -202,7 +202,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -281,6 +280,16 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FoodSupplementsSystem.Data.Models\FoodSupplementsSystem.Data.Models.csproj">
+      <Project>{7aee180c-4344-4cf5-8e7f-b304b4ffce1e}</Project>
+      <Name>FoodSupplementsSystem.Data.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FoodSupplementsSystem.Data\FoodSupplementsSystem.Data.csproj">
+      <Project>{507398e9-a0ed-416a-8946-d16f86bafcfb}</Project>
+      <Name>FoodSupplementsSystem.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
