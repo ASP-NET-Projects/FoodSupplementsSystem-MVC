@@ -1,4 +1,6 @@
 using FoodSupplementsSystem.Data.Models;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using System.Data.Entity.Migrations;
 using System.Linq;
 
@@ -6,6 +8,8 @@ namespace FoodSupplementsSystem.Data.Migrations
 {
     public sealed class Configuration : DbMigrationsConfiguration<FoodSupplementsSystemDbContext>
     {
+        private UserManager<ApplicationUser> userManager;
+
         public Configuration()
         {
             this.AutomaticMigrationsEnabled = true;
@@ -14,10 +18,24 @@ namespace FoodSupplementsSystem.Data.Migrations
 
         protected override void Seed(FoodSupplementsSystemDbContext context)
         {
+            this.userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
+
             if (context.Supplements.Any())
             {
                 return;
             }
+
+            context.Roles.AddOrUpdate(x => x.Name, new IdentityRole("Admin"));
+
+            var adminUser = new ApplicationUser
+            {
+                Email = "admin@mysite.com",
+                UserName = "Administrator"
+            };
+
+            this.userManager.Create(adminUser, "admin123456");
+
+            this.userManager.AddToRole(adminUser.Id, "Admin");
 
             var user = new ApplicationUser()
             {
