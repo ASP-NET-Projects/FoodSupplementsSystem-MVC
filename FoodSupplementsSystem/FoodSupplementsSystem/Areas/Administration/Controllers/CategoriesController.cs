@@ -13,6 +13,7 @@ using FoodSupplementsSystem.Data;
 
 namespace FoodSupplementsSystem.Areas.Administration.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class CategoriesController : Controller
     {
         private FoodSupplementsSystemDbContext db = new FoodSupplementsSystemDbContext();
