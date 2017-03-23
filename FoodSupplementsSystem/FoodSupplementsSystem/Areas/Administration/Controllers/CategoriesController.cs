@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
 using Kendo.Mvc.Extensions;
@@ -7,22 +6,21 @@ using Kendo.Mvc.UI;
 using FoodSupplementsSystem.Data.Models;
 using FoodSupplementsSystem.Services.Data.Contracts;
 using FoodSupplementsSystem.Areas.Administration.Models;
-using AutoMapper;
-using FoodSupplementsSystem.Infrastructure.Mapping;
-using FoodSupplementsSystem.Data;
 using AutoMapper.QueryableExtensions;
+using FoodSupplementsSystem.Data.Repositories;
 
 namespace FoodSupplementsSystem.Areas.Administration.Controllers
 {
     [Authorize(Roles = "Admin")]
     public class CategoriesController : Controller
     {
-        //private FoodSupplementsSystemDbContext db = new FoodSupplementsSystemDbContext();
+        IRepository<Category> categoriesWrapper;
 
         private ICategoriesService categories;
 
-        public CategoriesController(ICategoriesService categories)
+        public CategoriesController(IRepository<Category> categoriesWrapper, ICategoriesService categories)
         {
+            this.categoriesWrapper = categoriesWrapper;
             this.categories = categories;
         }
 
@@ -33,24 +31,11 @@ namespace FoodSupplementsSystem.Areas.Administration.Controllers
 
         public ActionResult Categories_Read([DataSourceRequest]DataSourceRequest request)
         {
-            //IQueryable<Category> categories = this.categories.GetAll();
-            //DataSourceResult result = categories.ToDataSourceResult(request, category => new
-            //{
-            //    Id = category.Id,
-            //    Name = category.Name
-            //});
-            //
-            //return Json(result);
+            IQueryable<Category> categories = categoriesWrapper.All();
 
-            //var comments = this.comments
-            //   .All()
-            //   .To<CommentViewModel>();
-            //
-            //return this.Json(comments.ToDataSourceResult(request));
+            var resultCategories = categories.ProjectTo<CategoryViewModel>();
 
-            var categories = this.categories.GetAll().ProjectTo<CategoryViewModel>();
-
-            return this.Json(categories.ToDataSourceResult(request));
+            return Json(resultCategories.ToDataSourceResult(request));
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
@@ -58,16 +43,6 @@ namespace FoodSupplementsSystem.Areas.Administration.Controllers
         {
             if (category != null && this.ModelState.IsValid)
             {
-                //var entity = new Category
-                //{
-                //    Name = category.Name
-                //};
-                //
-                //
-                //db.Categories.Add(entity);
-                //db.SaveChanges();
-                //category.Id = entity.Id;
-
                 this.categories.Create(category.Name);
             }
 
@@ -79,16 +54,6 @@ namespace FoodSupplementsSystem.Areas.Administration.Controllers
         {
             if (ModelState.IsValid)
             {
-                // var entity = new Category
-                // {
-                //     Id = category.Id,
-                //     Name = category.Name
-                // };
-                //
-                // db.Categories.Attach(entity);
-                // db.Entry(entity).State = EntityState.Modified;
-                // db.SaveChanges();
-
                 if (category != null && this.ModelState.IsValid)
                 {
                     this.categories.UpdateNameById(category.Id, category.Name);
@@ -103,16 +68,6 @@ namespace FoodSupplementsSystem.Areas.Administration.Controllers
         {
             if (ModelState.IsValid)
             {
-                //var entity = new Category
-                //{
-                //    Id = category.Id,
-                //    Name = category.Name
-                //};
-                //
-                //db.Categories.Attach(entity);
-                //db.Categories.Remove(entity);
-                //db.SaveChanges();
-
                 if (category != null && this.ModelState.IsValid)
                 {
                     this.categories.DeleteById(category.Id);
@@ -130,10 +85,10 @@ namespace FoodSupplementsSystem.Areas.Administration.Controllers
             return File(fileContents, contentType, fileName);
         }
 
-       //protected override void Dispose(bool disposing)
-       //{
-       //    db.Dispose();
-       //    base.Dispose(disposing);
-       //}
+        protected override void Dispose(bool disposing)
+        {
+            categoriesWrapper.Dispose();
+            base.Dispose(disposing);
+        }
     }
 }

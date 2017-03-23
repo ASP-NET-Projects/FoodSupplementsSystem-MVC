@@ -18,11 +18,8 @@ namespace FoodSupplementsSystem.App_Start
         public static void RegisterMappings(IMapperConfigurationExpression config, params Assembly[] assemblies)
         {
             config.ConstructServicesUsing(t => DependencyResolver.Current.GetService(t));
-            var types = new List<Type>();
-            foreach (var assembly in assemblies)
-            {
-                types.AddRange(assembly.GetExportedTypes());
-            }
+
+            var types = Assembly.GetExecutingAssembly().GetExportedTypes();
 
             LoadStandardMappings(config, types);
             LoadCustomMappings(config, types);
