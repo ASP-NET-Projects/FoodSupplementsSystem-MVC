@@ -44,6 +44,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=6.0.2.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.6.0.2\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Kendo.Mvc">
       <HintPath>..\External Libraries\Kendo.Mvc.dll</HintPath>
     </Reference>
@@ -193,6 +197,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\AutomapperConfig.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\DatabaseConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -201,6 +206,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
     <Compile Include="Areas\Administration\Controllers\CategoriesController.cs" />
+    <Compile Include="Areas\Administration\Models\CategoryViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -357,7 +363,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Administration\Models\" />
     <Folder Include="Areas\Administration\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
@@ -376,6 +381,14 @@
     <ProjectReference Include="..\FoodSupplementsSystem.Data\FoodSupplementsSystem.Data.csproj">
       <Project>{507398e9-a0ed-416a-8946-d16f86bafcfb}</Project>
       <Name>FoodSupplementsSystem.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FoodSupplementsSystem.Infrastructure\FoodSupplementsSystem.Infrastructure.csproj">
+      <Project>{965c6d8c-0c50-4b93-963a-0bf01b0ee640}</Project>
+      <Name>FoodSupplementsSystem.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FoodSupplementsSystem.Services.Data\FoodSupplementsSystem.Services.Data.csproj">
+      <Project>{90698931-9b90-42ee-ba68-b205765b759d}</Project>
+      <Name>FoodSupplementsSystem.Services.Data</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

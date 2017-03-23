@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodSupplementsSystem.Data"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodSupplementsSystem.Services.Data", "FoodSupplementsSystem.Services.Data\FoodSupplementsSystem.Services.Data.csproj", "{90698931-9B90-42EE-BA68-B205765B759D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodSupplementsSystem.Infrastructure", "FoodSupplementsSystem.Infrastructure\FoodSupplementsSystem.Infrastructure.csproj", "{965C6D8C-0C50-4B93-963A-0BF01B0EE640}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{90698931-9B90-42EE-BA68-B205765B759D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{90698931-9B90-42EE-BA68-B205765B759D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{90698931-9B90-42EE-BA68-B205765B759D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{965C6D8C-0C50-4B93-963A-0BF01B0EE640}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{965C6D8C-0C50-4B93-963A-0BF01B0EE640}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{965C6D8C-0C50-4B93-963A-0BF01B0EE640}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{965C6D8C-0C50-4B93-963A-0BF01B0EE640}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
