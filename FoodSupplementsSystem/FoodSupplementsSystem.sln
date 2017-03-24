@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodSupplementsSystem", "FoodSupplementsSystem\FoodSupplementsSystem.csproj", "{C5B99083-5D76-41D8-AF54-738F57D84C85}"
 EndProject
@@ -14,6 +14,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodSupplementsSystem.Services.Data", "FoodSupplementsSystem.Services.Data\FoodSupplementsSystem.Services.Data.csproj", "{90698931-9B90-42EE-BA68-B205765B759D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodSupplementsSystem.Infrastructure", "FoodSupplementsSystem.Infrastructure\FoodSupplementsSystem.Infrastructure.csproj", "{965C6D8C-0C50-4B93-963A-0BF01B0EE640}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodSupplementsSystem.Tests", "FoodSupplementsSystem.Tests\FoodSupplementsSystem.Tests.csproj", "{D7E015A1-6C19-4247-9F66-9EE585517492}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{965C6D8C-0C50-4B93-963A-0BF01B0EE640}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{965C6D8C-0C50-4B93-963A-0BF01B0EE640}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{965C6D8C-0C50-4B93-963A-0BF01B0EE640}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7E015A1-6C19-4247-9F66-9EE585517492}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7E015A1-6C19-4247-9F66-9EE585517492}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7E015A1-6C19-4247-9F66-9EE585517492}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7E015A1-6C19-4247-9F66-9EE585517492}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
