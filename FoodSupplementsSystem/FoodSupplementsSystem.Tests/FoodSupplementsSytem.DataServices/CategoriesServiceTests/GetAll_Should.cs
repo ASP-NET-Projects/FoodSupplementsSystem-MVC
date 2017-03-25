@@ -40,7 +40,7 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSytem.DataServices.Categori
             CategoriesService categoriesService = new CategoriesService(categoriesMock.Object);
 
             //Act
-            IEnumerable<Category> categoryResult = categoriesService.GetAll();
+            IQueryable<Category> categoryResult = categoriesService.GetAll();
 
             //Assert
             Assert.That(categoryResult, Is.EqualTo(expectedResultCollection));
