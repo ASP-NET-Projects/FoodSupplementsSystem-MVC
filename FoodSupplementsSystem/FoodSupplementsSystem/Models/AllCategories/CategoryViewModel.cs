@@ -1,5 +1,6 @@
 ﻿using FoodSupplementsSystem.Data.Models;
 using FoodSupplementsSystem.Infrastructure.Mapping;
+using System.Collections.Generic;
 
 namespace FoodSupplementsSystem.Models.AllCategories
 {
@@ -9,6 +10,6 @@ namespace FoodSupplementsSystem.Models.AllCategories
 
         public string Name { get; set; }
 
-       // public ICollection<SupplementViewModel> Supplements { get; set; }
+        public ICollection<SupplementViewModel> Supplements { get; set; }
     }
 }

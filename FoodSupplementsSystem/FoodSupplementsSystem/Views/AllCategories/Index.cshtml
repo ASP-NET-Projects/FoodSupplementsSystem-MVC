@@ -2,6 +2,24 @@
 
 @foreach (var category in Model)
 {
-    <h3>@category.Name</h3>
+    <div class="col-md-6">
+        <b><h3>@category.Name</h3></b>
+
+        @if (category.Supplements.Count != 0)
+        {
+            <p>All registered supplements in this category!</p>
+        }
+        else
+        {
+            <p>No supplements.</p>
+        }
+
+        @foreach (var supplement in category.Supplements)
+        {
+            <img src="@Url.Content(supplement.ImageUrl)" alt="alternative text" />
+            <div>@supplement.Name</div>
+        }
+    </div>
 }
+
 
