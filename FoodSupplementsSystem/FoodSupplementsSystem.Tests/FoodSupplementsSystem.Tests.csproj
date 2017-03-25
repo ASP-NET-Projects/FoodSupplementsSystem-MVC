@@ -105,6 +105,8 @@
     <Compile Include="FoodSupplementsSytem.DataServices\CategoriesServiceTests\DeleteById_Should.cs" />
     <Compile Include="FoodSupplementsSytem.DataServices\CategoriesServiceTests\GetAll_Should.cs" />
     <Compile Include="FoodSupplementsSytem.DataServices\CategoriesServiceTests\GetById_Should.cs" />
+    <Compile Include="FoodSupplementsSytem.DataServices\SupplementsServiceTests\Constructor_Should.cs" />
+    <Compile Include="FoodSupplementsSytem.DataServices\SupplementsServiceTests\GetAll_Should.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
