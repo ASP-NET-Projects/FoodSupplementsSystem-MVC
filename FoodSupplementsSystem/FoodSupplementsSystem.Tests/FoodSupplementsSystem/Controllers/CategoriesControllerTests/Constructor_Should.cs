@@ -25,11 +25,11 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.Categori
             Assert.IsInstanceOf<CategoriesController>(categoriesController);
         }
 
-        [Test]
-        public void ThrowException_WhenParametersAreNull()
-        {
-            // Arrange & Act & Assert
-            Assert.Throws<ArgumentNullException>(() => new CategoriesController(null, null));
-        }
+        //[Test]
+        //public void ThrowException_WhenParametersAreNull()
+        //{
+        //    // Arrange & Act & Assert
+        //    Assert.Throws<ArgumentNullException>(() => new CategoriesController(null, null));
+        //}
     }
 }
