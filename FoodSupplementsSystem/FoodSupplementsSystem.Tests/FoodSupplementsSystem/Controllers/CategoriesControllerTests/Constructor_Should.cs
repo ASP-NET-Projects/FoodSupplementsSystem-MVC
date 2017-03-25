@@ -1,6 +1,4 @@
 ﻿using FoodSupplementsSystem.Areas.Administration.Controllers;
-using FoodSupplementsSystem.Data.Models;
-using FoodSupplementsSystem.Data.Repositories;
 using FoodSupplementsSystem.Services.Data.Contracts;
 using Moq;
 using NUnit.Framework;
@@ -16,20 +14,19 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.Categori
         {
             // Arrange
             var categoriesServiceMock = new Mock<ICategoriesService>();
-            var categoriesWrapperMock = new Mock<IRepository<Category>>();
 
             // Act
-            CategoriesController categoriesController = new CategoriesController(categoriesWrapperMock.Object, categoriesServiceMock.Object);
+            CategoriesController categoriesController = new CategoriesController(categoriesServiceMock.Object);
 
             // Assert
             Assert.IsInstanceOf<CategoriesController>(categoriesController);
         }
 
-        //[Test]
-        //public void ThrowException_WhenParametersAreNull()
-        //{
-        //    // Arrange & Act & Assert
-        //    Assert.Throws<ArgumentNullException>(() => new CategoriesController(null, null));
-        //}
+        [Test]
+        public void ThrowException_WhenParametersAreNull()
+        {
+            // Arrange & Act & Assert
+            Assert.Throws<ArgumentNullException>(() => new CategoriesController(null));
+        }
     }
 }

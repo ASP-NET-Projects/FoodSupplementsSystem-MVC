@@ -8,19 +8,19 @@ using FoodSupplementsSystem.Services.Data.Contracts;
 using FoodSupplementsSystem.Areas.Administration.Models;
 using AutoMapper.QueryableExtensions;
 using FoodSupplementsSystem.Data.Repositories;
+using Bytes2you.Validation;
 
 namespace FoodSupplementsSystem.Areas.Administration.Controllers
 {
     [Authorize(Roles = "Admin")]
     public class CategoriesController : Controller
     {
-        IRepository<Category> categoriesWrapper;
-
         private ICategoriesService categories;
 
-        public CategoriesController(IRepository<Category> categoriesWrapper, ICategoriesService categories)
+        public CategoriesController(ICategoriesService categories)
         {
-            this.categoriesWrapper = categoriesWrapper;
+            Guard.WhenArgument(categories, "categories").IsNull().Throw();
+
             this.categories = categories;
         }
 
@@ -31,9 +31,7 @@ namespace FoodSupplementsSystem.Areas.Administration.Controllers
 
         public ActionResult Categories_Read([DataSourceRequest]DataSourceRequest request)
         {
-            IQueryable<Category> categories = categoriesWrapper.All();
-
-            var resultCategories = categories.ProjectTo<CategoryViewModel>();
+            var resultCategories = categories.GetAll().ProjectTo<CategoryViewModel>();
 
             return Json(resultCategories.ToDataSourceResult(request));
         }
@@ -85,10 +83,10 @@ namespace FoodSupplementsSystem.Areas.Administration.Controllers
             return File(fileContents, contentType, fileName);
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            categoriesWrapper.Dispose();
-            base.Dispose(disposing);
-        }
+       // protected override void Dispose(bool disposing)
+       // {
+       //     categoriesWrapper.Dispose();
+       //     base.Dispose(disposing);
+       // }
     }
 }
