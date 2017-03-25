@@ -95,6 +95,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="FoodSupplementsSystem\Controllers\BrandsControllerTests\Constructor_Should.cs" />
     <Compile Include="FoodSupplementsSystem\Controllers\CategoriesControllerTests\Constructor_Should.cs" />
     <Compile Include="FoodSupplementsSytem.DataServices\BrandsServiceTests\Constructor_Should.cs" />
     <Compile Include="FoodSupplementsSytem.DataServices\BrandsServiceTests\GetAll_Should.cs" />

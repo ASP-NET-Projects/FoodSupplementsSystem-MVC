@@ -1,11 +1,8 @@
 ﻿using AutoMapper.QueryableExtensions;
-using FoodSupplementsSystem.Data.Models;
-using FoodSupplementsSystem.Data.Repositories;
+using Bytes2you.Validation;
 using FoodSupplementsSystem.Models.AllBrands;
-using System;
-using System.Collections.Generic;
+using FoodSupplementsSystem.Services.Data.Contracts;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace FoodSupplementsSystem.Controllers
@@ -13,19 +10,19 @@ namespace FoodSupplementsSystem.Controllers
     [Authorize]
     public class AllBrandsController : Controller
     {
-        private IRepository<Brand> brandsWrapper;
+        private IBrandsService brands;
 
-        public AllBrandsController(IRepository<Brand> brandsWrapper)
+        public AllBrandsController(IBrandsService brands)
         {
-            this.brandsWrapper = brandsWrapper;
+            Guard.WhenArgument(brands, "brands").IsNull().Throw();
+
+            this.brands = brands;
         }
 
         [HttpGet]
         public ActionResult Index()
         {
-            IQueryable<Brand> brands = brandsWrapper.All();
-
-            var resultBrands = brands.ProjectTo<BrandViewModel>().ToList();
+            var resultBrands = brands.GetAll().ProjectTo<BrandViewModel>().ToList();
 
             return View(resultBrands);
         }
