@@ -1,9 +1,7 @@
 ﻿using FoodSupplementsSystem.Data.Models;
 using FoodSupplementsSystem.Infrastructure.Mapping;
-using System;
+using FoodSupplementsSystem.Models.AllCategories;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace FoodSupplementsSystem.Models.AllBrands
 {
@@ -14,5 +12,7 @@ namespace FoodSupplementsSystem.Models.AllBrands
         public string Name { get; set; }
 
         public string WebSite { get; set; }
+
+        public ICollection<SupplementViewModel> Supplements { get; set; }
     }
 }
