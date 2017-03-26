@@ -10,310 +10,601 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   </PropertyGroup>
   <ItemGroup>
     <File Include="ApplicationInsights.config">
-      <publishTime>03/13/2017 13:26:41</publishTime>
+      <publishTime>03/19/2017 22:10:50</publishTime>
+    </File>
+    <File Include="Areas/Administration/Views/Categories/Index.cshtml">
+      <publishTime>03/23/2017 14:24:38</publishTime>
+    </File>
+    <File Include="Areas/Administration/Views/web.config">
+      <publishTime>03/19/2017 22:10:50</publishTime>
+    </File>
+    <File Include="Areas/Administration/Views/_ViewStart.cshtml">
+      <publishTime>03/19/2017 18:27:08</publishTime>
     </File>
     <File Include="bin/Antlr3.Runtime.dll">
-      <publishTime>03/13/2017 13:28:51</publishTime>
+      <publishTime>02/07/2016 22:13:25</publishTime>
     </File>
     <File Include="bin/ApplicationInsights.config">
-      <publishTime>03/13/2017 13:26:41</publishTime>
+      <publishTime>03/19/2017 22:10:50</publishTime>
+    </File>
+    <File Include="bin/AutoMapper.dll">
+      <publishTime>03/23/2017 13:54:34</publishTime>
+    </File>
+    <File Include="bin/Bytes2you.Validation.dll">
+      <publishTime>02/20/2017 00:27:20</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
-      <publishTime>03/13/2017 13:29:00</publishTime>
+      <publishTime>02/08/2016 01:32:44</publishTime>
     </File>
     <File Include="bin/EntityFramework.SqlServer.dll">
-      <publishTime>03/13/2017 13:29:00</publishTime>
+      <publishTime>02/08/2016 01:32:45</publishTime>
+    </File>
+    <File Include="bin/FoodSupplementsSystem.Data.dll">
+      <publishTime>03/25/2017 08:16:26</publishTime>
+    </File>
+    <File Include="bin/FoodSupplementsSystem.Data.Models.dll">
+      <publishTime>03/25/2017 08:16:23</publishTime>
     </File>
     <File Include="bin/FoodSupplementsSystem.dll">
-      <publishTime>03/13/2017 20:54:15</publishTime>
+      <publishTime>03/27/2017 01:17:19</publishTime>
+    </File>
+    <File Include="bin/FoodSupplementsSystem.Infrastructure.dll">
+      <publishTime>03/25/2017 08:16:22</publishTime>
+    </File>
+    <File Include="bin/FoodSupplementsSystem.Services.Data.dll">
+      <publishTime>03/27/2017 01:17:03</publishTime>
+    </File>
+    <File Include="bin/Kendo.Mvc.dll">
+      <publishTime>02/23/2017 11:06:26</publishTime>
     </File>
     <File Include="bin/Microsoft.AI.Agent.Intercept.dll">
-      <publishTime>03/13/2017 13:28:55</publishTime>
+      <publishTime>03/06/2016 16:07:21</publishTime>
     </File>
     <File Include="bin/Microsoft.AI.DependencyCollector.dll">
-      <publishTime>03/13/2017 13:28:54</publishTime>
+      <publishTime>03/06/2016 16:07:20</publishTime>
     </File>
     <File Include="bin/Microsoft.AI.PerfCounterCollector.dll">
-      <publishTime>03/13/2017 13:28:53</publishTime>
+      <publishTime>03/06/2016 16:07:20</publishTime>
     </File>
     <File Include="bin/Microsoft.AI.ServerTelemetryChannel.dll">
-      <publishTime>03/13/2017 13:28:56</publishTime>
+      <publishTime>03/06/2016 16:07:20</publishTime>
     </File>
     <File Include="bin/Microsoft.AI.Web.dll">
-      <publishTime>03/13/2017 13:28:56</publishTime>
+      <publishTime>03/06/2016 16:07:22</publishTime>
     </File>
     <File Include="bin/Microsoft.AI.WindowsServer.dll">
-      <publishTime>03/13/2017 13:28:56</publishTime>
+      <publishTime>03/06/2016 16:07:21</publishTime>
     </File>
     <File Include="bin/Microsoft.ApplicationInsights.dll">
-      <publishTime>03/13/2017 13:28:53</publishTime>
+      <publishTime>03/06/2016 16:07:20</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNet.Identity.Core.dll">
-      <publishTime>03/13/2017 13:28:54</publishTime>
+      <publishTime>02/08/2016 01:39:06</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNet.Identity.EntityFramework.dll">
-      <publishTime>03/13/2017 13:28:55</publishTime>
+      <publishTime>02/08/2016 01:39:07</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNet.Identity.Owin.dll">
-      <publishTime>03/13/2017 13:28:55</publishTime>
+      <publishTime>03/06/2016 16:07:18</publishTime>
     </File>
     <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
-      <publishTime>03/13/2017 13:28:56</publishTime>
+      <publishTime>03/06/2016 16:07:23</publishTime>
     </File>
     <File Include="bin/Microsoft.Owin.dll">
-      <publishTime>03/13/2017 13:28:56</publishTime>
+      <publishTime>03/06/2016 16:07:25</publishTime>
     </File>
     <File Include="bin/Microsoft.Owin.Host.SystemWeb.dll">
-      <publishTime>03/13/2017 13:28:57</publishTime>
+      <publishTime>03/06/2016 16:07:25</publishTime>
     </File>
     <File Include="bin/Microsoft.Owin.Security.Cookies.dll">
-      <publishTime>03/13/2017 13:28:57</publishTime>
+      <publishTime>03/06/2016 16:07:25</publishTime>
     </File>
     <File Include="bin/Microsoft.Owin.Security.dll">
-      <publishTime>03/13/2017 13:28:57</publishTime>
+      <publishTime>03/06/2016 16:07:25</publishTime>
     </File>
     <File Include="bin/Microsoft.Owin.Security.Facebook.dll">
-      <publishTime>03/13/2017 13:28:58</publishTime>
+      <publishTime>03/06/2016 16:07:26</publishTime>
     </File>
     <File Include="bin/Microsoft.Owin.Security.Google.dll">
-      <publishTime>03/13/2017 13:28:57</publishTime>
+      <publishTime>03/06/2016 16:07:26</publishTime>
     </File>
     <File Include="bin/Microsoft.Owin.Security.MicrosoftAccount.dll">
-      <publishTime>03/13/2017 13:28:58</publishTime>
+      <publishTime>03/06/2016 16:07:26</publishTime>
     </File>
     <File Include="bin/Microsoft.Owin.Security.OAuth.dll">
-      <publishTime>03/13/2017 13:28:58</publishTime>
+      <publishTime>03/06/2016 16:07:26</publishTime>
     </File>
     <File Include="bin/Microsoft.Owin.Security.Twitter.dll">
-      <publishTime>03/13/2017 13:28:58</publishTime>
+      <publishTime>03/06/2016 16:07:28</publishTime>
     </File>
     <File Include="bin/Microsoft.Web.Infrastructure.dll">
-      <publishTime>03/13/2017 13:28:52</publishTime>
+      <publishTime>02/10/2016 19:52:06</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
-      <publishTime>03/13/2017 13:28:58</publishTime>
+      <publishTime>03/06/2016 16:07:30</publishTime>
+    </File>
+    <File Include="bin/Ninject.dll">
+      <publishTime>02/07/2016 22:13:34</publishTime>
+    </File>
+    <File Include="bin/Ninject.Extensions.Conventions.dll">
+      <publishTime>11/08/2016 01:25:41</publishTime>
+    </File>
+    <File Include="bin/Ninject.Web.Common.dll">
+      <publishTime>02/08/2017 22:29:40</publishTime>
+    </File>
+    <File Include="bin/Ninject.Web.Mvc.dll">
+      <publishTime>02/07/2016 22:13:33</publishTime>
     </File>
     <File Include="bin/Owin.dll">
-      <publishTime>03/13/2017 13:28:58</publishTime>
+      <publishTime>02/07/2016 22:13:32</publishTime>
     </File>
     <File Include="bin/roslyn/csc.exe">
-      <publishTime>03/13/2017 13:28:57</publishTime>
+      <publishTime>03/06/2016 16:07:33</publishTime>
     </File>
     <File Include="bin/roslyn/Microsoft.Build.Tasks.CodeAnalysis.dll">
-      <publishTime>03/13/2017 13:28:58</publishTime>
+      <publishTime>03/06/2016 16:07:36</publishTime>
     </File>
     <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.dll">
-      <publishTime>03/13/2017 13:29:00</publishTime>
+      <publishTime>03/06/2016 16:07:30</publishTime>
     </File>
     <File Include="bin/roslyn/Microsoft.CodeAnalysis.dll">
-      <publishTime>03/13/2017 13:29:01</publishTime>
+      <publishTime>03/06/2016 16:07:30</publishTime>
     </File>
     <File Include="bin/roslyn/Microsoft.CodeAnalysis.VisualBasic.dll">
-      <publishTime>03/13/2017 13:29:01</publishTime>
+      <publishTime>03/06/2016 16:07:31</publishTime>
     </File>
     <File Include="bin/roslyn/Microsoft.CSharp.Core.targets">
-      <publishTime>03/13/2017 13:29:01</publishTime>
+      <publishTime>03/06/2016 16:07:36</publishTime>
     </File>
     <File Include="bin/roslyn/Microsoft.VisualBasic.Core.targets">
-      <publishTime>03/13/2017 13:29:02</publishTime>
+      <publishTime>03/06/2016 16:07:36</publishTime>
     </File>
     <File Include="bin/roslyn/System.Collections.Immutable.dll">
-      <publishTime>03/13/2017 13:29:02</publishTime>
+      <publishTime>03/06/2016 16:07:34</publishTime>
     </File>
     <File Include="bin/roslyn/System.Reflection.Metadata.dll">
-      <publishTime>03/13/2017 13:29:02</publishTime>
+      <publishTime>03/06/2016 16:07:35</publishTime>
     </File>
     <File Include="bin/roslyn/vbc.exe">
-      <publishTime>03/13/2017 13:29:02</publishTime>
+      <publishTime>03/06/2016 16:07:34</publishTime>
     </File>
     <File Include="bin/roslyn/VBCSCompiler.exe">
-      <publishTime>03/13/2017 13:29:02</publishTime>
+      <publishTime>03/06/2016 16:07:36</publishTime>
     </File>
     <File Include="bin/roslyn/VBCSCompiler.exe.config">
-      <publishTime>03/13/2017 13:29:02</publishTime>
+      <publishTime>03/06/2016 16:07:36</publishTime>
     </File>
     <File Include="bin/System.Web.Helpers.dll">
-      <publishTime>03/13/2017 13:28:52</publishTime>
+      <publishTime>03/06/2016 16:07:22</publishTime>
     </File>
     <File Include="bin/System.Web.Mvc.dll">
-      <publishTime>03/13/2017 13:28:53</publishTime>
+      <publishTime>03/06/2016 16:07:20</publishTime>
     </File>
     <File Include="bin/System.Web.Optimization.dll">
-      <publishTime>03/13/2017 13:28:55</publishTime>
+      <publishTime>02/10/2016 19:51:53</publishTime>
     </File>
     <File Include="bin/System.Web.Razor.dll">
-      <publishTime>03/13/2017 13:28:51</publishTime>
+      <publishTime>03/06/2016 16:07:21</publishTime>
     </File>
     <File Include="bin/System.Web.WebPages.Deployment.dll">
-      <publishTime>03/13/2017 13:28:54</publishTime>
+      <publishTime>03/06/2016 16:07:22</publishTime>
     </File>
     <File Include="bin/System.Web.WebPages.dll">
-      <publishTime>03/13/2017 13:28:55</publishTime>
+      <publishTime>03/06/2016 16:07:22</publishTime>
     </File>
     <File Include="bin/System.Web.WebPages.Razor.dll">
-      <publishTime>03/13/2017 13:28:55</publishTime>
+      <publishTime>03/06/2016 16:07:22</publishTime>
+    </File>
+    <File Include="bin/WebActivatorEx.dll">
+      <publishTime>01/29/2017 16:36:22</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
-      <publishTime>03/13/2017 13:29:00</publishTime>
+      <publishTime>02/10/2016 19:52:07</publishTime>
     </File>
     <File Include="Content/bootstrap.css">
-      <publishTime>03/13/2017 13:26:41</publishTime>
+      <publishTime>03/19/2017 22:10:50</publishTime>
     </File>
     <File Include="Content/bootstrap.min.css">
-      <publishTime>03/13/2017 13:26:41</publishTime>
+      <publishTime>03/19/2017 22:10:50</publishTime>
+    </File>
+    <File Include="Content/KendoUI/Default/editor.png">
+      <publishTime>02/23/2017 11:06:28</publishTime>
+    </File>
+    <File Include="Content/KendoUI/Default/imagebrowser.png">
+      <publishTime>02/23/2017 11:06:28</publishTime>
+    </File>
+    <File Include="Content/KendoUI/Default/indeterminate.gif">
+      <publishTime>02/23/2017 11:06:28</publishTime>
+    </File>
+    <File Include="Content/KendoUI/Default/loading-image.gif">
+      <publishTime>02/23/2017 11:06:28</publishTime>
+    </File>
+    <File Include="Content/KendoUI/Default/loading.gif">
+      <publishTime>02/23/2017 11:06:28</publishTime>
+    </File>
+    <File Include="Content/KendoUI/Default/loading_2x.gif">
+      <publishTime>02/23/2017 11:06:28</publishTime>
+    </File>
+    <File Include="Content/KendoUI/Default/markers.png">
+      <publishTime>02/23/2017 11:06:28</publishTime>
+    </File>
+    <File Include="Content/KendoUI/Default/markers_2x.png">
+      <publishTime>02/23/2017 11:06:28</publishTime>
+    </File>
+    <File Include="Content/KendoUI/Default/slider-h.gif">
+      <publishTime>02/23/2017 11:06:28</publishTime>
+    </File>
+    <File Include="Content/KendoUI/Default/slider-v.gif">
+      <publishTime>02/23/2017 11:06:28</publishTime>
+    </File>
+    <File Include="Content/KendoUI/Default/sprite.png">
+      <publishTime>02/23/2017 11:06:28</publishTime>
+    </File>
+    <File Include="Content/KendoUI/Default/sprite_2x.png">
+      <publishTime>02/23/2017 11:06:28</publishTime>
+    </File>
+    <File Include="Content/KendoUI/Default/sprite_kpi.png">
+      <publishTime>02/23/2017 11:06:28</publishTime>
+    </File>
+    <File Include="Content/KendoUI/Default/sprite_kpi_2x.png">
+      <publishTime>02/23/2017 11:06:28</publishTime>
+    </File>
+    <File Include="Content/KendoUI/fonts/DejaVu/DejaVuSans-Bold.ttf">
+      <publishTime>02/23/2017 11:06:28</publishTime>
+    </File>
+    <File Include="Content/KendoUI/fonts/DejaVu/DejaVuSans-BoldOblique.ttf">
+      <publishTime>02/23/2017 11:06:28</publishTime>
+    </File>
+    <File Include="Content/KendoUI/fonts/DejaVu/DejaVuSans-ExtraLight.ttf">
+      <publishTime>02/23/2017 11:06:28</publishTime>
+    </File>
+    <File Include="Content/KendoUI/fonts/DejaVu/DejaVuSans-Oblique.ttf">
+      <publishTime>02/23/2017 11:06:28</publishTime>
+    </File>
+    <File Include="Content/KendoUI/fonts/DejaVu/DejaVuSans.ttf">
+      <publishTime>02/23/2017 11:06:28</publishTime>
+    </File>
+    <File Include="Content/KendoUI/fonts/DejaVu/DejaVuSansMono-Bold.ttf">
+      <publishTime>02/23/2017 11:06:28</publishTime>
+    </File>
+    <File Include="Content/KendoUI/fonts/DejaVu/DejaVuSansMono-BoldOblique.ttf">
+      <publishTime>02/23/2017 11:06:28</publishTime>
+    </File>
+    <File Include="Content/KendoUI/fonts/DejaVu/DejaVuSansMono-Oblique.ttf">
+      <publishTime>02/23/2017 11:06:28</publishTime>
+    </File>
+    <File Include="Content/KendoUI/fonts/DejaVu/DejaVuSansMono.ttf">
+      <publishTime>02/23/2017 11:06:28</publishTime>
+    </File>
+    <File Include="Content/KendoUI/fonts/DejaVu/DejaVuSerif-Bold.ttf">
+      <publishTime>02/23/2017 11:06:28</publishTime>
+    </File>
+    <File Include="Content/KendoUI/fonts/DejaVu/DejaVuSerif-BoldItalic.ttf">
+      <publishTime>02/23/2017 11:06:28</publishTime>
+    </File>
+    <File Include="Content/KendoUI/fonts/DejaVu/DejaVuSerif-Italic.ttf">
+      <publishTime>02/23/2017 11:06:28</publishTime>
+    </File>
+    <File Include="Content/KendoUI/fonts/DejaVu/DejaVuSerif.ttf">
+      <publishTime>02/23/2017 11:06:28</publishTime>
+    </File>
+    <File Include="Content/KendoUI/fonts/DejaVu/LICENSE.txt">
+      <publishTime>02/23/2017 11:06:28</publishTime>
+    </File>
+    <File Include="Content/KendoUI/fonts/glyphs/KendoUIGlyphs.eot">
+      <publishTime>02/23/2017 11:06:28</publishTime>
+    </File>
+    <File Include="Content/KendoUI/fonts/glyphs/KendoUIGlyphs.svg">
+      <publishTime>02/23/2017 11:06:28</publishTime>
+    </File>
+    <File Include="Content/KendoUI/fonts/glyphs/KendoUIGlyphs.ttf">
+      <publishTime>02/23/2017 11:06:28</publishTime>
+    </File>
+    <File Include="Content/KendoUI/fonts/glyphs/KendoUIGlyphs.woff">
+      <publishTime>02/23/2017 11:06:28</publishTime>
+    </File>
+    <File Include="Content/KendoUI/fonts/glyphs/WebComponentsIcons.eot">
+      <publishTime>02/23/2017 11:06:28</publishTime>
+    </File>
+    <File Include="Content/KendoUI/fonts/glyphs/WebComponentsIcons.svg">
+      <publishTime>02/23/2017 11:06:28</publishTime>
+    </File>
+    <File Include="Content/KendoUI/fonts/glyphs/WebComponentsIcons.ttf">
+      <publishTime>02/23/2017 11:06:28</publishTime>
+    </File>
+    <File Include="Content/KendoUI/fonts/glyphs/WebComponentsIcons.woff">
+      <publishTime>02/23/2017 11:06:28</publishTime>
+    </File>
+    <File Include="Content/KendoUI/images/back.png">
+      <publishTime>02/23/2017 11:06:28</publishTime>
+    </File>
+    <File Include="Content/KendoUI/images/kendoui.svg">
+      <publishTime>02/23/2017 11:06:28</publishTime>
+    </File>
+    <File Include="Content/KendoUI/images/kendoui.ttf">
+      <publishTime>02/23/2017 11:06:28</publishTime>
+    </File>
+    <File Include="Content/KendoUI/images/kendoui.woff">
+      <publishTime>02/23/2017 11:06:28</publishTime>
+    </File>
+    <File Include="Content/KendoUI/images/wp8_icons.png">
+      <publishTime>02/23/2017 11:06:28</publishTime>
+    </File>
+    <File Include="Content/KendoUI/images/wp8_inverseicons.png">
+      <publishTime>02/23/2017 11:06:28</publishTime>
+    </File>
+    <File Include="Content/KendoUI/kendo.common.min.css">
+      <publishTime>02/23/2017 11:06:28</publishTime>
+    </File>
+    <File Include="Content/KendoUI/kendo.default.min.css">
+      <publishTime>02/23/2017 11:06:28</publishTime>
+    </File>
+    <File Include="Content/KendoUI/textures/brushed-metal.png">
+      <publishTime>02/23/2017 11:06:28</publishTime>
+    </File>
+    <File Include="Content/KendoUI/textures/dots1.png">
+      <publishTime>02/23/2017 11:06:28</publishTime>
+    </File>
+    <File Include="Content/KendoUI/textures/dots10.png">
+      <publishTime>02/23/2017 11:06:28</publishTime>
+    </File>
+    <File Include="Content/KendoUI/textures/dots11.png">
+      <publishTime>02/23/2017 11:06:28</publishTime>
+    </File>
+    <File Include="Content/KendoUI/textures/dots12.png">
+      <publishTime>02/23/2017 11:06:28</publishTime>
+    </File>
+    <File Include="Content/KendoUI/textures/dots13.png">
+      <publishTime>02/23/2017 11:06:28</publishTime>
+    </File>
+    <File Include="Content/KendoUI/textures/dots2.png">
+      <publishTime>02/23/2017 11:06:28</publishTime>
+    </File>
+    <File Include="Content/KendoUI/textures/dots3.png">
+      <publishTime>02/23/2017 11:06:28</publishTime>
+    </File>
+    <File Include="Content/KendoUI/textures/dots4.png">
+      <publishTime>02/23/2017 11:06:28</publishTime>
+    </File>
+    <File Include="Content/KendoUI/textures/dots5.png">
+      <publishTime>02/23/2017 11:06:28</publishTime>
+    </File>
+    <File Include="Content/KendoUI/textures/dots6.png">
+      <publishTime>02/23/2017 11:06:28</publishTime>
+    </File>
+    <File Include="Content/KendoUI/textures/dots7.png">
+      <publishTime>02/23/2017 11:06:28</publishTime>
+    </File>
+    <File Include="Content/KendoUI/textures/dots8.png">
+      <publishTime>02/23/2017 11:06:28</publishTime>
+    </File>
+    <File Include="Content/KendoUI/textures/dots9.png">
+      <publishTime>02/23/2017 11:06:28</publishTime>
+    </File>
+    <File Include="Content/KendoUI/textures/glass-lighter.png">
+      <publishTime>02/23/2017 11:06:28</publishTime>
+    </File>
+    <File Include="Content/KendoUI/textures/glass.png">
+      <publishTime>02/23/2017 11:06:28</publishTime>
+    </File>
+    <File Include="Content/KendoUI/textures/highlight.png">
+      <publishTime>02/23/2017 11:06:28</publishTime>
+    </File>
+    <File Include="Content/KendoUI/textures/hsv-gradient.png">
+      <publishTime>02/23/2017 11:06:28</publishTime>
+    </File>
+    <File Include="Content/KendoUI/textures/hue.png">
+      <publishTime>02/23/2017 11:06:28</publishTime>
+    </File>
+    <File Include="Content/KendoUI/textures/leather1.png">
+      <publishTime>02/23/2017 11:06:28</publishTime>
+    </File>
+    <File Include="Content/KendoUI/textures/leather2.png">
+      <publishTime>02/23/2017 11:06:28</publishTime>
+    </File>
+    <File Include="Content/KendoUI/textures/noise.png">
+      <publishTime>02/23/2017 11:06:28</publishTime>
+    </File>
+    <File Include="Content/KendoUI/textures/stripe1.png">
+      <publishTime>02/23/2017 11:06:28</publishTime>
+    </File>
+    <File Include="Content/KendoUI/textures/stripe2.png">
+      <publishTime>02/23/2017 11:06:28</publishTime>
+    </File>
+    <File Include="Content/KendoUI/textures/stripe3.png">
+      <publishTime>02/23/2017 11:06:28</publishTime>
+    </File>
+    <File Include="Content/KendoUI/textures/stripe4.png">
+      <publishTime>02/23/2017 11:06:28</publishTime>
+    </File>
+    <File Include="Content/KendoUI/textures/stripe5.png">
+      <publishTime>02/23/2017 11:06:28</publishTime>
+    </File>
+    <File Include="Content/KendoUI/textures/stripe6.png">
+      <publishTime>02/23/2017 11:06:28</publishTime>
+    </File>
+    <File Include="Content/KendoUI/textures/transparency.png">
+      <publishTime>02/23/2017 11:06:28</publishTime>
+    </File>
+    <File Include="Content/KendoUI/textures/transtexture.png">
+      <publishTime>02/23/2017 11:06:28</publishTime>
     </File>
     <File Include="Content/Site.css">
-      <publishTime>03/13/2017 13:26:41</publishTime>
+      <publishTime>03/19/2017 22:10:50</publishTime>
     </File>
     <File Include="favicon.ico">
-      <publishTime>03/13/2017 13:26:44</publishTime>
+      <publishTime>03/19/2017 22:10:55</publishTime>
     </File>
     <File Include="fonts/glyphicons-halflings-regular.eot">
-      <publishTime>03/13/2017 13:26:45</publishTime>
+      <publishTime>03/19/2017 22:10:55</publishTime>
     </File>
     <File Include="fonts/glyphicons-halflings-regular.svg">
-      <publishTime>03/13/2017 13:26:45</publishTime>
+      <publishTime>03/19/2017 22:10:55</publishTime>
     </File>
     <File Include="fonts/glyphicons-halflings-regular.ttf">
-      <publishTime>03/13/2017 13:26:45</publishTime>
+      <publishTime>03/19/2017 22:10:55</publishTime>
     </File>
     <File Include="fonts/glyphicons-halflings-regular.woff">
-      <publishTime>03/13/2017 13:26:45</publishTime>
+      <publishTime>03/19/2017 22:10:55</publishTime>
     </File>
     <File Include="Global.asax">
-      <publishTime>03/13/2017 13:26:41</publishTime>
+      <publishTime>03/19/2017 22:10:51</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>03/13/2017 13:26:45</publishTime>
+      <publishTime>03/25/2017 05:17:13</publishTime>
+    </File>
+    <File Include="Properties/PublishProfiles/local.pubxml.user">
+      <publishTime>03/19/2017 22:10:51</publishTime>
     </File>
     <File Include="Scripts/ai.0.15.0-build58334.js">
-      <publishTime>03/13/2017 13:26:43</publishTime>
+      <publishTime>03/19/2017 22:10:52</publishTime>
     </File>
     <File Include="Scripts/ai.0.15.0-build58334.min.js">
-      <publishTime>03/13/2017 13:26:43</publishTime>
+      <publishTime>03/19/2017 22:10:52</publishTime>
     </File>
     <File Include="Scripts/bootstrap.js">
-      <publishTime>03/13/2017 13:26:43</publishTime>
+      <publishTime>03/19/2017 22:10:52</publishTime>
     </File>
     <File Include="Scripts/bootstrap.min.js">
-      <publishTime>03/13/2017 13:26:43</publishTime>
+      <publishTime>03/19/2017 22:10:53</publishTime>
     </File>
     <File Include="Scripts/jquery-1.10.2.js">
-      <publishTime>03/13/2017 13:26:43</publishTime>
+      <publishTime>03/19/2017 22:10:53</publishTime>
     </File>
     <File Include="Scripts/jquery-1.10.2.min.js">
-      <publishTime>03/13/2017 13:26:43</publishTime>
+      <publishTime>03/19/2017 22:10:53</publishTime>
     </File>
     <File Include="Scripts/jquery-1.10.2.min.map">
-      <publishTime>03/13/2017 13:26:43</publishTime>
+      <publishTime>03/19/2017 22:10:53</publishTime>
     </File>
     <File Include="Scripts/jquery.validate.js">
-      <publishTime>03/13/2017 13:26:44</publishTime>
+      <publishTime>03/19/2017 22:10:53</publishTime>
     </File>
     <File Include="Scripts/jquery.validate.min.js">
-      <publishTime>03/13/2017 13:26:44</publishTime>
+      <publishTime>03/19/2017 22:10:53</publishTime>
     </File>
     <File Include="Scripts/jquery.validate.unobtrusive.js">
-      <publishTime>03/13/2017 13:26:44</publishTime>
+      <publishTime>03/19/2017 22:10:53</publishTime>
     </File>
     <File Include="Scripts/jquery.validate.unobtrusive.min.js">
-      <publishTime>03/13/2017 13:26:44</publishTime>
+      <publishTime>03/19/2017 22:10:53</publishTime>
+    </File>
+    <File Include="Scripts/KendoUI/kendo.all.min.js">
+      <publishTime>02/23/2017 11:06:26</publishTime>
+    </File>
+    <File Include="Scripts/KendoUI/kendo.aspnetmvc.min.js">
+      <publishTime>02/23/2017 11:06:26</publishTime>
     </File>
     <File Include="Scripts/modernizr-2.6.2.js">
-      <publishTime>03/13/2017 13:26:44</publishTime>
+      <publishTime>03/19/2017 22:10:53</publishTime>
     </File>
     <File Include="Scripts/respond.js">
-      <publishTime>03/13/2017 13:26:44</publishTime>
+      <publishTime>03/19/2017 22:10:53</publishTime>
     </File>
     <File Include="Scripts/respond.min.js">
-      <publishTime>03/13/2017 13:26:44</publishTime>
+      <publishTime>03/19/2017 22:10:54</publishTime>
     </File>
     <File Include="Scripts/_references.js">
-      <publishTime>03/13/2017 13:26:43</publishTime>
+      <publishTime>03/19/2017 22:55:38</publishTime>
     </File>
     <File Include="Views/Account/ConfirmEmail.cshtml">
-      <publishTime>03/13/2017 13:26:44</publishTime>
+      <publishTime>03/19/2017 22:10:54</publishTime>
     </File>
     <File Include="Views/Account/ExternalLoginConfirmation.cshtml">
-      <publishTime>03/13/2017 13:26:44</publishTime>
+      <publishTime>03/19/2017 22:10:54</publishTime>
     </File>
     <File Include="Views/Account/ExternalLoginFailure.cshtml">
-      <publishTime>03/13/2017 13:26:44</publishTime>
+      <publishTime>03/19/2017 22:10:54</publishTime>
     </File>
     <File Include="Views/Account/ForgotPassword.cshtml">
-      <publishTime>03/13/2017 13:26:44</publishTime>
+      <publishTime>03/19/2017 22:10:54</publishTime>
     </File>
     <File Include="Views/Account/ForgotPasswordConfirmation.cshtml">
-      <publishTime>03/13/2017 13:26:44</publishTime>
+      <publishTime>03/19/2017 22:10:54</publishTime>
     </File>
     <File Include="Views/Account/Login.cshtml">
-      <publishTime>03/13/2017 13:26:44</publishTime>
+      <publishTime>03/20/2017 21:03:52</publishTime>
     </File>
     <File Include="Views/Account/Register.cshtml">
-      <publishTime>03/13/2017 13:26:44</publishTime>
+      <publishTime>03/20/2017 20:40:05</publishTime>
     </File>
     <File Include="Views/Account/ResetPassword.cshtml">
-      <publishTime>03/13/2017 13:26:44</publishTime>
+      <publishTime>03/19/2017 22:10:54</publishTime>
     </File>
     <File Include="Views/Account/ResetPasswordConfirmation.cshtml">
-      <publishTime>03/13/2017 13:26:44</publishTime>
+      <publishTime>03/19/2017 22:10:54</publishTime>
     </File>
     <File Include="Views/Account/SendCode.cshtml">
-      <publishTime>03/13/2017 13:26:44</publishTime>
+      <publishTime>03/19/2017 22:10:54</publishTime>
     </File>
     <File Include="Views/Account/VerifyCode.cshtml">
-      <publishTime>03/13/2017 13:26:44</publishTime>
+      <publishTime>03/19/2017 22:10:54</publishTime>
     </File>
     <File Include="Views/Account/_ExternalLoginsListPartial.cshtml">
-      <publishTime>03/13/2017 13:26:44</publishTime>
+      <publishTime>03/19/2017 22:10:54</publishTime>
+    </File>
+    <File Include="Views/AllBrands/Index.cshtml">
+      <publishTime>03/25/2017 21:26:48</publishTime>
+    </File>
+    <File Include="Views/AllCategories/Index.cshtml">
+      <publishTime>03/25/2017 17:07:30</publishTime>
     </File>
     <File Include="Views/Home/About.cshtml">
-      <publishTime>03/13/2017 13:26:44</publishTime>
+      <publishTime>03/19/2017 22:10:54</publishTime>
     </File>
     <File Include="Views/Home/Contact.cshtml">
-      <publishTime>03/13/2017 13:26:44</publishTime>
+      <publishTime>03/19/2017 22:10:54</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>03/13/2017 13:26:44</publishTime>
+      <publishTime>03/26/2017 15:23:05</publishTime>
+    </File>
+    <File Include="Views/Home/_TopBrands.cshtml">
+      <publishTime>03/26/2017 15:33:17</publishTime>
+    </File>
+    <File Include="Views/Home/_TopCategories.cshtml">
+      <publishTime>03/26/2017 15:35:05</publishTime>
+    </File>
+    <File Include="Views/Home/_TopSupplements.cshtml">
+      <publishTime>03/26/2017 15:42:10</publishTime>
     </File>
     <File Include="Views/Manage/AddPhoneNumber.cshtml">
-      <publishTime>03/13/2017 13:26:44</publishTime>
+      <publishTime>03/19/2017 22:10:54</publishTime>
     </File>
     <File Include="Views/Manage/ChangePassword.cshtml">
-      <publishTime>03/13/2017 13:26:44</publishTime>
+      <publishTime>03/19/2017 22:10:54</publishTime>
     </File>
     <File Include="Views/Manage/Index.cshtml">
-      <publishTime>03/13/2017 13:26:44</publishTime>
+      <publishTime>03/19/2017 22:10:54</publishTime>
     </File>
     <File Include="Views/Manage/ManageLogins.cshtml">
-      <publishTime>03/13/2017 13:26:44</publishTime>
+      <publishTime>03/19/2017 22:10:54</publishTime>
     </File>
     <File Include="Views/Manage/SetPassword.cshtml">
-      <publishTime>03/13/2017 13:26:44</publishTime>
+      <publishTime>03/19/2017 22:10:54</publishTime>
     </File>
     <File Include="Views/Manage/VerifyPhoneNumber.cshtml">
-      <publishTime>03/13/2017 13:26:44</publishTime>
+      <publishTime>03/19/2017 22:10:54</publishTime>
     </File>
     <File Include="Views/Shared/Error.cshtml">
-      <publishTime>03/13/2017 13:26:44</publishTime>
+      <publishTime>03/19/2017 22:10:54</publishTime>
     </File>
     <File Include="Views/Shared/Lockout.cshtml">
-      <publishTime>03/13/2017 13:26:44</publishTime>
+      <publishTime>03/19/2017 22:10:54</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>03/13/2017 13:26:44</publishTime>
+      <publishTime>03/24/2017 12:54:14</publishTime>
     </File>
     <File Include="Views/Shared/_LoginPartial.cshtml">
-      <publishTime>03/13/2017 13:26:44</publishTime>
+      <publishTime>03/22/2017 04:20:16</publishTime>
     </File>
     <File Include="Views/Web.config">
-      <publishTime>03/13/2017 13:26:44</publishTime>
+      <publishTime>03/19/2017 22:10:54</publishTime>
     </File>
     <File Include="Views/_ViewStart.cshtml">
-      <publishTime>03/13/2017 13:26:44</publishTime>
+      <publishTime>03/19/2017 18:27:08</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>03/13/2017 20:54:21</publishTime>
+      <publishTime>03/27/2017 01:20:51</publishTime>
     </File>
   </ItemGroup>
 </Project>
