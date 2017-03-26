@@ -25,36 +25,36 @@ namespace FoodSupplementsSystem.UnitTests.Controllers
            Assert.IsNotNull(result);
        }
 
-       [TestMethod]
-       public void About()
-       {
-            // Arrange
-            var categoriesServiceMock = new Mock<ICategoriesService>();
-            var brandsServiceMock = new Mock<IBrandsService>();
-            var supplementsServiceMock = new Mock<ISupplementsService>();
-            HomeController controller = new HomeController(categoriesServiceMock.Object, brandsServiceMock.Object, supplementsServiceMock.Object);
-            
-            // Act
-            ViewResult result = controller.About() as ViewResult;
-       
-           // Assert
-           Assert.AreEqual("Your application description page.", result.ViewBag.Message);
-       }
-
-       [TestMethod]
-       public void Contact()
-       {
-            // Arrange
-            var categoriesServiceMock = new Mock<ICategoriesService>();
-            var brandsServiceMock = new Mock<IBrandsService>();
-            var supplementsServiceMock = new Mock<ISupplementsService>();
-            HomeController controller = new HomeController(categoriesServiceMock.Object, brandsServiceMock.Object, supplementsServiceMock.Object);
-
-            // Act
-            ViewResult result = controller.Contact() as ViewResult;
-       
-           // Assert
-           Assert.IsNotNull(result);
-       }
+      //[TestMethod]
+      //public void About()
+      //{
+      //     // Arrange
+      //     var categoriesServiceMock = new Mock<ICategoriesService>();
+      //     var brandsServiceMock = new Mock<IBrandsService>();
+      //     var supplementsServiceMock = new Mock<ISupplementsService>();
+      //     HomeController controller = new HomeController(categoriesServiceMock.Object, brandsServiceMock.Object, supplementsServiceMock.Object);
+      //     
+      //     // Act
+      //     ViewResult result = controller.About() as ViewResult;
+      //
+      //    // Assert
+      //    Assert.AreEqual("Your application description page.", result.ViewBag.Message);
+      //}
+      //
+      //[TestMethod]
+      //public void Contact()
+      //{
+      //     // Arrange
+      //     var categoriesServiceMock = new Mock<ICategoriesService>();
+      //     var brandsServiceMock = new Mock<IBrandsService>();
+      //     var supplementsServiceMock = new Mock<ISupplementsService>();
+      //     HomeController controller = new HomeController(categoriesServiceMock.Object, brandsServiceMock.Object, supplementsServiceMock.Object);
+      //
+      //     // Act
+      //     ViewResult result = controller.Contact() as ViewResult;
+      //
+      //    // Assert
+      //    Assert.IsNotNull(result);
+      //}
     }
 }
