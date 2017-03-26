@@ -33,8 +33,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Core.4.0.0\lib\net45\Castle.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Moq, Version=4.7.1.0, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
+      <HintPath>..\packages\Moq.4.7.1\lib\net45\Moq.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
@@ -92,6 +100,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\FoodSupplementsSystem.Services.Data\FoodSupplementsSystem.Services.Data.csproj">
+      <Project>{90698931-9b90-42ee-ba68-b205765b759d}</Project>
+      <Name>FoodSupplementsSystem.Services.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FoodSupplementsSystem\FoodSupplementsSystem.csproj">
       <Project>{C5B99083-5D76-41D8-AF54-738F57D84C85}</Project>
       <Name>FoodSupplementsSystem</Name>
