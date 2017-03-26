@@ -1,4 +1,5 @@
 ﻿using AutoMapper.QueryableExtensions;
+using Bytes2you.Validation;
 using FoodSupplementsSystem.Models.AllBrands;
 using FoodSupplementsSystem.Models.AllCategories;
 using FoodSupplementsSystem.Services.Data.Contracts;
@@ -20,6 +21,10 @@ namespace FoodSupplementsSystem.Controllers
 
         public HomeController(ICategoriesService categories, IBrandsService brands, ISupplementsService supplements)
         {
+            Guard.WhenArgument(categories, "categories").IsNull().Throw();
+            Guard.WhenArgument(brands, "brands").IsNull().Throw();
+            Guard.WhenArgument(supplements, "supplements").IsNull().Throw();
+
             this.categories = categories;
             this.brands = brands;
             this.supplements = supplements;
