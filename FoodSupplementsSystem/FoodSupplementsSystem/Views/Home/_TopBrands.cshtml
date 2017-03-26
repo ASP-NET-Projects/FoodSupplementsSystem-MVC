@@ -1,0 +1,13 @@
+﻿@model IList<FoodSupplementsSystem.Models.AllBrands.BrandViewModel>
+
+<br />
+<div class="text-center"><h1>Top 3 Brands</h1></div>
+
+@foreach (var brand in Model)
+{
+    <div class="text-center">
+        <h3>@brand.Name</h3>
+        Web site: <a href="@brand.WebSite">@brand.WebSite</a>
+    </div>
+}
+<hr />

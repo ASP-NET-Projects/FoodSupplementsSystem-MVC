@@ -1,4 +1,8 @@
-﻿using System;
+﻿using AutoMapper.QueryableExtensions;
+using FoodSupplementsSystem.Models.AllBrands;
+using FoodSupplementsSystem.Models.AllCategories;
+using FoodSupplementsSystem.Services.Data.Contracts;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,23 +12,46 @@ namespace FoodSupplementsSystem.Controllers
 {
     public class HomeController : Controller
     {
+        private ICategoriesService categories;
+
+        private IBrandsService brands;
+
+        private ISupplementsService supplements;
+
+        public HomeController(ICategoriesService categories, IBrandsService brands, ISupplementsService supplements)
+        {
+            this.categories = categories;
+            this.brands = brands;
+            this.supplements = supplements;
+        }
+
         public ActionResult Index()
         {
             return View();
         }
 
-        public ActionResult About()
+        [ChildActionOnly]
+        public ActionResult TopBrands()
         {
-            ViewBag.Message = "Your application description page.";
+            var resultBrands = this.brands.GetAll().Take(3).ProjectTo<BrandViewModel>().ToList(); ;
 
-            return View();
+            return PartialView("_TopBrands", resultBrands);
         }
 
-        public ActionResult Contact()
+        [ChildActionOnly]
+        public ActionResult TopCategories()
         {
-            ViewBag.Message = "Your contact page.";
+            var resultCategories = this.categories.GetAll().Take(3).ProjectTo<CategoryViewModel>().ToList(); ;
 
-            return View();
+            return PartialView("_TopCategories", resultCategories);
+        }
+
+        [ChildActionOnly]
+        public ActionResult TopSupplements()
+        {
+            var resultSupplements = this.supplements.GetAll().Take(3).ProjectTo<SupplementViewModel>().ToList(); ;
+
+            return PartialView("_TopSupplements", resultSupplements);
         }
     }
 }

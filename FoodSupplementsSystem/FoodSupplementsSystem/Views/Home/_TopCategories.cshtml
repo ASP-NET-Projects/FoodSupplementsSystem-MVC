@@ -1,0 +1,12 @@
+﻿@model IList<FoodSupplementsSystem.Models.AllCategories.CategoryViewModel>
+
+<br />
+<div class="text-center"><h1>Top 3 Categories</h1></div>
+
+@foreach (var category in Model)
+{
+    <div class="text-center">
+        <h3>@category.Name</h3>
+    </div>
+}
+<hr />
