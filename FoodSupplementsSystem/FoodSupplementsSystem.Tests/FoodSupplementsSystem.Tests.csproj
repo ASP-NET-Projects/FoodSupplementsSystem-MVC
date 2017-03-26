@@ -100,11 +100,14 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="FoodSupplementsSystem\Controllers\AllBrandsControllerTests\Class_Should.cs" />
     <Compile Include="FoodSupplementsSystem\Controllers\AllBrandsControllerTests\Index_Should.cs" />
+    <Compile Include="FoodSupplementsSystem\Controllers\AllCategoriesControllerTests\Class_Should.cs" />
     <Compile Include="FoodSupplementsSystem\Controllers\AllCategoriesControllerTests\Constructor_Should.cs" />
     <Compile Include="FoodSupplementsSystem\Controllers\AllBrandsControllerTests\Constructor_Should.cs" />
     <Compile Include="FoodSupplementsSystem\Controllers\AllCategoriesControllerTests\Index_Should.cs" />
     <Compile Include="FoodSupplementsSystem\Controllers\CategoriesControllerTests\Categories_Read_Should.cs" />
+    <Compile Include="FoodSupplementsSystem\Controllers\CategoriesControllerTests\Class_Should.cs" />
     <Compile Include="FoodSupplementsSystem\Controllers\CategoriesControllerTests\Constructor_Should.cs" />
     <Compile Include="FoodSupplementsSystem\Controllers\CategoriesControllerTests\Index_Should.cs" />
     <Compile Include="FoodSupplementsSystem\Controllers\HomeControllerTests\Constructor_Should.cs" />
