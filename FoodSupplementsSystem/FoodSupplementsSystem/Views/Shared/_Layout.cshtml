@@ -22,7 +22,7 @@
                 @Html.ActionLink("FoodSupplementsSystem", "Index", "Home", new { area = string.Empty }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
+                <ul class="nav navbar-nav" id="menu">
                     <li>@Html.ActionLink("Home", "Index", "Home", new { area = string.Empty }, null)</li>
                     @if (User.Identity.IsAuthenticated)
                     {
@@ -30,7 +30,12 @@
                         <li>@Html.ActionLink("AllBrands", "Index", "AllBrands", new { area = string.Empty }, null)</li>
                         if (User.IsInRole("Admin"))
                         {
-                            <li>@Html.ActionLink("ManageCategories", "Index", "Categories", new { area = "Administration" }, null)</li>
+                            <li>
+                                Administration
+                                <ul>
+                                    <li>@Html.ActionLink("ManageCategories", "Index", "Categories", new { area = "Administration" }, null)</li>
+                                </ul>
+                            </li>
                         }
                     }
                 </ul>
@@ -48,5 +53,10 @@
 
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+    <script>
+        $(function () {
+            $('#menu').kendoMenu();
+        })
+    </script>
 </body>
 </html>
