@@ -53,8 +53,10 @@
     <Compile Include="Contracts\IBrandsService.cs" />
     <Compile Include="Contracts\ICategoriesService.cs" />
     <Compile Include="Contracts\ISupplementsService.cs" />
+    <Compile Include="Contracts\ITopicsService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SupplementsService.cs" />
+    <Compile Include="TopicsService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FoodSupplementsSystem.Data.Models\FoodSupplementsSystem.Data.Models.csproj">

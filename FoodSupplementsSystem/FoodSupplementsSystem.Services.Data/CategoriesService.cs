@@ -1,8 +1,8 @@
 ﻿using FoodSupplementsSystem.Services.Data.Contracts;
-using System.Linq;
 using FoodSupplementsSystem.Data.Models;
 using FoodSupplementsSystem.Data.Repositories;
 using Bytes2you.Validation;
+using System.Linq;
 
 namespace FoodSupplementsSystem.Services.Data
 {
@@ -24,8 +24,6 @@ namespace FoodSupplementsSystem.Services.Data
 
         public Category GetById(int id)
         {
-            //Guard.WhenArgument(id, "id").IsLessThan(0).Throw();
-
             return this.categories.GetById(id);
         }
 
