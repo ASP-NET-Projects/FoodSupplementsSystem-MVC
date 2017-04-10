@@ -40,6 +40,7 @@ namespace FoodSupplementsSystem.Controllers
         }
 
         [ChildActionOnly]
+        [OutputCache(Duration = 60 * 60)]
         public ActionResult MostCommentedTopics()
         {
             return PartialView("_MostCommentedTopicsPartial", this.homeServices.GetTopicViewModel(6));
