@@ -1,6 +1,7 @@
 ﻿using FoodSupplementsSystem.App_Start;
 using FoodSupplementsSystem.Controllers;
 using FoodSupplementsSystem.Data.Models;
+using FoodSupplementsSystem.Infrastructure.Services;
 using FoodSupplementsSystem.Services.Data.Contracts;
 using Moq;
 using NUnit.Framework;
@@ -26,9 +27,11 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.HomeCont
             supplementsServiceMock.Setup(x => x.GetAll())
                 .Returns(supplements.AsQueryable());
 
+            var homeServiceMock = new Mock<IHomeService>();
+
             AutoMapperConfig.Config();
 
-            var controller = new HomeController(categoriesServiceMock.Object, brandsServiceMock.Object, supplementsServiceMock.Object);
+            var controller = new HomeController(categoriesServiceMock.Object, brandsServiceMock.Object, supplementsServiceMock.Object, homeServiceMock.Object);
 
             // Act & Assert
             controller.WithCallTo(c => c.TopBrands())

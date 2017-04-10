@@ -1,4 +1,5 @@
 ﻿using FoodSupplementsSystem.Controllers;
+using FoodSupplementsSystem.Infrastructure.Services;
 using FoodSupplementsSystem.Services.Data.Contracts;
 using Moq;
 using NUnit.Framework;
@@ -16,8 +17,9 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.HomeCont
             var categoriesServiceMock = new Mock<ICategoriesService>();
             var brandsServiceMock = new Mock<IBrandsService>();
             var supplementsServiceMock = new Mock<ISupplementsService>();
+            var homeServiceMock = new Mock<IHomeService>();
 
-            var homeController = new HomeController(categoriesServiceMock.Object, brandsServiceMock.Object, supplementsServiceMock.Object);
+            var homeController = new HomeController(categoriesServiceMock.Object, brandsServiceMock.Object, supplementsServiceMock.Object, homeServiceMock.Object);
 
             // Act && Assert
             homeController.WithCallTo(c => c.Index()).ShouldRenderDefaultView();

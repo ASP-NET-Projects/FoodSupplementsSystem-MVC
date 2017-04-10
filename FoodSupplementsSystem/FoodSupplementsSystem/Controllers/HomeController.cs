@@ -1,12 +1,11 @@
 ﻿using AutoMapper.QueryableExtensions;
 using Bytes2you.Validation;
+using FoodSupplementsSystem.Infrastructure.Services;
 using FoodSupplementsSystem.Models.AllBrands;
 using FoodSupplementsSystem.Models.AllCategories;
+using FoodSupplementsSystem.Services.Data;
 using FoodSupplementsSystem.Services.Data.Contracts;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace FoodSupplementsSystem.Controllers
@@ -19,7 +18,9 @@ namespace FoodSupplementsSystem.Controllers
 
         private ISupplementsService supplements;
 
-        public HomeController(ICategoriesService categories, IBrandsService brands, ISupplementsService supplements)
+        private IHomeService homeServices;
+
+        public HomeController(ICategoriesService categories, IBrandsService brands, ISupplementsService supplements, IHomeService homeServices)
         {
             Guard.WhenArgument(categories, "categories").IsNull().Throw();
             Guard.WhenArgument(brands, "brands").IsNull().Throw();
@@ -28,11 +29,20 @@ namespace FoodSupplementsSystem.Controllers
             this.categories = categories;
             this.brands = brands;
             this.supplements = supplements;
+
+            this.homeServices = homeServices;
         }
 
         public ActionResult Index()
         {
+
             return View();
+        }
+
+        [ChildActionOnly]
+        public ActionResult MostCommentedTopics()
+        {
+            return PartialView("_MostCommentedTopicsPartial", this.homeServices.GetTopicViewModel(6));
         }
 
         [ChildActionOnly]

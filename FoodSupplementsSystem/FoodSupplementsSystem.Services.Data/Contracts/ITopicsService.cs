@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace FoodSupplementsSystem.Services.Data.Contracts
 {
-    public interface ITopicsServices
+    public interface ITopicsService
     {
         IQueryable<Topic> GetAll();
 

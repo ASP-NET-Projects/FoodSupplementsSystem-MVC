@@ -3,6 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using FoodSupplementsSystem.Controllers;
 using FoodSupplementsSystem.Services.Data.Contracts;
 using Moq;
+using FoodSupplementsSystem.Infrastructure.Services;
 
 namespace FoodSupplementsSystem.UnitTests.Controllers
 {
@@ -16,7 +17,9 @@ namespace FoodSupplementsSystem.UnitTests.Controllers
             var categoriesServiceMock = new Mock<ICategoriesService>();
             var brandsServiceMock = new Mock<IBrandsService>();
             var supplementsServiceMock = new Mock<ISupplementsService>();
-            HomeController controller = new HomeController(categoriesServiceMock.Object, brandsServiceMock.Object, supplementsServiceMock.Object);
+            var homeServiceMock = new Mock<IHomeService>();
+
+            HomeController controller = new HomeController(categoriesServiceMock.Object, brandsServiceMock.Object, supplementsServiceMock.Object, homeServiceMock.Object);
        
            // Act
            ViewResult result = controller.Index() as ViewResult;

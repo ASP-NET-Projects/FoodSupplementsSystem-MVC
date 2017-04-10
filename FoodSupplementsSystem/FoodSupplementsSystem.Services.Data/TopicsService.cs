@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace FoodSupplementsSystem.Services.Data
 {
-    public class TopicsService : ITopicsServices
+    public class TopicsService : ITopicsService
     {
         private IRepository<Topic> topics;
 

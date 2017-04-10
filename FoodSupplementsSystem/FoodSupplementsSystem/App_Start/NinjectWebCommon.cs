@@ -8,6 +8,7 @@ using Ninject.Web.Common;
 using Ninject.Extensions.Conventions;
 using FoodSupplementsSystem.Data;
 using FoodSupplementsSystem.Data.Repositories;
+using FoodSupplementsSystem.Infrastructure.Services;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(FoodSupplementsSystem.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(FoodSupplementsSystem.App_Start.NinjectWebCommon), "Stop")]
@@ -71,6 +72,8 @@ namespace FoodSupplementsSystem.App_Start
             kernel.Bind(b => b.From("FoodSupplementsSystem.Services.Data")
                               .SelectAllClasses()
                               .BindDefaultInterface());
+
+            kernel.Bind<IHomeService>().To<HomeService>();
         }
     }
 }
