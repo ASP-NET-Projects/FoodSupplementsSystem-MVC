@@ -16,13 +16,5 @@
 
 @foreach (var comment in Model.Comments)
 {
-    <div class="row" style="word-wrap: break-word">
-        @comment.Content
-    </div>
-    <div>
-        <i>Created by: </i><strong>@comment.AuthorName</strong>
-    </div>
-    <i>Created On: </i> @comment.DateCreated
-    <hr />
-    <br />
+    @Html.Partial("_CommentPartial", comment)
 }

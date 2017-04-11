@@ -404,6 +404,7 @@
     <Content Include="Views\Home\_TopBrands.cshtml" />
     <Content Include="Views\Home\_MostCommentedTopicsPartial.cshtml" />
     <Content Include="Views\AllTopics\Details.cshtml" />
+    <Content Include="Views\Shared\_CommentPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
