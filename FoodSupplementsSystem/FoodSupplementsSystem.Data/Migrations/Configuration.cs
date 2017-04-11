@@ -56,6 +56,8 @@ namespace FoodSupplementsSystem.Data.Migrations
 
             seed.Supplements.ForEach(x => context.Supplements.Add(x));
 
+            seed.Comments.ForEach(x=>context.Comments.Add(x));
+
             context.SaveChanges();
         }
     }

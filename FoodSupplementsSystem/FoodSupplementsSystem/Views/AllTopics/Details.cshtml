@@ -1,0 +1,28 @@
+﻿@model FoodSupplementsSystem.ViewModels.AllTopics.TopicDetailsViewModel
+@{
+    ViewBag.Title = "Topic Details " + Model.Name;
+}
+
+<h2>@Model.Name</h2>
+
+<h4><strong>Description: </strong></h4>
+<div>
+    @Model.Description
+</div>
+
+<br />
+<h3>All Comments</h3>
+<br />
+
+@foreach (var comment in Model.Comments)
+{
+    <div class="row" style="word-wrap: break-word">
+        @comment.Content
+    </div>
+    <div>
+        <i>Created by: </i><strong>@comment.AuthorName</strong>
+    </div>
+    <i>Created On: </i> @comment.DateCreated
+    <hr />
+    <br />
+}

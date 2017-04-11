@@ -235,6 +235,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AllBrandsController.cs" />
     <Compile Include="Controllers\AllCategoriesController.cs" />
+    <Compile Include="Controllers\AllTopicsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -246,6 +247,8 @@
     <Compile Include="ViewModels\AllBrands\BrandViewModel.cs" />
     <Compile Include="ViewModels\AllCategories\CategoryViewModel.cs" />
     <Compile Include="ViewModels\AllCategories\SupplementViewModel.cs" />
+    <Compile Include="ViewModels\AllComments\CommentViewModel.cs" />
+    <Compile Include="ViewModels\AllTopics\TopicDetailsViewModel.cs" />
     <Compile Include="ViewModels\Home\TopicViewModel.cs" />
     <Compile Include="ViewModels\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -400,7 +403,7 @@
     <Content Include="Views\Home\_TopCategories.cshtml" />
     <Content Include="Views\Home\_TopBrands.cshtml" />
     <Content Include="Views\Home\_MostCommentedTopicsPartial.cshtml" />
-    <Content Include="Views\Topics\Details.cshtml" />
+    <Content Include="Views\AllTopics\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
