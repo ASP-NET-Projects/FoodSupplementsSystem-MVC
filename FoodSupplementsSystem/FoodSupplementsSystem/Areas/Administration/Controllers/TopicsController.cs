@@ -9,6 +9,7 @@ using AutoMapper.QueryableExtensions;
 
 namespace FoodSupplementsSystem.Areas.Administration.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class TopicsController : Controller
     {
         private ITopicsService topics;
