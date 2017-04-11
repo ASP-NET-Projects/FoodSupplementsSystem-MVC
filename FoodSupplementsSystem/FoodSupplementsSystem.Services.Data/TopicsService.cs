@@ -25,20 +25,27 @@ namespace FoodSupplementsSystem.Services.Data
             return this.topics.GetById(id);
         }
 
-        public void Create(Topic topic)
+        public Topic Create(string name, string description)
         {
-            Guard.WhenArgument(topic, "topic").IsNull().Throw();
+            Guard.WhenArgument(name, "name").IsNullOrEmpty().Throw();
+            Guard.WhenArgument(description, "description").IsNullOrEmpty().Throw();
+
+            var topic = new Topic() { Name = name, Description = description };
 
             this.topics.Add(topic);
+
             this.topics.SaveChanges();
+
+            return topic;
         }
 
-        public void UpdateById(int id, Topic updateTopic)
+        public void UpdateNameById(int id, string name)
         {
-            var topicToUpdate = this.topics.GetById(id);
+            Guard.WhenArgument(id, "id").IsLessThan(0).Throw();
 
-            topicToUpdate.Name = updateTopic.Name;
-            topicToUpdate.Description = updateTopic.Description;
+            Guard.WhenArgument(name, "name").IsNull().Throw();
+
+            this.topics.GetById(id).Name = name;
 
             this.topics.SaveChanges();
         }

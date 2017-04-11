@@ -9,10 +9,10 @@ namespace FoodSupplementsSystem.Services.Data.Contracts
 
         Topic GetById(int id);
 
-        void UpdateById(int id, Topic updateTopic);
+        void UpdateNameById(int id, string name);
 
         void DeleteById(int id);
 
-        void Create(Topic topic);
+        Topic Create(string name, string description);
     }
 }

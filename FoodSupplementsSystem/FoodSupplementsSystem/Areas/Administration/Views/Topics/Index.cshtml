@@ -1,0 +1,29 @@
+﻿@(Html.Kendo().Grid<FoodSupplementsSystem.Areas.Administration.ViewModels.TopicViewModel>()
+      .Name("grid")
+      .Columns(columns =>
+      {
+        columns.Bound(c => c.Name);
+        columns.Bound(c => c.Description);
+        columns.Command(command => { command.Edit(); command.Destroy(); }).Width(180);
+      })
+      .ToolBar(toolbar => {
+            toolbar.Create();
+            toolbar.Excel();
+      })
+      .ColumnMenu()
+      .Editable(editable => editable.Mode(GridEditMode.PopUp))
+      .Pageable()
+      .Sortable(sortable => {
+          sortable.SortMode(GridSortMode.SingleColumn);
+      })
+      .Filterable()
+      .Scrollable()
+      .DataSource(dataSource => dataSource
+          .Ajax()
+          .Model(model => model.Id(p => p.Id))
+          .Read(read => read.Action("Topics_Read", "Topics"))
+          .Create(create => create.Action("Topics_Create", "Topics"))
+          .Update(update => update.Action("Topics_Update", "Topics"))
+          .Destroy(destroy => destroy.Action("Topics_Destroy", "Topics"))
+      )
+)
