@@ -1,0 +1,37 @@
+﻿
+@(Html.Kendo().Grid<FoodSupplementsSystem.Areas.Administration.ViewModels.SupplementViewModel>()
+      .Name("grid")
+      .Columns(columns =>
+      {
+        columns.Bound(c => c.Name);
+        columns.Bound(c => c.ImageUrl);
+        columns.Bound(c => c.Ingredients);
+        columns.Bound(c => c.Use);
+        columns.Bound(c => c.Description);
+        columns.Bound(c => c.DateCreated);
+        columns.Bound(c => c.SupplementCategory);
+        columns.Bound(c => c.SupplementTopic);
+        columns.Bound(c => c.SupplementBrand);
+        columns.Command(command => { command.Edit(); command.Destroy(); }).Width(180);
+      })
+      .ToolBar(toolbar => {
+            toolbar.Create();
+            toolbar.Excel();
+      })
+      .ColumnMenu()
+      .Editable(editable => editable.Mode(GridEditMode.PopUp))
+      .Pageable()
+      .Sortable(sortable => {
+          sortable.SortMode(GridSortMode.SingleColumn);
+      })
+      .Filterable()
+      .Scrollable()
+      .DataSource(dataSource => dataSource
+          .Ajax()
+          .Model(model => model.Id(p => p.Id))
+          .Read(read => read.Action("SupplementViewModels_Read", "Supplements"))
+          .Create(create => create.Action("SupplementViewModels_Create", "Supplements"))
+          .Update(update => update.Action("SupplementViewModels_Update", "Supplements"))
+          .Destroy(destroy => destroy.Action("SupplementViewModels_Destroy", "Supplements"))
+      )
+)

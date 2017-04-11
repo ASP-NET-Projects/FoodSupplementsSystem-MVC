@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Linq;
 using System.Web.Mvc;
 using Kendo.Mvc.Extensions;
 using Kendo.Mvc.UI;
-using FoodSupplementsSystem.Data.Models;
 using FoodSupplementsSystem.Services.Data.Contracts;
 using FoodSupplementsSystem.Areas.Administration.Models;
 using AutoMapper.QueryableExtensions;
-using FoodSupplementsSystem.Data.Repositories;
 using Bytes2you.Validation;
 
 namespace FoodSupplementsSystem.Areas.Administration.Controllers

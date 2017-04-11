@@ -6,5 +6,13 @@ namespace FoodSupplementsSystem.Services.Data.Contracts
     public interface ISupplementsService
     {
         IQueryable<Supplement> GetAll();
+
+        Supplement GetById(int id);
+
+        Supplement Create(string name, string imageUrl, string ingredients, string use, string description);
+
+        void UpdateById(int id, string name, string imageUrl, string ingredients, string use, string description);
+
+        void DeleteById(int id);
     }
 }

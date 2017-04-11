@@ -21,5 +21,47 @@ namespace FoodSupplementsSystem.Services.Data
         {
             return this.supplements.All();
         }
+
+        public Supplement GetById(int id)
+        {
+            return this.supplements.GetById(id);
+        }
+
+        public Supplement Create(string name, string imageUrl, string ingredients, string use, string description)
+        {
+            Guard.WhenArgument(name, "name").IsNullOrEmpty().Throw();
+
+            var supplement = new Supplement() { Name = name, ImageUrl = imageUrl, Ingredients = ingredients, Use = use, Description = description };
+
+            this.supplements.Add(supplement);
+
+            this.supplements.SaveChanges();
+
+            return supplement;
+        }
+
+        public void UpdateById(int id, string name, string imageUrl, string ingredients, string use, string description)
+        {
+            Guard.WhenArgument(id, "id").IsLessThan(0).Throw();
+
+            Guard.WhenArgument(name, "name").IsNull().Throw();
+
+            this.supplements.GetById(id).Name = name;
+            this.supplements.GetById(id).ImageUrl = imageUrl;
+            this.supplements.GetById(id).Ingredients = ingredients;
+            this.supplements.GetById(id).Use = use;
+            this.supplements.GetById(id).Description = description;
+
+            this.supplements.SaveChanges();
+        }
+
+        public void DeleteById(int id)
+        {
+            //Guard.WhenArgument(id, "id").IsLessThan(0).Throw();
+
+            this.supplements.Delete(id);
+
+            this.supplements.SaveChanges();
+        }
     }
 }
