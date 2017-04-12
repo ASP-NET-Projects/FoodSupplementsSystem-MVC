@@ -1,15 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
-using System.Linq;
-using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using Kendo.Mvc.Extensions;
 using Kendo.Mvc.UI;
 using FoodSupplementsSystem.Areas.Administration.ViewModels;
-using FoodSupplementsSystem.Data;
 using FoodSupplementsSystem.Services.Data.Contracts;
 using AutoMapper.QueryableExtensions;
 

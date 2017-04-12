@@ -39,13 +39,15 @@ namespace FoodSupplementsSystem.Services.Data
             return topic;
         }
 
-        public void UpdateNameById(int id, string name)
+        public void UpdateById(int id, string name, string description)
         {
             Guard.WhenArgument(id, "id").IsLessThan(0).Throw();
 
             Guard.WhenArgument(name, "name").IsNull().Throw();
 
             this.topics.GetById(id).Name = name;
+
+            this.topics.GetById(id).Description = description;
 
             this.topics.SaveChanges();
         }

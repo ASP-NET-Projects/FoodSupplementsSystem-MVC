@@ -1,0 +1,29 @@
+﻿@(Html.Kendo().Grid<FoodSupplementsSystem.Data.Models.Brand>()
+      .Name("grid")
+      .Columns(columns =>
+      {
+        columns.Bound(c => c.Name);
+        columns.Bound(c => c.WebSite);
+        columns.Command(command => { command.Edit(); command.Destroy(); }).Width(180);
+      })
+      .ToolBar(toolbar => {
+            toolbar.Create();
+            toolbar.Excel();
+      })
+      .ColumnMenu()
+      .Editable(editable => editable.Mode(GridEditMode.PopUp))
+      .Pageable()
+      .Sortable(sortable => {
+          sortable.SortMode(GridSortMode.SingleColumn);
+      })
+      .Filterable()
+      .Scrollable()
+      .DataSource(dataSource => dataSource
+          .Ajax()
+          .Model(model => model.Id(p => p.Id))
+          .Read(read => read.Action("Brands_Read", "Brands"))
+          .Create(create => create.Action("Brands_Create", "Brands"))
+          .Update(update => update.Action("Brands_Update", "Brands"))
+          .Destroy(destroy => destroy.Action("Brands_Destroy", "Brands"))
+      )
+)

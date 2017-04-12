@@ -51,7 +51,7 @@ namespace FoodSupplementsSystem.Areas.Administration.Controllers
             {
                 if (topic != null && this.ModelState.IsValid)
                 {
-                    this.topics.UpdateNameById(topic.Id, topic.Name);
+                    this.topics.UpdateById(topic.Id, topic.Name, topic.Description);
                 }
             }
 
