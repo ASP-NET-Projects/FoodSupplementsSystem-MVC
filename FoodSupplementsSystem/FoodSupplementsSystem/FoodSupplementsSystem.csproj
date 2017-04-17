@@ -252,6 +252,7 @@
     <Compile Include="Infrastructure\Populators\IDropDownListPopulator.cs" />
     <Compile Include="Infrastructure\Services\HomeService.cs" />
     <Compile Include="Infrastructure\Services\IHomeService.cs" />
+    <Compile Include="Infrastructure\Validation\DoesNotContainAttribute.cs" />
     <Compile Include="ViewModels\AccountViewModels.cs" />
     <Compile Include="ViewModels\AllBrands\BrandViewModel.cs" />
     <Compile Include="ViewModels\AllCategories\CategoryViewModel.cs" />

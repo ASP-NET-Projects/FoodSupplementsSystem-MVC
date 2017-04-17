@@ -1,5 +1,6 @@
 ﻿using FoodSupplementsSystem.Data.Models;
 using FoodSupplementsSystem.Infrastructure.Mapping;
+using FoodSupplementsSystem.Infrastructure.Validation;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -12,16 +13,19 @@ namespace FoodSupplementsSystem.Areas.Administration.ViewModels
 {
     public class AddSupplementViewModel : IMapFrom<Supplement>
     {
+        [DoesNotContain("name")]
         [Required]
         [Index(IsUnique = true)]
         [MaxLength(100)]
         [UIHint("SingleLineText")]
         public string Name { get; set; }
 
+        [DoesNotContain("imageUrl")]
         [Required]
         [UIHint("SingleLineText")]
         public string ImageUrl { get; set; }
 
+        [DoesNotContain("ingredients")]
         [Required]
         [UIHint("MultiLineText")]
         public string Ingredients { get; set; }
@@ -30,6 +34,7 @@ namespace FoodSupplementsSystem.Areas.Administration.ViewModels
         [UIHint("MultiLineText")]
         public string Use { get; set; }
 
+        [DoesNotContain("description")]
         [UIHint("MultiLineText")]
         public string Description { get; set; }
 
