@@ -9,6 +9,8 @@ using Ninject.Extensions.Conventions;
 using FoodSupplementsSystem.Data;
 using FoodSupplementsSystem.Data.Repositories;
 using FoodSupplementsSystem.Infrastructure.Services;
+using FoodSupplementsSystem.Infrastructure.Caching;
+using FoodSupplementsSystem.Infrastructure.Populators;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(FoodSupplementsSystem.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(FoodSupplementsSystem.App_Start.NinjectWebCommon), "Stop")]
@@ -74,6 +76,9 @@ namespace FoodSupplementsSystem.App_Start
                               .BindDefaultInterface());
 
             kernel.Bind<IHomeService>().To<HomeService>();
+            kernel.Bind<ICacheService>().To<InMemoryCache>();
+
+            kernel.Bind<IDropDownListPopulator>().To<DropDownListPopulator>();
         }
     }
 }

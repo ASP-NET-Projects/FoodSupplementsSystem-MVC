@@ -1,0 +1,30 @@
+﻿@model FoodSupplementsSystem.Areas.Administration.ViewModels.AddSupplementViewModel
+@{
+    ViewBag.Title = "Add Supplement";
+}
+<h2>Add</h2>
+@using (Html.BeginForm("Add", "Supplements", FormMethod.Post, new { @class = "form", enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <br />
+    @Html.EditorFor(m => m.Name)
+    @Html.EditorFor(m => m.ImageUrl)
+    @Html.EditorFor(m => m.Ingredients)
+    @Html.EditorFor(m => m.Use)
+    @Html.EditorFor(m => m.Description)
+    @Html.EditorFor(m => m.CategoryId, new { ListItem = Model.Categories })
+    @Html.EditorFor(m => m.BrandId, new { ListItem = Model.Brands })
+    @Html.EditorFor(m => m.TopicId, new { ListItem = Model.Topics })
+
+    <br />
+    <div class="row">
+        <div class="col-md-5 col-md-offset-2">
+            <input type="submit" class="btn btn-default" />
+        </div>
+    </div>
+}
+
+@section scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+

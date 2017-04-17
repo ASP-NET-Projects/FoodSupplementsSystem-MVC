@@ -234,6 +234,7 @@
     <Compile Include="Areas\Administration\Controllers\CategoriesController.cs" />
     <Compile Include="Areas\Administration\Controllers\SupplementsController.cs" />
     <Compile Include="Areas\Administration\Controllers\TopicsController.cs" />
+    <Compile Include="Areas\Administration\ViewModels\AddSupplementViewModel.cs" />
     <Compile Include="Areas\Administration\ViewModels\BrandViewModel.cs" />
     <Compile Include="Areas\Administration\ViewModels\CategoryViewModel.cs" />
     <Compile Include="Areas\Administration\ViewModels\SupplementViewModel.cs" />
@@ -247,6 +248,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\Populators\DropDownListPopulator.cs" />
+    <Compile Include="Infrastructure\Populators\IDropDownListPopulator.cs" />
     <Compile Include="Infrastructure\Services\HomeService.cs" />
     <Compile Include="Infrastructure\Services\IHomeService.cs" />
     <Compile Include="ViewModels\AccountViewModels.cs" />
@@ -355,6 +358,7 @@
     <Content Include="Areas\Administration\Views\Topics\Index.cshtml" />
     <Content Include="Areas\Administration\Views\Supplements\Index.cshtml" />
     <Content Include="Areas\Administration\Views\Brands\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\Supplements\Add.cshtml" />
     <None Include="Properties\PublishProfiles\local.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -414,13 +418,14 @@
     <Content Include="Views\Home\_MostCommentedTopicsPartial.cshtml" />
     <Content Include="Views\AllTopics\Details.cshtml" />
     <Content Include="Views\Shared\_CommentPartial.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\DropDownList.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\MultiLinetext.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\SingleLineText.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Administration\Views\Shared\" />
     <Folder Include="Views\Brands\" />
-    <Folder Include="Views\Supplements\" />
-    <Folder Include="Views\Topics\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

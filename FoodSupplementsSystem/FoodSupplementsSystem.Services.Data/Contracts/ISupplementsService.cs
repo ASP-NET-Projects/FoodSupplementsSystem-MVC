@@ -9,6 +9,8 @@ namespace FoodSupplementsSystem.Services.Data.Contracts
 
         Supplement GetById(int id);
 
+        void Create(Supplement supplement);
+
         Supplement Create(string name, string imageUrl, string ingredients, string use, string description);
 
         void UpdateById(int id, string name, string imageUrl, string ingredients, string use, string description);

@@ -5,21 +5,61 @@ using Kendo.Mvc.UI;
 using FoodSupplementsSystem.Areas.Administration.ViewModels;
 using FoodSupplementsSystem.Services.Data.Contracts;
 using AutoMapper.QueryableExtensions;
+using FoodSupplementsSystem.Infrastructure.Populators;
+using AutoMapper;
+using FoodSupplementsSystem.Data.Models;
 
 namespace FoodSupplementsSystem.Areas.Administration.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class SupplementsController : Controller
     {
         private ISupplementsService supplements;
+        private IDropDownListPopulator populator;
 
-        public SupplementsController(ISupplementsService supplements)
+        public SupplementsController(ISupplementsService supplements, IDropDownListPopulator populator)
         {
             this.supplements = supplements;
+            this.populator = populator;
         }
 
         public ActionResult Index()
         {
             return View();
+        }
+
+        public ActionResult Add()
+        {
+            var addSupplementViewModel = new AddSupplementViewModel
+            {
+                Categories = this.populator.GetCategories(),
+                Topics = this.populator.GetTopics(),
+                Brands = this.populator.GetBrands()
+            };
+
+            return View(addSupplementViewModel);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Add(AddSupplementViewModel supplement)
+        {
+            if (supplement != null && ModelState.IsValid)
+            {
+                var dbSupplement = Mapper.Map<Supplement>(supplement);
+                dbSupplement.CreationDate = DateTime.UtcNow;
+                //dbSupplement.Author = this.UserProfile;
+
+                this.supplements.Create(dbSupplement);
+
+                return RedirectToAction("Index", "Supplements");
+            }
+
+            supplement.Categories = this.populator.GetCategories();
+            supplement.Brands = this.populator.GetBrands();
+            supplement.Topics = this.populator.GetTopics();
+
+            return View(supplement);
         }
 
         public ActionResult SupplementViewModels_Read([DataSourceRequest]DataSourceRequest request)
@@ -75,11 +115,5 @@ namespace FoodSupplementsSystem.Areas.Administration.Controllers
 
             return File(fileContents, contentType, fileName);
         }
-
-       //protected override void Dispose(bool disposing)
-       //{
-       //    db.Dispose();
-       //    base.Dispose(disposing);
-       //}
     }
 }

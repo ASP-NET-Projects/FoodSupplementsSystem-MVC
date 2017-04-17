@@ -27,6 +27,14 @@ namespace FoodSupplementsSystem.Services.Data
             return this.supplements.GetById(id);
         }
 
+        public void Create(Supplement supplement)
+        {
+            Guard.WhenArgument(supplement, "supplement").IsNull().Throw();
+
+            this.supplements.Add(supplement);
+            this.supplements.SaveChanges();
+        }
+
         public Supplement Create(string name, string imageUrl, string ingredients, string use, string description)
         {
             Guard.WhenArgument(name, "name").IsNullOrEmpty().Throw();
