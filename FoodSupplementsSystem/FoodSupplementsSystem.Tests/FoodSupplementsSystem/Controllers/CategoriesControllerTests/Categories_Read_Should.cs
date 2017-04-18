@@ -1,6 +1,6 @@
 ﻿using FoodSupplementsSystem.App_Start;
 using FoodSupplementsSystem.Areas.Administration.Controllers;
-using FoodSupplementsSystem.Areas.Administration.Models;
+using FoodSupplementsSystem.Areas.Administration.ViewModels;
 using FoodSupplementsSystem.Data.Models;
 using FoodSupplementsSystem.Services.Data.Contracts;
 using Kendo.Mvc.UI;

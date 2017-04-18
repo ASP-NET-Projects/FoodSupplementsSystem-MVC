@@ -1,13 +1,10 @@
 ﻿using AutoMapper.QueryableExtensions;
-using FoodSupplementsSystem.Data.Models;
-using FoodSupplementsSystem.Data.Repositories;
 using FoodSupplementsSystem.Infrastructure.Populators;
 using FoodSupplementsSystem.Services.Data.Contracts;
 using FoodSupplementsSystem.ViewModels.AllSupplements;
 using Kendo.Mvc.Extensions;
 using Kendo.Mvc.UI;
 using System.Web.Mvc;
-using System.IO;
 using System.Linq;
 
 namespace FoodSupplementsSystem.Controllers
@@ -25,23 +22,35 @@ namespace FoodSupplementsSystem.Controllers
             this.populator = populator;
         }
 
-        public ActionResult All(int? category)
+        public ActionResult All(int? category, int? brand, int? topic)
         {
-            return View(category);
+            var resultView = new { category, brand, topic };
+
+            return View(resultView);
         }
 
         [HttpPost]
-        public ActionResult ReadSupplements([DataSourceRequest]DataSourceRequest request, int? category)
+        public ActionResult ReadSupplements([DataSourceRequest]DataSourceRequest request, int? category, int? brand, int? topic)
         {
             var supplementsQuery = this.supplements.GetAll();
 
             if (category != null)
             {
-                supplementsQuery = supplementsQuery.Where(t => t.CategoryId == category.Value);
+                supplementsQuery = supplementsQuery.Where(s => s.CategoryId == category.Value);
+            }
+
+            if (brand != null)
+            {
+                supplementsQuery = supplementsQuery.Where(s => s.BrandId == brand.Value);
+            }
+
+            if (topic != null)
+            {
+                supplementsQuery = supplementsQuery.Where(s => s.TopicId == topic.Value);
             }
 
             var resultSupplements = supplementsQuery
-                .ProjectTo<ListSupplementViewModel>().ToList();
+                .ProjectTo<ListSupplementViewModel>();
 
             return Json(resultSupplements.ToDataSourceResult(request));
         }
@@ -49,6 +58,16 @@ namespace FoodSupplementsSystem.Controllers
         public ActionResult GetCategories()
         {
             return Json(this.populator.GetCategories(), JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult GetBrands()
+        {
+            return Json(this.populator.GetBrands(), JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult GetTopics()
+        {
+            return Json(this.populator.GetTopics(), JsonRequestBehavior.AllowGet);
         }
     }
 }

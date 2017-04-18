@@ -25,6 +25,43 @@
 <br />
 <br />
 
+@using (Html.BeginForm("All", "AllSupplements", FormMethod.Get))
+{
+    @(Html.Kendo()
+        .DropDownList()
+        .Name("brand")
+        .HtmlAttributes(new { style = "width: 100%" })
+        .DataTextField("Text")
+        .DataValueField("Value")
+        .OptionLabel("Choose brand")
+        .DataSource(dataSource =>
+        {
+            dataSource.Read(read => read.Action("GetBrands", "AllSupplements"));
+        }))
+
+    <input type="submit" class="btn btn-default" />
+}
+<br />
+<br />
+
+@using (Html.BeginForm("All", "AllSupplements", FormMethod.Get))
+{
+    @(Html.Kendo()
+        .DropDownList()
+        .Name("topic")
+        .HtmlAttributes(new { style = "width: 100%" })
+        .DataTextField("Text")
+        .DataValueField("Value")
+        .OptionLabel("Choose topic")
+        .DataSource(dataSource =>
+        {
+            dataSource.Read(read => read.Action("GetTopics", "AllSupplements"));
+        }))
+
+    <input type="submit" class="btn btn-default" />
+}
+<br />
+<br />
 
 <div class="container">
     <div class="row k-header">
