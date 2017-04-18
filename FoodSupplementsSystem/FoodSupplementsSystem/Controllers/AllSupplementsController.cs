@@ -12,6 +12,7 @@ using System.Linq;
 
 namespace FoodSupplementsSystem.Controllers
 {
+    [Authorize]
     public class AllSupplementsController : Controller
     {
         private ISupplementsService supplements;

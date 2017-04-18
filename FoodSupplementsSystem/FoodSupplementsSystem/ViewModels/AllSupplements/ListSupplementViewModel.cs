@@ -23,9 +23,9 @@ namespace FoodSupplementsSystem.ViewModels.AllSupplements
             config.CreateMap<Supplement, ListSupplementViewModel>()
                 //.ForMember(m => m.Image, opt => opt.MapFrom(s => s.ImageUrl))
                 .ForMember(m => m.SupplementName, opt => opt.MapFrom(s => s.Name))
-                .ForMember(m => m.CategoryName, opt => opt.MapFrom(s => s.Category))
-                .ForMember(m => m.BrandName, opt => opt.MapFrom(s => s.Brand))
-                .ForMember(m => m.TopicName, opt => opt.MapFrom(s => s.Topic))
+                .ForMember(m => m.CategoryName, opt => opt.MapFrom(s => s.Category.Name))
+                .ForMember(m => m.BrandName, opt => opt.MapFrom(s => s.Brand.Name))
+                .ForMember(m => m.TopicName, opt => opt.MapFrom(s => s.Topic.Name))
                 .ReverseMap();
         }
     }

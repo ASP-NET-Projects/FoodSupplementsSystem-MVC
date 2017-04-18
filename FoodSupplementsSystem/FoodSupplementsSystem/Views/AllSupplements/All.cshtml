@@ -28,11 +28,10 @@
 
 <div class="container">
     <div class="row k-header">
-
         <div class="col-md-2 text-center">
             <h3>Name</h3>
         </div>
-        <div class="col-md-3 text-center">
+        <div class="col-md-4 text-center">
             <h3>Category</h3>
         </div>
         <div class="col-md-2 text-center">
@@ -61,11 +60,17 @@
 
 <script id="all-supplements-template" type="text/x-kendo-tmpl">
     <div class="row">
-        <div class="col-md-3 text-center">
-            #= Id #
+        <div class="col-md-2 text-center">
+            #= SupplementName #
         </div>
         <div class="col-md-3 text-center">
-            #= SupplementName #
+            #= CategoryName #
+        </div>
+        <div class="col-md-2 text-center">
+            #= BrandName #
+        </div>
+        <div class="col-md-3 text-center">
+            #= TopicName #
         </div>
     </div>
     <br />

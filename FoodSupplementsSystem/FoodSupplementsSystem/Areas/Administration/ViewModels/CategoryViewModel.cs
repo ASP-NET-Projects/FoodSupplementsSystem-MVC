@@ -1,7 +1,7 @@
 ﻿using FoodSupplementsSystem.Data.Models;
 using FoodSupplementsSystem.Infrastructure.Mapping;
 
-namespace FoodSupplementsSystem.Areas.Administration.Models
+namespace FoodSupplementsSystem.Areas.Administration.ViewModels
 {
     public class CategoryViewModel : IMapFrom<Category>
     {
