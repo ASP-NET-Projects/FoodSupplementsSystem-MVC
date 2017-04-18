@@ -24,15 +24,23 @@ namespace FoodSupplementsSystem.Controllers
             this.populator = populator;
         }
 
-        public ActionResult All()
+        public ActionResult All(int? category)
         {
-            return View();
+            return View(category);
         }
 
-        public ActionResult ReadSupplements([DataSourceRequest]DataSourceRequest request)
+        [HttpPost]
+        public ActionResult ReadSupplements([DataSourceRequest]DataSourceRequest request, int? category)
         {
-            var resultSupplements = supplements.GetAll()
-                .ProjectTo<ListSupplementViewModel>();
+            var supplementsQuery = this.supplements.GetAll();
+
+            if (category != null)
+            {
+                supplementsQuery = supplementsQuery.Where(t => t.CategoryId == category.Value);
+            }
+
+            var resultSupplements = supplementsQuery
+                .ProjectTo<ListSupplementViewModel>().ToList();
 
             return Json(resultSupplements.ToDataSourceResult(request));
         }
