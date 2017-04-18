@@ -1,0 +1,52 @@
+﻿
+@using Kendo.Mvc.UI
+@using FoodSupplementsSystem.ViewModels.AllSupplements
+@{
+    ViewBag.Title = "All";
+}
+
+
+<div class="container">
+    <div class="row k-header">
+        
+        <div class="col-md-2 text-center">
+            <h3>Name</h3>
+        </div>
+        <div class="col-md-3 text-center">
+            <h3>Category</h3>
+        </div>
+        <div class="col-md-2 text-center">
+            <h3>Brand</h3>
+        </div>
+        <div class="col-md-3 text-center">
+            <h3>Topic</h3>
+        </div>
+    </div>
+</div>
+<br />
+
+@(Html.Kendo()
+    .ListView<ListSupplementViewModel>()
+    .TagName("div")
+    .Name("all-supplements")
+    .Pageable()
+    .ClientTemplateId("all-supplements-template")
+    .DataSource(dataSource=>
+    {
+        dataSource
+            .ServerOperation(true)
+            .PageSize(5)
+            .Read(read => read.Action("ReadSupplements", "AllSupplements"));
+    }))
+
+<script id="all-supplements-template" type="text/x-kendo-tmpl">
+    <div class="row">
+        <div class="col-md-3 text-center">
+            #= Id #
+        </div>
+        <div class="col-md-3 text-center">
+            #= SupplementName #
+        </div>
+    </div>
+    <br />
+</script>

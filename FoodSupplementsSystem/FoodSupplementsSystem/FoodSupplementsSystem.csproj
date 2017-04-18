@@ -242,6 +242,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AllBrandsController.cs" />
     <Compile Include="Controllers\AllCategoriesController.cs" />
+    <Compile Include="Controllers\AllSupplementsController.cs" />
     <Compile Include="Controllers\AllTopicsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -258,6 +259,7 @@
     <Compile Include="ViewModels\AllCategories\CategoryViewModel.cs" />
     <Compile Include="ViewModels\AllCategories\SupplementViewModel.cs" />
     <Compile Include="ViewModels\AllComments\CommentViewModel.cs" />
+    <Compile Include="ViewModels\AllSupplements\ListSupplementViewModel.cs" />
     <Compile Include="ViewModels\AllTopics\TopicDetailsViewModel.cs" />
     <Compile Include="ViewModels\Home\TopicViewModel.cs" />
     <Compile Include="ViewModels\ManageViewModels.cs" />
@@ -422,11 +424,11 @@
     <Content Include="Views\Shared\EditorTemplates\DropDownList.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\MultiLinetext.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\SingleLineText.cshtml" />
+    <Content Include="Views\AllSupplements\All.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Administration\Views\Shared\" />
-    <Folder Include="Views\Brands\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
