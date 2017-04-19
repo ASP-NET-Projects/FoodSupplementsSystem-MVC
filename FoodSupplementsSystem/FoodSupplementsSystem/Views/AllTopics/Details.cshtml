@@ -1,4 +1,6 @@
-﻿@model FoodSupplementsSystem.ViewModels.AllTopics.TopicDetailsViewModel
+﻿@using FoodSupplementsSystem.ViewModels.AllTopics
+@using FoodSupplementsSystem.ViewModels.AllComments
+@model TopicDetailsViewModel
 @{
     ViewBag.Title = "Topic Details " + Model.Name;
 }
@@ -14,7 +16,14 @@
 <h3>All Comments</h3>
 <br />
 
+@Html.Partial("_PostCommentPartial", new PostCommentViewModel(Model.Id))
+
 @foreach (var comment in Model.Comments)
 {
     @Html.Partial("_CommentPartial", comment)
+}
+
+@section scripts {
+    @Scripts.Render("~/bundles/jqueryajax")
+    @Scripts.Render("~/bundles/jqueryval")
 }

@@ -242,6 +242,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AllBrandsController.cs" />
     <Compile Include="Controllers\AllCategoriesController.cs" />
+    <Compile Include="Controllers\AllCommentsController.cs" />
     <Compile Include="Controllers\AllSupplementsController.cs" />
     <Compile Include="Controllers\AllTopicsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -259,6 +260,7 @@
     <Compile Include="ViewModels\AllCategories\CategoryViewModel.cs" />
     <Compile Include="ViewModels\AllCategories\SupplementViewModel.cs" />
     <Compile Include="ViewModels\AllComments\CommentViewModel.cs" />
+    <Compile Include="ViewModels\AllComments\PostCommentViewModel.cs" />
     <Compile Include="ViewModels\AllSupplements\FilterSupplementsViewModel.cs" />
     <Compile Include="ViewModels\AllSupplements\ListSupplementViewModel.cs" />
     <Compile Include="ViewModels\AllSupplements\SupplementDetailsViewModel.cs" />
@@ -369,6 +371,8 @@
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -424,10 +428,11 @@
     <Content Include="Views\AllTopics\Details.cshtml" />
     <Content Include="Views\Shared\_CommentPartial.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\DropDownList.cshtml" />
-    <Content Include="Views\Shared\EditorTemplates\MultiLinetext.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\MultiLineText.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\SingleLineText.cshtml" />
     <Content Include="Views\AllSupplements\All.cshtml" />
     <Content Include="Views\AllSupplements\Details.cshtml" />
+    <Content Include="Views\AllTopics\_PostCommentPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

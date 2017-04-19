@@ -21,5 +21,13 @@ namespace FoodSupplementsSystem.Services.Data
         {
             return this.comments.All();
         }
+
+        public void Create(Comment comment)
+        {
+            Guard.WhenArgument(comment, "comment").IsNull().Throw();
+
+            this.comments.Add(comment);
+            this.comments.SaveChanges();
+        }
     }
 }
