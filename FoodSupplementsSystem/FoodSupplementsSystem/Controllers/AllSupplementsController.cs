@@ -24,9 +24,14 @@ namespace FoodSupplementsSystem.Controllers
 
         public ActionResult All(int? category, int? brand, int? topic)
         {
-            var resultView = new { category, brand, topic };
+            var filterSupplementsModel = new FilterSupplementsViewModel
+            {
+                Category = category,
+                Brand = brand,
+                Topic = topic
+            };
 
-            return View(resultView);
+            return View(filterSupplementsModel);
         }
 
         [HttpPost]

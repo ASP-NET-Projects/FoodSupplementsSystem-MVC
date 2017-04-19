@@ -1,17 +1,17 @@
-﻿
-@using Kendo.Mvc.UI
+﻿@using Kendo.Mvc.UI
 @using FoodSupplementsSystem.ViewModels.AllSupplements
-@model int?
+@model FilterSupplementsViewModel
 @{
     ViewBag.Title = "All";
 }
 
-@using (Html.BeginForm("All", "AllSupplements", FormMethod.Get))
+<br />
+@using (Html.BeginForm("All", "AllSupplements", FormMethod.Post))
 {
     @(Html.Kendo()
         .DropDownList()
         .Name("category")
-        .HtmlAttributes(new { style = "width: 100%" })
+        .HtmlAttributes(new { style = "width: 20%" })
         .DataTextField("Text")
         .DataValueField("Value")
         .OptionLabel("Choose category")
@@ -20,17 +20,10 @@
             dataSource.Read(read => read.Action("GetCategories", "AllSupplements"));
         }))
 
-    <input type="submit" class="btn btn-default" />
-}
-<br />
-<br />
-
-@using (Html.BeginForm("All", "AllSupplements", FormMethod.Get))
-{
     @(Html.Kendo()
         .DropDownList()
         .Name("brand")
-        .HtmlAttributes(new { style = "width: 100%" })
+        .HtmlAttributes(new { style = "width: 20%" })
         .DataTextField("Text")
         .DataValueField("Value")
         .OptionLabel("Choose brand")
@@ -39,17 +32,10 @@
             dataSource.Read(read => read.Action("GetBrands", "AllSupplements"));
         }))
 
-    <input type="submit" class="btn btn-default" />
-}
-<br />
-<br />
-
-@using (Html.BeginForm("All", "AllSupplements", FormMethod.Get))
-{
     @(Html.Kendo()
         .DropDownList()
         .Name("topic")
-        .HtmlAttributes(new { style = "width: 100%" })
+        .HtmlAttributes(new { style = "width: 20%" })
         .DataTextField("Text")
         .DataValueField("Value")
         .OptionLabel("Choose topic")
@@ -58,7 +44,7 @@
             dataSource.Read(read => read.Action("GetTopics", "AllSupplements"));
         }))
 
-    <input type="submit" class="btn btn-default" />
+    <input type="submit" class="btn btn-default" value="Filter" />
 }
 <br />
 <br />
@@ -92,7 +78,7 @@
         dataSource
             .ServerOperation(true)
             .PageSize(5)
-            .Read(read => read.Action("ReadSupplements", "AllSupplements", new { category = Model }));
+            .Read(read => read.Action("ReadSupplements", "AllSupplements", new { category = Model.Category, brand = Model.Brand, topic = Model.Topic }));
     }))
 
 <script id="all-supplements-template" type="text/x-kendo-tmpl">
