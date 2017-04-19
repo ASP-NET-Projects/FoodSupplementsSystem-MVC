@@ -6,6 +6,7 @@ using Kendo.Mvc.Extensions;
 using Kendo.Mvc.UI;
 using System.Web.Mvc;
 using System.Linq;
+using System.Web;
 
 namespace FoodSupplementsSystem.Controllers
 {
@@ -58,6 +59,22 @@ namespace FoodSupplementsSystem.Controllers
                 .ProjectTo<ListSupplementViewModel>();
 
             return Json(resultSupplements.ToDataSourceResult(request));
+        }
+
+        public ActionResult Details(int id)
+        {
+            var supplement = this.supplements
+                .GetAll()
+                .Where(s => s.Id == id)
+                .ProjectTo<SupplementDetailsViewModel>()
+                .FirstOrDefault();
+
+            if (supplement == null)
+            {
+                throw new HttpException(404, "Topic not found");
+            }
+
+            return View(supplement);
         }
 
         public ActionResult GetCategories()

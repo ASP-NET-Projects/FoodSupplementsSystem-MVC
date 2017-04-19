@@ -1,8 +1,8 @@
 ﻿using AutoMapper.QueryableExtensions;
 using Bytes2you.Validation;
 using FoodSupplementsSystem.Infrastructure.Services;
-using FoodSupplementsSystem.Models.AllBrands;
-using FoodSupplementsSystem.Models.AllCategories;
+using FoodSupplementsSystem.ViewModels.AllBrands;
+using FoodSupplementsSystem.ViewModels.AllCategories;
 using FoodSupplementsSystem.Services.Data.Contracts;
 using System.Linq;
 using System.Web.Mvc;

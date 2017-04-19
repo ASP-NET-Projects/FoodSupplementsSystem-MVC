@@ -78,13 +78,14 @@
         dataSource
             .ServerOperation(true)
             .PageSize(5)
-            .Read(read => read.Action("ReadSupplements", "AllSupplements", new { category = Model.Category, brand = Model.Brand, topic = Model.Topic }));
+            .Read(read => read.Action("ReadSupplements", "AllSupplements", 
+                    new { category = Model.Category, brand = Model.Brand, topic = Model.Topic }));
     }))
 
 <script id="all-supplements-template" type="text/x-kendo-tmpl">
     <div class="row">
         <div class="col-md-2 text-center">
-            #= SupplementName #
+            <a href="/AllSupplements/Details/#= Id #">#= SupplementName #</a>
         </div>
         <div class="col-md-3 text-center">
             #= CategoryName #

@@ -2,7 +2,7 @@
 using FoodSupplementsSystem.Infrastructure.Mapping;
 using System.Collections.Generic;
 
-namespace FoodSupplementsSystem.Models.AllCategories
+namespace FoodSupplementsSystem.ViewModels.AllCategories
 {
     public class CategoryViewModel : IMapFrom<Category>
     {

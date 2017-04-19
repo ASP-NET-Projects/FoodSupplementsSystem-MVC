@@ -10,36 +10,36 @@ namespace FoodSupplementsSystem.Controllers
 {
     public class AllTopicsController : Controller
     {
-        private ITopicsService topicsService;
+        private ITopicsService topics;
 
-        private ICommentsService commentsService;
+        private ICommentsService comments;
 
-        public AllTopicsController(ITopicsService topicsService, ICommentsService commentsService)
+        public AllTopicsController(ITopicsService topics, ICommentsService comments)
         {
-            this.topicsService = topicsService;
-            this.commentsService = commentsService;
+            this.topics = topics;
+            this.comments = comments;
         }
 
         public ActionResult Details(int id)
         {
-            var topic = this.topicsService
+            var topic = this.topics
                 .GetAll()
                 .Where(t => t.Id == id)
                 .ProjectTo<TopicDetailsViewModel>()
                 .FirstOrDefault();
 
-           if (topic == null)
-           {
-               throw new HttpException(404, "Topic not found");
-           }
-           
-           topic.Comments = this.commentsService
-               .GetAll()
-               .Where(c => c.TopicId == topic.Id)
-               .OrderByDescending(c => c.Id)
-               .ProjectTo<CommentViewModel>()
-               .ToList();
- 
+            if (topic == null)
+            {
+                throw new HttpException(404, "Topic not found");
+            }
+
+            topic.Comments = this.comments
+                .GetAll()
+                .Where(c => c.TopicId == topic.Id)
+                .OrderByDescending(c => c.Id)
+                .ProjectTo<CommentViewModel>()
+                .ToList();
+
             return View(topic);
         }
     }

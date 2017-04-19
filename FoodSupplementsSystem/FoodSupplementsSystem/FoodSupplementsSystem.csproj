@@ -261,6 +261,7 @@
     <Compile Include="ViewModels\AllComments\CommentViewModel.cs" />
     <Compile Include="ViewModels\AllSupplements\FilterSupplementsViewModel.cs" />
     <Compile Include="ViewModels\AllSupplements\ListSupplementViewModel.cs" />
+    <Compile Include="ViewModels\AllSupplements\SupplementDetailsViewModel.cs" />
     <Compile Include="ViewModels\AllTopics\TopicDetailsViewModel.cs" />
     <Compile Include="ViewModels\Home\TopicViewModel.cs" />
     <Compile Include="ViewModels\ManageViewModels.cs" />
@@ -426,6 +427,7 @@
     <Content Include="Views\Shared\EditorTemplates\MultiLinetext.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\SingleLineText.cshtml" />
     <Content Include="Views\AllSupplements\All.cshtml" />
+    <Content Include="Views\AllSupplements\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

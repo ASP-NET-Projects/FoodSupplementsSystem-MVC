@@ -1,9 +1,9 @@
 ﻿using FoodSupplementsSystem.Data.Models;
 using FoodSupplementsSystem.Infrastructure.Mapping;
-using FoodSupplementsSystem.Models.AllCategories;
+using FoodSupplementsSystem.ViewModels.AllCategories;
 using System.Collections.Generic;
 
-namespace FoodSupplementsSystem.Models.AllBrands
+namespace FoodSupplementsSystem.ViewModels.AllBrands
 {
     public class BrandViewModel : IMapFrom<Brand>
     {
