@@ -7,6 +7,8 @@ namespace FoodSupplementsSystem.Services.Data.Contracts
     {
         IQueryable<Supplement> GetAll();
 
+        IQueryable<Supplement> GetLast3();
+
         Supplement GetById(int id);
 
         void Create(Supplement supplement);

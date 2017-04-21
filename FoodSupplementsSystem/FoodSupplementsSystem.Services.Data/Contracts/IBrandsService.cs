@@ -7,6 +7,8 @@ namespace FoodSupplementsSystem.Services.Data.Contracts
     {
         IQueryable<Brand> GetAll();
 
+        IQueryable<Brand> GetLast3();
+
         Brand GetById(int id);
 
         Brand Create(string name, string website);

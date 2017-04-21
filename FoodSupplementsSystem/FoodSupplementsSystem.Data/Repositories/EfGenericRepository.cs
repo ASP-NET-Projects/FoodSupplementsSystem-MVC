@@ -30,6 +30,11 @@ namespace FoodSupplementsSystem.Data.Repositories
             return this.DbSet.AsQueryable();
         }
 
+        public virtual IQueryable<T> Last3()
+        {
+            return this.DbSet.Take(3);
+        }
+
         public virtual T GetById(int id)
         {
             return this.DbSet.Find(id);

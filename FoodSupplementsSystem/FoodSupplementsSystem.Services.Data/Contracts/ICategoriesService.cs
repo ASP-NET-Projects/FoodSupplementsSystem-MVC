@@ -7,6 +7,8 @@ namespace FoodSupplementsSystem.Services.Data.Contracts
     {
         IQueryable<Category> GetAll();
 
+        IQueryable<Category> GetLast3();
+
         Category Create(string name);
 
         void UpdateNameById(int id, string name);

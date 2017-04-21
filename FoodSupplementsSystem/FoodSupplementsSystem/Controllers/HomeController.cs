@@ -46,25 +46,28 @@ namespace FoodSupplementsSystem.Controllers
         }
 
         [ChildActionOnly]
+        [OutputCache(Duration = 60 * 60)]
         public ActionResult TopBrands()
         {
-            var resultBrands = this.brands.GetAll().Take(3).ProjectTo<BrandViewModel>().ToList(); ;
+            var resultBrands = this.brands.GetLast3().ProjectTo<BrandViewModel>().ToList(); ;
 
             return PartialView("_TopBrands", resultBrands);
         }
 
         [ChildActionOnly]
+        [OutputCache(Duration = 60 * 60)]
         public ActionResult TopCategories()
         {
-            var resultCategories = this.categories.GetAll().Take(3).ProjectTo<CategoryViewModel>().ToList(); ;
+            var resultCategories = this.categories.GetLast3().ProjectTo<CategoryViewModel>().ToList(); ;
 
             return PartialView("_TopCategories", resultCategories);
         }
 
         [ChildActionOnly]
+        [OutputCache(Duration = 60 * 60)]
         public ActionResult TopSupplements()
         {
-            var resultSupplements = this.supplements.GetAll().Take(3).ProjectTo<SupplementViewModel>().ToList(); ;
+            var resultSupplements = this.supplements.GetLast3().ProjectTo<SupplementViewModel>().ToList(); ;
 
             return PartialView("_TopSupplements", resultSupplements);
         }

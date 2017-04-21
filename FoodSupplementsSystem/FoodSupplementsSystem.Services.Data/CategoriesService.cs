@@ -22,6 +22,11 @@ namespace FoodSupplementsSystem.Services.Data
             return this.categories.All();
         }
 
+        public IQueryable<Category> GetLast3()
+        {
+            return this.categories.Last3();
+        }
+
         public Category GetById(int id)
         {
             return this.categories.GetById(id);

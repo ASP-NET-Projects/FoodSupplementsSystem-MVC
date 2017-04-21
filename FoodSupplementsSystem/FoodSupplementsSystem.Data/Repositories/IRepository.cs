@@ -7,6 +7,8 @@ namespace FoodSupplementsSystem.Data.Repositories
     {
         IQueryable<T> All();
 
+        IQueryable<T> Last3();
+
         T GetById(int id);
 
         void Add(T entity);
