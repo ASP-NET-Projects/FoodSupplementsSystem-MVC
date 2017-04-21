@@ -16,7 +16,7 @@
 
         @foreach (var supplement in category.Supplements)
         {
-            <a href="/AllSupplements/Details/3"><img src="@Url.Content(supplement.ImageUrl)" alt="alternative text" /></a>
+            <a href="/AllSupplements/Details/@supplement.Id"><img src="@Url.Content(supplement.ImageUrl)" alt="alternative text" /></a>
             <div>@supplement.Name</div>
         }
     </div>
