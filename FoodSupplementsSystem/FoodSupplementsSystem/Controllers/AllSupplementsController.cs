@@ -66,7 +66,7 @@ namespace FoodSupplementsSystem.Controllers
             var supplement = this.supplements
                 .GetAll()
                 .Where(s => s.Id == id)
-                .ProjectTo<SupplementDetailsViewModel>()
+                .ProjectTo<DetailsSupplementViewModel>()
                 .FirstOrDefault();
 
             if (supplement == null)

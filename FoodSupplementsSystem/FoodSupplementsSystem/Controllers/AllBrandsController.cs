@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web.Mvc;
 using FoodSupplementsSystem.ViewModels.AllSupplements;
 using System.Web;
+using System.Data.Entity;
 
 namespace FoodSupplementsSystem.Controllers
 {
@@ -24,7 +25,7 @@ namespace FoodSupplementsSystem.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            var resultBrands = brands.GetAll().ProjectTo<BrandViewModel>().ToList();
+            var resultBrands = brands.GetAll().Include(b => b.Supplements).ProjectTo<BrandViewModel>().ToList();
 
             return View(resultBrands);
         }

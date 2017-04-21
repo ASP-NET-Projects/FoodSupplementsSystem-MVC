@@ -263,7 +263,7 @@
     <Compile Include="ViewModels\AllComments\PostCommentViewModel.cs" />
     <Compile Include="ViewModels\AllSupplements\FilterSupplementsViewModel.cs" />
     <Compile Include="ViewModels\AllSupplements\ListSupplementViewModel.cs" />
-    <Compile Include="ViewModels\AllSupplements\SupplementDetailsViewModel.cs" />
+    <Compile Include="ViewModels\AllSupplements\DetailsSupplementViewModel.cs" />
     <Compile Include="ViewModels\AllTopics\TopicDetailsViewModel.cs" />
     <Compile Include="ViewModels\Home\TopicViewModel.cs" />
     <Compile Include="ViewModels\ManageViewModels.cs" />

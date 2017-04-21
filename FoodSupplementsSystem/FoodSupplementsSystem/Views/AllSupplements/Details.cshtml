@@ -1,7 +1,43 @@
-﻿@model FoodSupplementsSystem.ViewModels.AllSupplements.SupplementDetailsViewModel
+﻿@model FoodSupplementsSystem.ViewModels.AllSupplements.DetailsSupplementViewModel
 @{
     ViewBag.Title = "Supplements Details " + Model.Name;
 }
 
-<h2>Details</h2>
+<h2>Details Page for selected supplement <i>@Model.Name</i></h2>
+
+<h4><strong>Name: @Model.Name</strong></h4>
+
+<h4><strong>Picture: </strong></h4>
+<div>
+    <img src="@Url.Content(@Model.ImageUrl)" alt="alternative text" />
+</div>
+
+<h4><strong>Ingredients: </strong></h4>
+<div>
+    @Model.Ingredients
+</div>
+
+<h4><strong>Use: </strong></h4>
+<div>
+    @Model.Use
+</div>
+
+@if (Model.Description != null)
+{
+    <h4><strong>Description: </strong></h4>
+    <div>
+        @Model.Description
+    </div>
+}
+
+<h4><strong>Category: @Model.CategoryName</strong></h4>
+
+<h4><strong>Brand: @Model.BrandName</strong></h4>
+
+<h4><strong>Topic: @Model.TopicName</strong></h4>
+
+<div>
+    <i>Created by: </i><strong>@Model.AuthorName</strong>
+</div>
+<i>Created On: </i> @Model.DateCreated
 

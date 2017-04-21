@@ -4,6 +4,7 @@ using FoodSupplementsSystem.ViewModels.AllCategories;
 using FoodSupplementsSystem.Services.Data.Contracts;
 using System.Linq;
 using System.Web.Mvc;
+using System.Data.Entity;
 
 namespace FoodSupplementsSystem.Controllers
 {
@@ -22,7 +23,7 @@ namespace FoodSupplementsSystem.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            var resultCategories = categories.GetAll().ProjectTo<CategoryViewModel>().ToList();
+            var resultCategories = categories.GetAll().Include(c => c.Supplements).ProjectTo<CategoryViewModel>().ToList();
 
             return View(resultCategories);
         }

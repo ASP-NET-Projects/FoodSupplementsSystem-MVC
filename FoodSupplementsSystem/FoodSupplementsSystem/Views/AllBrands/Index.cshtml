@@ -16,7 +16,7 @@
 
         @foreach (var supplement in brand.Supplements)
         {
-            <img src="@Url.Content(supplement.ImageUrl)" alt="alternative text" />
+            <a href="/AllSupplements/Details/3"><img src="@Url.Content(supplement.ImageUrl)" alt="alternative text" /></a>
         }
     </div>
 }
