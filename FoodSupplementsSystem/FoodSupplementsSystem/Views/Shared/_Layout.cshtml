@@ -27,6 +27,7 @@
                     @if (User.Identity.IsAuthenticated)
                     {
                         <li>@Html.ActionLink("AllSupplements", "All", "AllSupplements", new { area = string.Empty }, null)</li>
+                        <li>@Html.ActionLink("AllTopics", "Index", "AllTopics", new { area = string.Empty }, null)</li>
                         <li>@Html.ActionLink("AllCategories", "Index", "AllCategories", new { area = string.Empty }, null)</li>
                         <li>@Html.ActionLink("AllBrands", "Index", "AllBrands", new { area = string.Empty }, null)</li>
                         if (User.IsInRole("Admin"))

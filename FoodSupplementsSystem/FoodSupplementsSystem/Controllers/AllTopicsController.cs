@@ -2,6 +2,7 @@
 using FoodSupplementsSystem.Services.Data.Contracts;
 using FoodSupplementsSystem.ViewModels.AllComments;
 using FoodSupplementsSystem.ViewModels.AllTopics;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -41,6 +42,14 @@ namespace FoodSupplementsSystem.Controllers
                 .ToList();
 
             return View(topic);
+        }
+
+        [HttpGet]
+        public ActionResult Index()
+        {
+            var resultTopics = this.topics.GetAll().Include(t => t.Supplements).ProjectTo<TopicViewModel>().ToList();
+
+            return View(resultTopics);
         }
     }
 }
