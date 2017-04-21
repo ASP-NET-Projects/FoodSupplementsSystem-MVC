@@ -245,6 +245,7 @@
     <Compile Include="Controllers\AllCommentsController.cs" />
     <Compile Include="Controllers\AllSupplementsController.cs" />
     <Compile Include="Controllers\AllTopicsController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">

@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using FoodSupplementsSystem.Data.Models;
+using FoodSupplementsSystem.Data.Repositories;
 using FoodSupplementsSystem.Services.Data.Contracts;
 using FoodSupplementsSystem.ViewModels.AllComments;
 using System;
@@ -8,13 +9,14 @@ using System.Web.Mvc;
 
 namespace FoodSupplementsSystem.Controllers
 {
-    public class AllCommentsController : Controller
+    public class AllCommentsController : UserController
     {
         private ITopicsService topics;
 
         private ICommentsService comments;
 
-        public AllCommentsController(ITopicsService topics, ICommentsService comments)
+        public AllCommentsController(ITopicsService topics, ICommentsService comments, IRepository<ApplicationUser> repoUser) 
+            : base(repoUser)
         {
             this.topics = topics;
             this.comments = comments;
@@ -35,6 +37,7 @@ namespace FoodSupplementsSystem.Controllers
 
                 dbComment.TopicId = comment.TopicId;
                 dbComment.CreationDate = DateTime.UtcNow;
+                dbComment.Author = this.UserProfile;
                 this.comments.Create(dbComment);
 
                 var viewModel = Mapper.Map<CommentViewModel>(dbComment);

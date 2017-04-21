@@ -8,16 +8,19 @@ using AutoMapper.QueryableExtensions;
 using FoodSupplementsSystem.Infrastructure.Populators;
 using AutoMapper;
 using FoodSupplementsSystem.Data.Models;
+using FoodSupplementsSystem.Controllers;
+using FoodSupplementsSystem.Data.Repositories;
 
 namespace FoodSupplementsSystem.Areas.Administration.Controllers
 {
     [Authorize(Roles = "Admin")]
-    public class SupplementsController : Controller
+    public class SupplementsController : UserController
     {
         private ISupplementsService supplements;
         private IDropDownListPopulator populator;
 
-        public SupplementsController(ISupplementsService supplements, IDropDownListPopulator populator)
+        public SupplementsController(ISupplementsService supplements, IDropDownListPopulator populator, IRepository<ApplicationUser> repoUser)
+            : base(repoUser)
         {
             this.supplements = supplements;
             this.populator = populator;
@@ -48,7 +51,7 @@ namespace FoodSupplementsSystem.Areas.Administration.Controllers
             {
                 var dbSupplement = Mapper.Map<Supplement>(supplement);
                 dbSupplement.CreationDate = DateTime.UtcNow;
-                //dbSupplement.Author = this.UserProfile;
+                dbSupplement.Author = this.UserProfile;
 
                 this.supplements.Create(dbSupplement);
 
