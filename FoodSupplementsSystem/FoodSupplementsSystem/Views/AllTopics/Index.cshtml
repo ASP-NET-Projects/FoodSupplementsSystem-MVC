@@ -1,6 +1,22 @@
-﻿
-@{
-    ViewBag.Title = "Index";
-}
+﻿@model IList<FoodSupplementsSystem.ViewModels.AllTopics.TopicViewModel>
 
-<h2>All topics</h2>
+@foreach (var topic in Model)
+{
+    <div class="col-md-6">
+        <a href="/AllTopics/Details/@topic.Id"><h3>@topic.Name</h3></a>
+            <div><i>@topic.Description</i></div>
+            @if (topic.Supplements.Count != 0)
+            {
+                <p>All registered supplements in this topic!</p>
+            }
+            else
+            {
+                <p>No supplements.</p>
+            }
+
+            @foreach (var supplement in topic.Supplements)
+            {
+                <a href="/AllSupplements/Details/@supplement.Id"><img src="@Url.Content(supplement.ImageUrl)" alt="alternative text" /></a>
+            }
+</div>
+}
