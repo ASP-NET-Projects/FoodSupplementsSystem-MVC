@@ -1,4 +1,7 @@
 ﻿@model IList<FoodSupplementsSystem.ViewModels.Home.TopicViewModel>
+
+<div class="text-center"><h1>Most Commented Topics</h1></div>
+
 @{ var topics = Model.Count / 3 == 0 ? Model.Count : Model.Count / 3;}
 @for (int i = 0; i < topics; i++)
 {

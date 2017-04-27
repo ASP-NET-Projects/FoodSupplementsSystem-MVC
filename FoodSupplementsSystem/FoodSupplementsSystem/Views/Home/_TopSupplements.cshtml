@@ -6,7 +6,7 @@
 @foreach (var supplement in Model)
 {
     <div class="col-md-4">
-        <img src="@Url.Content(supplement.ImageUrl)" alt="alternative text" />
+        <a href="/AllSupplements/Details/@supplement.Id"><img src="@Url.Content(supplement.ImageUrl)" alt="alternative text" /></a>
         <h3>@supplement.Name</h3>
     </div>
 }
