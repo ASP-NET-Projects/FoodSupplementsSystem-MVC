@@ -245,6 +245,7 @@
     <Compile Include="Controllers\AllCommentsController.cs" />
     <Compile Include="Controllers\AllSupplementsController.cs" />
     <Compile Include="Controllers\AllTopicsController.cs" />
+    <Compile Include="Controllers\AllFeedbacksController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -267,6 +268,7 @@
     <Compile Include="ViewModels\AllSupplements\DetailsSupplementViewModel.cs" />
     <Compile Include="ViewModels\AllTopics\TopicDetailsViewModel.cs" />
     <Compile Include="ViewModels\AllTopics\TopicViewModel.cs" />
+    <Compile Include="ViewModels\AllFeedbacks\FeedbackViewModel.cs" />
     <Compile Include="ViewModels\Home\TopicViewModel.cs" />
     <Compile Include="ViewModels\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -436,6 +438,7 @@
     <Content Include="Views\AllSupplements\Details.cshtml" />
     <Content Include="Views\AllTopics\_PostCommentPartial.cshtml" />
     <Content Include="Views\AllTopics\Index.cshtml" />
+    <Content Include="Views\AllFeedbacks\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
