@@ -58,6 +58,8 @@ namespace FoodSupplementsSystem.Data.Migrations
 
             seed.Comments.ForEach(x=>context.Comments.Add(x));
 
+            seed.Feedbacks.ForEach(x=>context.Feedbacks.Add(x));
+
             context.SaveChanges();
         }
     }

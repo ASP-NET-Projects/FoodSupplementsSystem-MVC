@@ -21,6 +21,8 @@ namespace FoodSupplementsSystem.Data
 
         IDbSet<Comment> Comments { get; set; }
 
+        IDbSet<Feedback> Feedbacks { get; set; }
+
         DbSet<TEntity> Set<TEntity>() where TEntity : class;
 
         DbEntityEntry<TEntity> Entry<TEntity>(TEntity entity) where TEntity : class;

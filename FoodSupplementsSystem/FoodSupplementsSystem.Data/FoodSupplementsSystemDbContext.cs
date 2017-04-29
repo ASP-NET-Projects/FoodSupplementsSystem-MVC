@@ -22,6 +22,8 @@ namespace FoodSupplementsSystem.Data
 
         public IDbSet<Topic> Topics { get; set; }
 
+        public IDbSet<Feedback> Feedbacks { get; set; }
+
         public static FoodSupplementsSystemDbContext Create()
         {
             return new FoodSupplementsSystemDbContext();

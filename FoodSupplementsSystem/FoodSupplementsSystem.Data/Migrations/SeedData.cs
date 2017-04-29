@@ -18,6 +18,8 @@ namespace FoodSupplementsSystem.Data.Migrations
 
         public List<Comment> Comments;
 
+        public List<Feedback> Feedbacks;
+
         public ApplicationUser Author { get; set; }
 
         public SeedData(ApplicationUser author)
@@ -270,6 +272,50 @@ namespace FoodSupplementsSystem.Data.Migrations
             {
                 Topic = Topics[5],
                 Content = "hvgcfdxetryuiokl,mknjbhvgfcdxser5t6y7uiJKHUIYFTDRFCHGVHBJolkmnjhbvgfcdxsertyuik",
+                CreationDate = DateTime.Now.AddDays(Rand.Next(-5, 5)),
+                Author = user
+            });
+
+            this.Feedbacks = new List<Feedback>();
+            Feedbacks.Add(new Feedback()
+            {
+                Title = "title1",
+                Content = "content for title1",
+                CreationDate = DateTime.Now.AddDays(Rand.Next(-5, 5)),
+                Author = user
+            });
+            Feedbacks.Add(new Feedback()
+            {
+                Title = "title2",
+                Content = "content for title2",
+                CreationDate = DateTime.Now.AddDays(Rand.Next(-5, 5)),
+                Author = user
+            });
+            Feedbacks.Add(new Feedback()
+            {
+                Title = "title3",
+                Content = "content for title3",
+                CreationDate = DateTime.Now.AddDays(Rand.Next(-5, 5)),
+                Author = user
+            });
+            Feedbacks.Add(new Feedback()
+            {
+                Title = "title4",
+                Content = "content for title4",
+                CreationDate = DateTime.Now.AddDays(Rand.Next(-5, 5)),
+                Author = user
+            });
+            Feedbacks.Add(new Feedback()
+            {
+                Title = "title5",
+                Content = "content for title5",
+                CreationDate = DateTime.Now.AddDays(Rand.Next(-5, 5)),
+                Author = user
+            });
+            Feedbacks.Add(new Feedback()
+            {
+                Title = "title6",
+                Content = "content for title6",
                 CreationDate = DateTime.Now.AddDays(Rand.Next(-5, 5)),
                 Author = user
             });
