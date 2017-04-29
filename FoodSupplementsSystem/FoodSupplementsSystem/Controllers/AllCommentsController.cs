@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace FoodSupplementsSystem.Controllers
 {
+    [Authorize]
     public class AllCommentsController : UserController
     {
         private ITopicsService topics;
