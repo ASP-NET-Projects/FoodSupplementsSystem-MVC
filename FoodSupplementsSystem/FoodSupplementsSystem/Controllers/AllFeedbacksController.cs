@@ -39,6 +39,7 @@ namespace FoodSupplementsSystem.Controllers
             dbFeedback.Author = this.UserProfile;
             this.feedbacks.Create(dbFeedback);
 
+            this.TempData["Notification"] = "Thank you for your feedback!";
             return this.Redirect("/");
         }
     }
