@@ -6,6 +6,10 @@ namespace FoodSupplementsSystem.Data.Models
 {
     public class Feedback
     {
+        public Feedback()
+        {
+        }
+
         public int Id { get; set; }
 
         [Required]
