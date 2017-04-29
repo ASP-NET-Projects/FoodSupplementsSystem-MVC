@@ -8,6 +8,7 @@ namespace FoodSupplementsSystem.ViewModels.AllFeedbacks
     public class FeedbackViewModel : IMapFrom<Feedback>
     {
         [Required]
+        [StringLength(20)]
         public string Title { get; set; }
 
         [Required]
