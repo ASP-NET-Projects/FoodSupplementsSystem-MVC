@@ -319,6 +319,132 @@ namespace FoodSupplementsSystem.Data.Migrations
                 CreationDate = DateTime.Now.AddDays(Rand.Next(-5, 5)),
                 Author = user
             });
+            Feedbacks.Add(new Feedback()
+            {
+                Title = "title1",
+                Content = "content for title1",
+                CreationDate = DateTime.Now.AddDays(Rand.Next(-5, 5)),
+                Author = user
+            });
+            Feedbacks.Add(new Feedback()
+            {
+                Title = "title2",
+                Content = "content for title2",
+                CreationDate = DateTime.Now.AddDays(Rand.Next(-5, 5)),
+                Author = user
+            });
+            Feedbacks.Add(new Feedback()
+            {
+                Title = "title3",
+                Content = "content for title3",
+                CreationDate = DateTime.Now.AddDays(Rand.Next(-5, 5)),
+                Author = user
+            });
+            Feedbacks.Add(new Feedback()
+            {
+                Title = "title4",
+                Content = "content for title4",
+                CreationDate = DateTime.Now.AddDays(Rand.Next(-5, 5)),
+                Author = user
+            });
+            Feedbacks.Add(new Feedback()
+            {
+                Title = "title5",
+                Content = "content for title5",
+                CreationDate = DateTime.Now.AddDays(Rand.Next(-5, 5)),
+                Author = user
+            });
+            Feedbacks.Add(new Feedback()
+            {
+                Title = "title6",
+                Content = "content for title6",
+                CreationDate = DateTime.Now.AddDays(Rand.Next(-5, 5)),
+                Author = user
+            });
+            Feedbacks.Add(new Feedback()
+            {
+                Title = "title1",
+                Content = "content for title1",
+                CreationDate = DateTime.Now.AddDays(Rand.Next(-5, 5)),
+                Author = user
+            });
+            Feedbacks.Add(new Feedback()
+            {
+                Title = "title2",
+                Content = "content for title2",
+                CreationDate = DateTime.Now.AddDays(Rand.Next(-5, 5)),
+                Author = user
+            });
+            Feedbacks.Add(new Feedback()
+            {
+                Title = "title3",
+                Content = "content for title3",
+                CreationDate = DateTime.Now.AddDays(Rand.Next(-5, 5)),
+                Author = user
+            });
+            Feedbacks.Add(new Feedback()
+            {
+                Title = "title4",
+                Content = "content for title4",
+                CreationDate = DateTime.Now.AddDays(Rand.Next(-5, 5)),
+                Author = user
+            });
+            Feedbacks.Add(new Feedback()
+            {
+                Title = "title5",
+                Content = "content for title5",
+                CreationDate = DateTime.Now.AddDays(Rand.Next(-5, 5)),
+                Author = user
+            });
+            Feedbacks.Add(new Feedback()
+            {
+                Title = "title6",
+                Content = "content for title6",
+                CreationDate = DateTime.Now.AddDays(Rand.Next(-5, 5)),
+                Author = user
+            });
+            Feedbacks.Add(new Feedback()
+            {
+                Title = "title1",
+                Content = "content for title1",
+                CreationDate = DateTime.Now.AddDays(Rand.Next(-5, 5)),
+                Author = user
+            });
+            Feedbacks.Add(new Feedback()
+            {
+                Title = "title2",
+                Content = "content for title2",
+                CreationDate = DateTime.Now.AddDays(Rand.Next(-5, 5)),
+                Author = user
+            });
+            Feedbacks.Add(new Feedback()
+            {
+                Title = "title3",
+                Content = "content for title3",
+                CreationDate = DateTime.Now.AddDays(Rand.Next(-5, 5)),
+                Author = user
+            });
+            Feedbacks.Add(new Feedback()
+            {
+                Title = "title4",
+                Content = "content for title4",
+                CreationDate = DateTime.Now.AddDays(Rand.Next(-5, 5)),
+                Author = user
+            });
+            Feedbacks.Add(new Feedback()
+            {
+                Title = "title5",
+                Content = "content for title5",
+                CreationDate = DateTime.Now.AddDays(Rand.Next(-5, 5)),
+                Author = user
+            });
+            Feedbacks.Add(new Feedback()
+            {
+                Title = "title6",
+                Content = "content for title6",
+                CreationDate = DateTime.Now.AddDays(Rand.Next(-5, 5)),
+                Author = user
+            });
         }
     }
 }

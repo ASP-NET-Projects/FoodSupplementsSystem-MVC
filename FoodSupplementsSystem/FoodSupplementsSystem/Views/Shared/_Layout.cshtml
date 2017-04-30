@@ -30,9 +30,9 @@
                         <li>
                             Topics/Categories/Brands
                             <ul>
-                                <li>@Html.ActionLink("See All Topics", "Index", "AllTopics", new { area = string.Empty }, null)</li>
-                                <li>@Html.ActionLink("See All Categories", "Index", "AllCategories", new { area = string.Empty }, null)</li>
-                                <li>@Html.ActionLink("See All Brands", "Index", "AllBrands", new { area = string.Empty }, null)</li>
+                                <li>@Html.ActionLink("View All Topics", "Index", "AllTopics", new { area = string.Empty }, null)</li>
+                                <li>@Html.ActionLink("View All Categories", "Index", "AllCategories", new { area = string.Empty }, null)</li>
+                                <li>@Html.ActionLink("View All Brands", "Index", "AllBrands", new { area = string.Empty }, null)</li>
                             </ul>
                         </li>
                         <li>@Html.ActionLink("Send Feedback", "Create", "AllFeedbacks", new { area = string.Empty }, null)</li>
@@ -41,11 +41,12 @@
                             <li>
                                 Administration
                                 <ul>
-                                    <li>@Html.ActionLink("ManageCategories", "Index", "Categories", new { area = "Administration" }, null)</li>
-                                    <li>@Html.ActionLink("ManageTopics", "Index", "Topics", new { area = "Administration" }, null)</li>
-                                    <li>@Html.ActionLink("ManageBrands", "Index", "Brands", new { area = "Administration" }, null)</li>
-                                    <li>@Html.ActionLink("ManageSupplements", "Index", "Supplements", new { area = "Administration" }, null)</li>
-                                    <li>@Html.ActionLink("AddSupplement", "Add", "Supplements", new { area = "Administration" }, null)</li>
+                                    <li>@Html.ActionLink("Manage Categories", "Index", "Categories", new { area = "Administration" }, null)</li>
+                                    <li>@Html.ActionLink("Manage Topics", "Index", "Topics", new { area = "Administration" }, null)</li>
+                                    <li>@Html.ActionLink("Manage Brands", "Index", "Brands", new { area = "Administration" }, null)</li>
+                                    <li>@Html.ActionLink("Manage Supplements", "Index", "Supplements", new { area = "Administration" }, null)</li>
+                                    <li>@Html.ActionLink("Add Supplement", "Add", "Supplements", new { area = "Administration" }, null)</li>
+                                    <li>@Html.ActionLink("View All Feedbacks", "Index", "PageableFeedbackList", new { area = "Administration" }, null)</li>
                                 </ul>
                             </li>
                         }
