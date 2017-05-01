@@ -1,8 +1,9 @@
-﻿using FoodSupplementsSystem.Areas.Administration.Controllers;
-using FoodSupplementsSystem.Services.Data.Contracts;
-using Moq;
+﻿using Moq;
 using NUnit.Framework;
 using TestStack.FluentMVCTesting;
+
+using FoodSupplementsSystem.Areas.Administration.Controllers;
+using FoodSupplementsSystem.Services.Data.Contracts;
 
 namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.CategoriesControllerTests
 {

@@ -1,6 +1,7 @@
-﻿using FoodSupplementsSystem.Data.Models;
+﻿using System.ComponentModel.DataAnnotations;
+
+using FoodSupplementsSystem.Data.Models;
 using FoodSupplementsSystem.Infrastructure.Mapping;
-using System.ComponentModel.DataAnnotations;
 
 namespace FoodSupplementsSystem.ViewModels.AllComments
 {

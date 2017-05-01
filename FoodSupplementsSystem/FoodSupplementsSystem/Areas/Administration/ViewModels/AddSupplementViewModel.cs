@@ -1,13 +1,11 @@
-﻿using FoodSupplementsSystem.Data.Models;
-using FoodSupplementsSystem.Infrastructure.Mapping;
-using FoodSupplementsSystem.Infrastructure.Validation;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
+
+using FoodSupplementsSystem.Data.Models;
+using FoodSupplementsSystem.Infrastructure.Mapping;
+using FoodSupplementsSystem.Infrastructure.Validation;
 
 namespace FoodSupplementsSystem.Areas.Administration.ViewModels
 {

@@ -1,13 +1,15 @@
-﻿using FoodSupplementsSystem.App_Start;
+﻿using System.Collections.Generic;
+using System.Linq;
+
+using Moq;
+using NUnit.Framework;
+using TestStack.FluentMVCTesting;
+
+using FoodSupplementsSystem.App_Start;
 using FoodSupplementsSystem.Controllers;
 using FoodSupplementsSystem.Data.Models;
 using FoodSupplementsSystem.Infrastructure.Services;
 using FoodSupplementsSystem.Services.Data.Contracts;
-using Moq;
-using NUnit.Framework;
-using System.Collections.Generic;
-using System.Linq;
-using TestStack.FluentMVCTesting;
 
 namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.HomeControllerTests
 {

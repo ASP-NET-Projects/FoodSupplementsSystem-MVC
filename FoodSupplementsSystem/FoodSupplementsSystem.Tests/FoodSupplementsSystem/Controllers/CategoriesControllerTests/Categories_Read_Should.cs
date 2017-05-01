@@ -1,17 +1,17 @@
-﻿using FoodSupplementsSystem.App_Start;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Web.Mvc;
+
+using Kendo.Mvc.UI;
+
+using Moq;
+using NUnit.Framework;
+
+using FoodSupplementsSystem.App_Start;
 using FoodSupplementsSystem.Areas.Administration.Controllers;
 using FoodSupplementsSystem.Areas.Administration.ViewModels;
 using FoodSupplementsSystem.Data.Models;
 using FoodSupplementsSystem.Services.Data.Contracts;
-using Kendo.Mvc.UI;
-using Moq;
-using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web.Mvc;
 
 namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.CategoriesControllerTests
 {

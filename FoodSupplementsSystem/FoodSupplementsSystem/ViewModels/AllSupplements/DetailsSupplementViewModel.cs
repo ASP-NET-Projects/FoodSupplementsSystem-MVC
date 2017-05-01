@@ -1,8 +1,7 @@
-﻿using FoodSupplementsSystem.Data.Models;
+﻿using AutoMapper;
+
+using FoodSupplementsSystem.Data.Models;
 using FoodSupplementsSystem.Infrastructure.Mapping;
-using System.ComponentModel.DataAnnotations;
-using AutoMapper;
-using System;
 
 namespace FoodSupplementsSystem.ViewModels.AllSupplements
 {

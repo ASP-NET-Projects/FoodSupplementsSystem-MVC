@@ -1,15 +1,18 @@
 ﻿using System;
 using System.Web.Mvc;
+
 using Kendo.Mvc.Extensions;
 using Kendo.Mvc.UI;
-using FoodSupplementsSystem.Areas.Administration.ViewModels;
-using FoodSupplementsSystem.Services.Data.Contracts;
-using AutoMapper.QueryableExtensions;
-using FoodSupplementsSystem.Infrastructure.Populators;
+
 using AutoMapper;
-using FoodSupplementsSystem.Data.Models;
+using AutoMapper.QueryableExtensions;
+
+using FoodSupplementsSystem.Areas.Administration.ViewModels;
 using FoodSupplementsSystem.Controllers;
+using FoodSupplementsSystem.Data.Models;
 using FoodSupplementsSystem.Data.Repositories;
+using FoodSupplementsSystem.Infrastructure.Populators;
+using FoodSupplementsSystem.Services.Data.Contracts;
 
 namespace FoodSupplementsSystem.Areas.Administration.Controllers
 {

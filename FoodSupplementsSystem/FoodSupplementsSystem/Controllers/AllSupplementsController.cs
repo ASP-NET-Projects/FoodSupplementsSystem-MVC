@@ -1,12 +1,14 @@
-﻿using AutoMapper.QueryableExtensions;
+﻿using System.Web.Mvc;
+using System.Linq;
+using System.Web;
+
+using Kendo.Mvc.Extensions;
+using Kendo.Mvc.UI;
+using AutoMapper.QueryableExtensions;
+
 using FoodSupplementsSystem.Infrastructure.Populators;
 using FoodSupplementsSystem.Services.Data.Contracts;
 using FoodSupplementsSystem.ViewModels.AllSupplements;
-using Kendo.Mvc.Extensions;
-using Kendo.Mvc.UI;
-using System.Web.Mvc;
-using System.Linq;
-using System.Web;
 
 namespace FoodSupplementsSystem.Controllers
 {

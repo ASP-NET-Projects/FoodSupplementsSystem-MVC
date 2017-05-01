@@ -1,8 +1,10 @@
-using FoodSupplementsSystem.Data.Models;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
 using System.Data.Entity.Migrations;
 using System.Linq;
+
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+
+using FoodSupplementsSystem.Data.Models;
 
 namespace FoodSupplementsSystem.Data.Migrations
 {

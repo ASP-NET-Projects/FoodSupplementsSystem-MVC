@@ -1,8 +1,10 @@
-﻿using FoodSupplementsSystem.Areas.Administration.Controllers;
-using FoodSupplementsSystem.Services.Data.Contracts;
+﻿using System;
+
 using Moq;
 using NUnit.Framework;
-using System;
+
+using FoodSupplementsSystem.Areas.Administration.Controllers;
+using FoodSupplementsSystem.Services.Data.Contracts;
 
 namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.CategoriesControllerTests
 {

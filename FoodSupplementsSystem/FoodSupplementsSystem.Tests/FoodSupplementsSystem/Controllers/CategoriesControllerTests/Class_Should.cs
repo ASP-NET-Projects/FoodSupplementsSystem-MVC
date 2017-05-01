@@ -1,6 +1,8 @@
-﻿using FoodSupplementsSystem.Areas.Administration.Controllers;
+﻿using System;
+
 using NUnit.Framework;
-using System;
+
+using FoodSupplementsSystem.Areas.Administration.Controllers;
 
 namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.CategoriesControllerTests
 {

@@ -1,7 +1,9 @@
-﻿using FoodSupplementsSystem.Data.Models;
-using FoodSupplementsSystem.Infrastructure.Mapping;
-using System.Linq;
+﻿using System.Linq;
+
 using AutoMapper;
+
+using FoodSupplementsSystem.Data.Models;
+using FoodSupplementsSystem.Infrastructure.Mapping;
 
 namespace FoodSupplementsSystem.ViewModels.Home
 {

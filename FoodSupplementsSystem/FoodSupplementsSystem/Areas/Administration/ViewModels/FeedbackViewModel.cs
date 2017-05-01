@@ -1,7 +1,9 @@
-﻿using FoodSupplementsSystem.Data.Models;
-using FoodSupplementsSystem.Infrastructure.Mapping;
-using System;
+﻿using System;
+
 using AutoMapper;
+
+using FoodSupplementsSystem.Data.Models;
+using FoodSupplementsSystem.Infrastructure.Mapping;
 using FoodSupplementsSystem.Infrastructure.Sanitizer;
 
 namespace FoodSupplementsSystem.Areas.Administration.ViewModels

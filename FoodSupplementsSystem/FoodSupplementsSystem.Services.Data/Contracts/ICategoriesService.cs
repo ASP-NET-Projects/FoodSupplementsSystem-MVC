@@ -1,5 +1,6 @@
-﻿using FoodSupplementsSystem.Data.Models;
-using System.Linq;
+﻿using System.Linq;
+
+using FoodSupplementsSystem.Data.Models;
 
 namespace FoodSupplementsSystem.Services.Data.Contracts
 {

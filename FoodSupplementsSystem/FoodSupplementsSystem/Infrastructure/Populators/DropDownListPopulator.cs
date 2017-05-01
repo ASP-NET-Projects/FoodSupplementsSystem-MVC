@@ -1,8 +1,9 @@
-﻿using FoodSupplementsSystem.Infrastructure.Caching;
-using FoodSupplementsSystem.Services.Data.Contracts;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
+
+using FoodSupplementsSystem.Infrastructure.Caching;
+using FoodSupplementsSystem.Services.Data.Contracts;
 
 namespace FoodSupplementsSystem.Infrastructure.Populators
 {

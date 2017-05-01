@@ -1,7 +1,8 @@
-﻿using System;
-using System.Data.Entity;
-using FoodSupplementsSystem.Data.Models;
+﻿using System.Data.Entity;
+
 using Microsoft.AspNet.Identity.EntityFramework;
+
+using FoodSupplementsSystem.Data.Models;
 
 namespace FoodSupplementsSystem.Data
 {

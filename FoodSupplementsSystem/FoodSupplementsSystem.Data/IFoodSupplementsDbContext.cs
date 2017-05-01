@@ -1,7 +1,8 @@
-﻿using FoodSupplementsSystem.Data.Models;
-using System;
+﻿using System;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
+
+using FoodSupplementsSystem.Data.Models;
 
 namespace FoodSupplementsSystem.Data
 {

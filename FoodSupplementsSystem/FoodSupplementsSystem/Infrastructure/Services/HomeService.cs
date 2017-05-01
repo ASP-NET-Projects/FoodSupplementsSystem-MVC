@@ -1,8 +1,10 @@
-﻿using AutoMapper.QueryableExtensions;
+﻿using System.Collections.Generic;
+using System.Linq;
+
+using AutoMapper.QueryableExtensions;
+
 using FoodSupplementsSystem.Services.Data.Contracts;
 using FoodSupplementsSystem.ViewModels.Home;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace FoodSupplementsSystem.Infrastructure.Services
 {

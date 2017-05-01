@@ -1,9 +1,10 @@
-﻿using FoodSupplementsSystem.Data.Models;
-using FoodSupplementsSystem.Data.Repositories;
-using System;
+﻿using System;
 using System.Linq;
 using System.Web.Mvc;
 using System.Web.Routing;
+
+using FoodSupplementsSystem.Data.Models;
+using FoodSupplementsSystem.Data.Repositories;
 
 namespace FoodSupplementsSystem.Controllers
 {

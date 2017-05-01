@@ -1,8 +1,10 @@
-﻿using Bytes2you.Validation;
+﻿using System.Linq;
+
+using Bytes2you.Validation;
+
 using FoodSupplementsSystem.Data.Models;
 using FoodSupplementsSystem.Data.Repositories;
 using FoodSupplementsSystem.Services.Data.Contracts;
-using System.Linq;
 
 namespace FoodSupplementsSystem.Services.Data
 {

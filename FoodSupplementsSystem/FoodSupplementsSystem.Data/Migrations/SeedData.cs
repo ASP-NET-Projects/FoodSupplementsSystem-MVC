@@ -1,6 +1,7 @@
-﻿using FoodSupplementsSystem.Data.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
+
+using FoodSupplementsSystem.Data.Models;
 
 namespace FoodSupplementsSystem.Data.Migrations
 {

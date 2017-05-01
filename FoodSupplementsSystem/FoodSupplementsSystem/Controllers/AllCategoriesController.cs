@@ -1,10 +1,12 @@
-﻿using AutoMapper.QueryableExtensions;
-using Bytes2you.Validation;
-using FoodSupplementsSystem.ViewModels.AllCategories;
-using FoodSupplementsSystem.Services.Data.Contracts;
-using System.Linq;
+﻿using System.Linq;
 using System.Web.Mvc;
 using System.Data.Entity;
+
+using AutoMapper.QueryableExtensions;
+using Bytes2you.Validation;
+
+using FoodSupplementsSystem.ViewModels.AllCategories;
+using FoodSupplementsSystem.Services.Data.Contracts;
 
 namespace FoodSupplementsSystem.Controllers
 {

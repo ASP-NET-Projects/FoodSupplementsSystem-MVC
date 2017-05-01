@@ -1,6 +1,7 @@
-﻿using FoodSupplementsSystem.Data.Models;
+﻿using System.Collections.Generic;
+
+using FoodSupplementsSystem.Data.Models;
 using FoodSupplementsSystem.Infrastructure.Mapping;
-using System.Collections.Generic;
 
 namespace FoodSupplementsSystem.ViewModels.AllCategories
 {

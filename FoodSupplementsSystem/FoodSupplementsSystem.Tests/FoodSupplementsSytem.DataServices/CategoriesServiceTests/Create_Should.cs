@@ -1,9 +1,12 @@
-﻿using FoodSupplementsSystem.Data.Models;
-using FoodSupplementsSystem.Data.Repositories;
-using FoodSupplementsSystem.Services.Data;
+﻿using System;
+
 using Moq;
 using NUnit.Framework;
-using System;
+
+using FoodSupplementsSystem.Data.Models;
+using FoodSupplementsSystem.Data.Repositories;
+using FoodSupplementsSystem.Services.Data;
+
 namespace FoodSupplementsSystem.Tests.FoodSupplementsSytem.DataServices.CategoriesServiceTests
 {
     [TestFixture]

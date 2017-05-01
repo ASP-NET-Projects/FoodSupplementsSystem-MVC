@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Web.Mvc;
+
 using Kendo.Mvc.Extensions;
 using Kendo.Mvc.UI;
+using AutoMapper.QueryableExtensions;
+
 using FoodSupplementsSystem.Services.Data.Contracts;
 using FoodSupplementsSystem.Areas.Administration.ViewModels;
-using AutoMapper.QueryableExtensions;
 
 namespace FoodSupplementsSystem.Areas.Administration.Controllers
 {

@@ -1,6 +1,7 @@
-﻿using FoodSupplementsSystem.Data.Models;
+﻿using AutoMapper;
+
+using FoodSupplementsSystem.Data.Models;
 using FoodSupplementsSystem.Infrastructure.Mapping;
-using AutoMapper;
 
 namespace FoodSupplementsSystem.Areas.Administration.ViewModels
 {
