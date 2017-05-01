@@ -406,42 +406,42 @@ namespace FoodSupplementsSystem.Data.Migrations
             Feedbacks.Add(new Feedback()
             {
                 Title = "title1",
-                Content = "content for title1",
+                Content = "<h3>content for title1</h3>",
                 CreationDate = DateTime.Now.AddDays(Rand.Next(-5, 5)),
                 Author = user
             });
             Feedbacks.Add(new Feedback()
             {
                 Title = "title2",
-                Content = "content for title2",
+                Content = "<h3>content for title2</h3>",
                 CreationDate = DateTime.Now.AddDays(Rand.Next(-5, 5)),
                 Author = user
             });
             Feedbacks.Add(new Feedback()
             {
                 Title = "title3",
-                Content = "content for title3",
+                Content = "<h3>content for title3</h3>",
                 CreationDate = DateTime.Now.AddDays(Rand.Next(-5, 5)),
                 Author = user
             });
             Feedbacks.Add(new Feedback()
             {
                 Title = "title4",
-                Content = "content for title4",
+                Content = "<h3>content for title4</h3>",
                 CreationDate = DateTime.Now.AddDays(Rand.Next(-5, 5)),
                 Author = user
             });
             Feedbacks.Add(new Feedback()
             {
                 Title = "title5",
-                Content = "content for title5",
+                Content = "<h3>content for title5</h3>",
                 CreationDate = DateTime.Now.AddDays(Rand.Next(-5, 5)),
                 Author = user
             });
             Feedbacks.Add(new Feedback()
             {
-                Title = "title6",
-                Content = "content for title6",
+                Title = "title666",
+                Content = "<h3>content for title6</h3><a onload='alert()'></a>",
                 CreationDate = DateTime.Now.AddDays(Rand.Next(-5, 5)),
                 Author = user
             });
