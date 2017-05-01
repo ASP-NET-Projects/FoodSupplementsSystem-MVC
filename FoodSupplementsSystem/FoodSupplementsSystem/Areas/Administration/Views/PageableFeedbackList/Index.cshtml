@@ -16,7 +16,7 @@
         <tr>
             <td><b>@feedback.AuthorName</b></td>
             <td>@feedback.Title</td>
-            <td>@feedback.Content</td>
+            <td>@Html.Raw(feedback.SanitizedContent)</td>
             <td>@feedback.CreationDate</td>
         </tr>
     }
