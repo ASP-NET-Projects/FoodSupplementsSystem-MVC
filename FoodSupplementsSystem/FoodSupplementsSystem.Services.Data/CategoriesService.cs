@@ -10,9 +10,9 @@ namespace FoodSupplementsSystem.Services.Data
 {
     public class CategoriesService : ICategoriesService
     {
-        private IRepository<Category> categories;
+        private IEfGenericRepository<Category> categories;
 
-        public CategoriesService(IRepository<Category> categories)
+        public CategoriesService(IEfGenericRepository<Category> categories)
         {
             Guard.WhenArgument(categories, "categories").IsNull().Throw();
 

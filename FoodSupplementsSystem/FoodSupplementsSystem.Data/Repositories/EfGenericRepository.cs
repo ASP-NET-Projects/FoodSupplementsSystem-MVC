@@ -1,14 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Linq;
+
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FoodSupplementsSystem.Data.Repositories
 {
-    public class EfGenericRepository<T> : IRepository<T> where T : class
+    public class EfGenericRepository<T> : IEfGenericRepository<T> where T : class
     {
         public EfGenericRepository(IFoodSupplementsSystemDbContext context)
         {

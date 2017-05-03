@@ -10,9 +10,9 @@ namespace FoodSupplementsSystem.Services.Data
 {
     public class CommentsService : ICommentsService
     {
-        private IRepository<Comment> comments;
+        private IEfGenericRepository<Comment> comments;
 
-        public CommentsService(IRepository<Comment> comments)
+        public CommentsService(IEfGenericRepository<Comment> comments)
         {
             Guard.WhenArgument(comments, "comments").IsNull().Throw();
 

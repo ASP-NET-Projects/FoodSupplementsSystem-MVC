@@ -10,9 +10,9 @@ namespace FoodSupplementsSystem.Services.Data
 {
     public class FeedbacksService : IFeedbacksService
     {
-        private IRepository<Feedback> feedbacks;
+        private IEfGenericRepository<Feedback> feedbacks;
 
-        public FeedbacksService(IRepository<Feedback> feedbacks)
+        public FeedbacksService(IEfGenericRepository<Feedback> feedbacks)
         {
             Guard.WhenArgument(feedbacks, "feedbacks").IsNull().Throw();
 

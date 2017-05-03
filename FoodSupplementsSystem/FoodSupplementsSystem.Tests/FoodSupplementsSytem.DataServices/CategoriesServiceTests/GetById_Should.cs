@@ -14,7 +14,7 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSytem.DataServices.Categori
         public void ReturnNull_WhenIdParameterIsInvalid()
         {
             // Arrange
-            var categoriesMock = new Mock<IRepository<Category>>();
+            var categoriesMock = new Mock<IEfGenericRepository<Category>>();
             CategoriesService categoriesService = new CategoriesService(categoriesMock.Object);
 
             // Act
@@ -28,7 +28,7 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSytem.DataServices.Categori
         public void ReturnCategory_WhenIdIsValid()
         {
             //Arrange
-            var categoriesMock = new Mock<IRepository<Category>>();
+            var categoriesMock = new Mock<IEfGenericRepository<Category>>();
             int categoryId = 1;
             Category category = new Category() { Id = categoryId, Name = "Category1" };
 

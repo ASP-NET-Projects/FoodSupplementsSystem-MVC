@@ -16,7 +16,7 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSytem.DataServices.Categori
         public void Throw_WhenThePassedCategoryIsNull()
         {
             //Arrange
-            var categoriesMock = new Mock<IRepository<Category>>();
+            var categoriesMock = new Mock<IEfGenericRepository<Category>>();
             CategoriesService categoriesService = new CategoriesService(categoriesMock.Object);
 
             //Act & Assert
@@ -27,7 +27,7 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSytem.DataServices.Categori
         public void InvokeRepositoryMethodAddOnce_WhenThePassedCategoryIsValid()
         {
             //Arrange
-            var categoriesMock = new Mock<IRepository<Category>>();
+            var categoriesMock = new Mock<IEfGenericRepository<Category>>();
             CategoriesService categoriesService = new CategoriesService(categoriesMock.Object);
             int categoryId = 6;
             Category category = new Category() { Id = categoryId, Name = "Amino Acids" };

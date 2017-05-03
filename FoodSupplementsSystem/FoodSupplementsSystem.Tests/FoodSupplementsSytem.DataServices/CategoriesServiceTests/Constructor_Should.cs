@@ -17,7 +17,7 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSytem.DataServices.Categori
         public void ReturnInstance_WhenParameterIsNotNull()
         {
             //Arrange
-            var categoriesMocked = new Mock<IRepository<Category>>();
+            var categoriesMocked = new Mock<IEfGenericRepository<Category>>();
             CategoriesService categoriesService = new CategoriesService(categoriesMocked.Object);
 
             //Act & Assert
@@ -28,7 +28,7 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSytem.DataServices.Categori
         public void Throw_WhenNullParameterIsPassed()
         {
             //Arrange
-            IRepository<Category> nullRepository = null;
+            IEfGenericRepository<Category> nullRepository = null;
 
             //Act & Assert
             Assert.That(

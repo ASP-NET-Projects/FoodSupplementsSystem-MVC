@@ -15,7 +15,7 @@ namespace FoodSupplementsSystem.Controllers
     {
         private IFeedbacksService feedbacks;
 
-        public AllFeedbacksController(IFeedbacksService feedbacks, IRepository<ApplicationUser> repoUser)
+        public AllFeedbacksController(IFeedbacksService feedbacks, IEfGenericRepository<ApplicationUser> repoUser)
             : base(repoUser)
         {
             this.feedbacks = feedbacks;

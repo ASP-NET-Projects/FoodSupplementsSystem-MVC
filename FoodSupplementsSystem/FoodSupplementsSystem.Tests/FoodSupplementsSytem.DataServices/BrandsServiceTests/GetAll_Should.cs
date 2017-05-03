@@ -17,7 +17,7 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSytem.DataServices.BrandsSe
         public void Invoke_TheRepositoryMethodGetAll_Once()
         {
             //Arrange
-            var brandsMock = new Mock<IRepository<Brand>>();
+            var brandsMock = new Mock<IEfGenericRepository<Brand>>();
             BrandsService brandsService = new BrandsService(brandsMock.Object);
 
             //Act
@@ -31,7 +31,7 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSytem.DataServices.BrandsSe
         public void ReturnResult_WhenInvokingRepositoryMethod_GetAll()
         {
             //Arrange
-            var brandsMock = new Mock<IRepository<Brand>>();
+            var brandsMock = new Mock<IEfGenericRepository<Brand>>();
             IQueryable<Brand> expectedResultCollection = new List<Brand>().AsQueryable();
 
             brandsMock.Setup(c => c.All()).Returns(() =>
@@ -52,7 +52,7 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSytem.DataServices.BrandsSe
         public void ReturnResultOfCorrectType()
         {
             //Arrange
-            var brandsMock = new Mock<IRepository<Brand>>();
+            var brandsMock = new Mock<IEfGenericRepository<Brand>>();
 
             brandsMock.Setup(c => c.All()).Returns(() =>
             {
@@ -73,7 +73,7 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSytem.DataServices.BrandsSe
         public void ReturnNull_WhenReposityMethodGetAll_ReturnsNull()
         {
             //Arrange
-            var brandsMock = new Mock<IRepository<Brand>>();
+            var brandsMock = new Mock<IEfGenericRepository<Brand>>();
 
             brandsMock.Setup(c => c.All()).Returns(() =>
             {

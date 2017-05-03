@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace FoodSupplementsSystem.Data.Repositories
 {
-    public interface IRepository<T> : IDisposable where T : class
+    public interface IEfGenericRepository<T> : IDisposable where T : class
     {
         IQueryable<T> All();
 

@@ -10,9 +10,9 @@ namespace FoodSupplementsSystem.Services.Data
 {
     public class BrandsService : IBrandsService
     {
-        private IRepository<Brand> brands;
+        private IEfGenericRepository<Brand> brands;
 
-        public BrandsService(IRepository<Brand> brands)
+        public BrandsService(IEfGenericRepository<Brand> brands)
         {
             Guard.WhenArgument(brands, "brands").IsNull().Throw();
 

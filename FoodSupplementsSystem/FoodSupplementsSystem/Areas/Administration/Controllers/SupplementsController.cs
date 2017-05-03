@@ -22,7 +22,7 @@ namespace FoodSupplementsSystem.Areas.Administration.Controllers
         private ISupplementsService supplements;
         private IDropDownListPopulator populator;
 
-        public SupplementsController(ISupplementsService supplements, IDropDownListPopulator populator, IRepository<ApplicationUser> repoUser)
+        public SupplementsController(ISupplementsService supplements, IDropDownListPopulator populator, IEfGenericRepository<ApplicationUser> repoUser)
             : base(repoUser)
         {
             this.supplements = supplements;

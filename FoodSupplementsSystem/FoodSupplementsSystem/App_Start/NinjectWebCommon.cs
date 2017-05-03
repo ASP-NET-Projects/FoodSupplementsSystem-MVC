@@ -69,7 +69,7 @@ namespace FoodSupplementsSystem.App_Start
         {
             kernel.Bind(typeof(IFoodSupplementsSystemDbContext)).To(typeof(FoodSupplementsSystemDbContext)).InRequestScope();
 
-            kernel.Bind(typeof(IRepository<>)).To(typeof(EfGenericRepository<>));
+            kernel.Bind(typeof(IEfGenericRepository<>)).To(typeof(EfGenericRepository<>));
 
             kernel.Bind(b => b.From("FoodSupplementsSystem.Services.Data")
                               .SelectAllClasses()

@@ -18,7 +18,7 @@ namespace FoodSupplementsSystem.Controllers
 
         private ICommentsService comments;
 
-        public AllCommentsController(ITopicsService topics, ICommentsService comments, IRepository<ApplicationUser> repoUser) 
+        public AllCommentsController(ITopicsService topics, ICommentsService comments, IEfGenericRepository<ApplicationUser> repoUser) 
             : base(repoUser)
         {
             this.topics = topics;

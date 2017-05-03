@@ -11,11 +11,11 @@ namespace FoodSupplementsSystem.Controllers
     [HandleError]
     public class UserController : Controller
     {
-        protected IRepository<ApplicationUser> repoUser;
+        protected IEfGenericRepository<ApplicationUser> repoUser;
 
         protected ApplicationUser UserProfile { get; private set; }
 
-        public UserController(IRepository<ApplicationUser> repoUser)
+        public UserController(IEfGenericRepository<ApplicationUser> repoUser)
         {
             this.repoUser = repoUser;
         }

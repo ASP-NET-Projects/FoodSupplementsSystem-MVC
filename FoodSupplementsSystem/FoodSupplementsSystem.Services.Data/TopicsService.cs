@@ -10,9 +10,9 @@ namespace FoodSupplementsSystem.Services.Data
 {
     public class TopicsService : ITopicsService
     {
-        private IRepository<Topic> topics;
+        private IEfGenericRepository<Topic> topics;
 
-        public TopicsService(IRepository<Topic> topics)
+        public TopicsService(IEfGenericRepository<Topic> topics)
         {
             this.topics = topics;
         }
