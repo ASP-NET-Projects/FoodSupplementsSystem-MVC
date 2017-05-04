@@ -6,7 +6,7 @@ using Kendo.Mvc.UI;
 using AutoMapper.QueryableExtensions;
 using Bytes2you.Validation;
 
-using FoodSupplementsSystem.Areas.Administration.ViewModels;
+using FoodSupplementsSystem.Areas.Administration.ViewModels.Topics;
 using FoodSupplementsSystem.Services.Data.Contracts;
 
 namespace FoodSupplementsSystem.Areas.Administration.Controllers

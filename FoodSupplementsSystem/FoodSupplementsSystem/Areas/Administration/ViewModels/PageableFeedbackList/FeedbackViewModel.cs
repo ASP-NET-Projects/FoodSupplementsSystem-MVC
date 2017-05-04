@@ -6,7 +6,7 @@ using FoodSupplementsSystem.Data.Models;
 using FoodSupplementsSystem.Infrastructure.Mapping;
 using FoodSupplementsSystem.Infrastructure.Sanitizer;
 
-namespace FoodSupplementsSystem.Areas.Administration.ViewModels
+namespace FoodSupplementsSystem.Areas.Administration.ViewModels.PageableFeedbackList
 {
     public class FeedbackViewModel : IMapFrom<Feedback>, IHaveCustomMappings
     {

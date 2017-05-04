@@ -9,7 +9,7 @@ using NUnit.Framework;
 
 using FoodSupplementsSystem.App_Start;
 using FoodSupplementsSystem.Areas.Administration.Controllers;
-using FoodSupplementsSystem.Areas.Administration.ViewModels;
+using FoodSupplementsSystem.Areas.Administration.ViewModels.Categories;
 using FoodSupplementsSystem.Data.Models;
 using FoodSupplementsSystem.Services.Data.Contracts;
 

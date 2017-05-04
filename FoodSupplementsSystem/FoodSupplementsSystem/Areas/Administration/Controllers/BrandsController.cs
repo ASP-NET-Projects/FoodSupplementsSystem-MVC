@@ -6,7 +6,7 @@ using Kendo.Mvc.UI;
 using AutoMapper.QueryableExtensions;
 
 using FoodSupplementsSystem.Services.Data.Contracts;
-using FoodSupplementsSystem.Areas.Administration.ViewModels;
+using FoodSupplementsSystem.Areas.Administration.ViewModels.Brands;
 
 namespace FoodSupplementsSystem.Areas.Administration.Controllers
 {

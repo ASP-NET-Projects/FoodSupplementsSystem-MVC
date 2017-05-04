@@ -4,7 +4,7 @@ using System.Web.Mvc;
 
 using AutoMapper.QueryableExtensions;
 
-using FoodSupplementsSystem.Areas.Administration.ViewModels;
+using FoodSupplementsSystem.Areas.Administration.ViewModels.PageableFeedbackList;
 using FoodSupplementsSystem.Services.Data.Contracts;
 
 namespace FoodSupplementsSystem.Areas.Administration.Controllers

@@ -7,7 +7,7 @@ using AutoMapper.QueryableExtensions;
 using Bytes2you.Validation;
 
 using FoodSupplementsSystem.Services.Data.Contracts;
-using FoodSupplementsSystem.Areas.Administration.ViewModels;
+using FoodSupplementsSystem.Areas.Administration.ViewModels.Categories;
 
 namespace FoodSupplementsSystem.Areas.Administration.Controllers
 {

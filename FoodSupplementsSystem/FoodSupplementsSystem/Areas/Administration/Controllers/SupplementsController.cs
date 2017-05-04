@@ -7,7 +7,7 @@ using Kendo.Mvc.UI;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
 
-using FoodSupplementsSystem.Areas.Administration.ViewModels;
+using FoodSupplementsSystem.Areas.Administration.ViewModels.Supplements;
 using FoodSupplementsSystem.Controllers;
 using FoodSupplementsSystem.Data.Models;
 using FoodSupplementsSystem.Data.Repositories;

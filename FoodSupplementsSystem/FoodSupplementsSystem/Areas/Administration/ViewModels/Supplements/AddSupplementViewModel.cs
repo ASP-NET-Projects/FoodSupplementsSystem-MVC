@@ -7,7 +7,7 @@ using FoodSupplementsSystem.Data.Models;
 using FoodSupplementsSystem.Infrastructure.Mapping;
 using FoodSupplementsSystem.Infrastructure.Validation;
 
-namespace FoodSupplementsSystem.Areas.Administration.ViewModels
+namespace FoodSupplementsSystem.Areas.Administration.ViewModels.Supplements
 {
     public class AddSupplementViewModel : IMapFrom<Supplement>
     {

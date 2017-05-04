@@ -3,7 +3,7 @@
 using FoodSupplementsSystem.Data.Models;
 using FoodSupplementsSystem.Infrastructure.Mapping;
 
-namespace FoodSupplementsSystem.Areas.Administration.ViewModels
+namespace FoodSupplementsSystem.Areas.Administration.ViewModels.Supplements
 {
     public class SupplementViewModel : IMapFrom<Supplement>, IHaveCustomMappings
     {

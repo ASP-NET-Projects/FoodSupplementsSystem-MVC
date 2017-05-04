@@ -1,7 +1,7 @@
 ﻿using FoodSupplementsSystem.Data.Models;
 using FoodSupplementsSystem.Infrastructure.Mapping;
 
-namespace FoodSupplementsSystem.Areas.Administration.ViewModels
+namespace FoodSupplementsSystem.Areas.Administration.ViewModels.Brands
 {
     public class BrandViewModel : IMapFrom<Brand>
     {
