@@ -6,7 +6,7 @@ using FoodSupplementsSystem.ViewModels.AllComments;
 
 namespace FoodSupplementsSystem.ViewModels.AllTopics
 {
-    public class TopicDetailsViewModel : IMapFrom<Topic>
+    public class DetailsTopicViewModel : IMapFrom<Topic>
     {
         public int Id { get; set; }
 

@@ -28,7 +28,7 @@ namespace FoodSupplementsSystem.Controllers
             var topic = this.topics
                 .GetAll()
                 .Where(t => t.Id == id)
-                .ProjectTo<TopicDetailsViewModel>()
+                .ProjectTo<DetailsTopicViewModel>()
                 .FirstOrDefault();
 
             if (topic == null)

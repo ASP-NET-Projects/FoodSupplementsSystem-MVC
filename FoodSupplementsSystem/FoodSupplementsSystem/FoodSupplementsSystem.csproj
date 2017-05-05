@@ -269,7 +269,7 @@
     <Compile Include="ViewModels\AllSupplements\FilterSupplementsViewModel.cs" />
     <Compile Include="ViewModels\AllSupplements\ListSupplementViewModel.cs" />
     <Compile Include="ViewModels\AllSupplements\DetailsSupplementViewModel.cs" />
-    <Compile Include="ViewModels\AllTopics\TopicDetailsViewModel.cs" />
+    <Compile Include="ViewModels\AllTopics\DetailsTopicViewModel.cs" />
     <Compile Include="ViewModels\AllTopics\TopicViewModel.cs" />
     <Compile Include="ViewModels\AllFeedbacks\FeedbackViewModel.cs" />
     <Compile Include="ViewModels\Home\TopicViewModel.cs" />
