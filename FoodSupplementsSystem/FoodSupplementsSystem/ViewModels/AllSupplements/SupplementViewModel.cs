@@ -1,7 +1,7 @@
 ﻿using FoodSupplementsSystem.Data.Models;
 using FoodSupplementsSystem.Infrastructure.Mapping;
 
-namespace FoodSupplementsSystem.ViewModels.AllCategories
+namespace FoodSupplementsSystem.ViewModels.AllSupplements
 {
     public class SupplementViewModel : IMapFrom<Supplement>
     {

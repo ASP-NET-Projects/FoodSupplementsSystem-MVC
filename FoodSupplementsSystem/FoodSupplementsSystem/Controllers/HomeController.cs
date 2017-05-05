@@ -7,6 +7,7 @@ using Bytes2you.Validation;
 using FoodSupplementsSystem.Infrastructure.Services;
 using FoodSupplementsSystem.ViewModels.AllBrands;
 using FoodSupplementsSystem.ViewModels.AllCategories;
+using FoodSupplementsSystem.ViewModels.AllSupplements;
 using FoodSupplementsSystem.Services.Data.Contracts;
 
 namespace FoodSupplementsSystem.Controllers

@@ -2,7 +2,7 @@
 
 using FoodSupplementsSystem.Data.Models;
 using FoodSupplementsSystem.Infrastructure.Mapping;
-using FoodSupplementsSystem.ViewModels.AllCategories;
+using FoodSupplementsSystem.ViewModels.AllSupplements;
 
 namespace FoodSupplementsSystem.ViewModels.AllBrands
 {
