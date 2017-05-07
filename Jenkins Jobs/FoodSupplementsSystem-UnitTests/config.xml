@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties/>
+  <scm class="hudson.scm.NullSCM"/>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers>
+    <jenkins.triggers.ReverseBuildTrigger>
+      <spec></spec>
+      <upstreamProjects>FoodSupplementsSystem-build</upstreamProjects>
+      <threshold>
+        <name>SUCCESS</name>
+        <ordinal>0</ordinal>
+        <color>BLUE</color>
+        <completeBuild>true</completeBuild>
+      </threshold>
+    </jenkins.triggers.ReverseBuildTrigger>
+  </triggers>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.BatchFile>
+      <command>&quot;.\..\FoodSupplementsSystem-build\FoodSupplementsSystem\packages\NUnit.ConsoleRunner.3.6.1\tools\nunit3-console.exe&quot; /config:Release &quot;.\..\FoodSupplementsSystem-build\FoodSupplementsSystem\FoodSupplementsSystem.Tests\bin\Release\FoodSupplementsSystem.Tests.dll&quot; --result=junit-results.xml;format=nunit2</command>
+    </hudson.tasks.BatchFile>
+    <hudson.tasks.BatchFile>
+      <command>&quot;.\..\FoodSupplementsSystem-build\FoodSupplementsSystem\packages\OpenCover.4.6.519\tools\OpenCover.Console.exe&quot; -register:path64 -filter:&quot;+[*]*&quot; -target:&quot;.\..\FoodSupplementsSystem-build\FoodSupplementsSystem\packages\NUnit.ConsoleRunner.3.6.1\tools\nunit3-console.exe&quot; -targetargs:&quot;/domain:single \&quot;.\..\FoodSupplementsSystem-build\FoodSupplementsSystem\FoodSupplementsSystem.Tests\bin\Release\FoodSupplementsSystem.Tests.dll\&quot;&quot; -output:open-cover.xml</command>
+    </hudson.tasks.BatchFile>
+    <hudson.tasks.BatchFile>
+      <command>&quot;.\..\FoodSupplementsSystem-build\FoodSupplementsSystem\packages\OpenCoverToCoberturaConverter.0.2.6.0\tools\OpenCoverToCoberturaConverter.exe&quot; -input:open-cover.xml -output:cobertura-result.xml -sources:&quot;.\&quot;</command>
+    </hudson.tasks.BatchFile>
+    <hudson.tasks.BatchFile>
+      <command>mkdir CodeCoverageHTML&#xd;
+&quot;./../FoodSupplementsSystem-build/FoodSupplementsSystem/packages/ReportGenerator.2.5.6/tools/ReportGenerator.exe&quot; -reports:open-cover.xml -targetDir:CodeCoverageHTML</command>
+    </hudson.tasks.BatchFile>
+  </builders>
+  <publishers/>
+  <buildWrappers>
+    <hudson.plugins.ws__cleanup.PreBuildCleanup plugin="ws-cleanup@0.32">
+      <deleteDirs>false</deleteDirs>
+      <cleanupParameter></cleanupParameter>
+      <externalDelete></externalDelete>
+    </hudson.plugins.ws__cleanup.PreBuildCleanup>
+  </buildWrappers>
+</project>
