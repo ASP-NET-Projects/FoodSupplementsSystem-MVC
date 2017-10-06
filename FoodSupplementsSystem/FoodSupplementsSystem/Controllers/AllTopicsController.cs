@@ -8,6 +8,7 @@ using AutoMapper.QueryableExtensions;
 using FoodSupplementsSystem.Services.Data.Contracts;
 using FoodSupplementsSystem.ViewModels.AllComments;
 using FoodSupplementsSystem.ViewModels.AllTopics;
+using Bytes2you.Validation;
 
 namespace FoodSupplementsSystem.Controllers
 {
@@ -19,10 +20,22 @@ namespace FoodSupplementsSystem.Controllers
 
         public AllTopicsController(ITopicsService topics, ICommentsService comments)
         {
+            Guard.WhenArgument(topics, "topics").IsNotNull().Throw();
+            Guard.WhenArgument(comments, "comments").IsNotNull().Throw();
+
             this.topics = topics;
             this.comments = comments;
         }
 
+        [HttpGet]
+        public ActionResult Index()
+        {
+            var resultTopics = this.topics.GetAll().Include(t => t.Supplements).ProjectTo<TopicViewModel>().ToList();
+
+            return View(resultTopics);
+        }
+
+        [HttpGet]
         public ActionResult Details(int id)
         {
             var topic = this.topics
@@ -44,14 +57,6 @@ namespace FoodSupplementsSystem.Controllers
                 .ToList();
 
             return View(topic);
-        }
-
-        [HttpGet]
-        public ActionResult Index()
-        {
-            var resultTopics = this.topics.GetAll().Include(t => t.Supplements).ProjectTo<TopicViewModel>().ToList();
-
-            return View(resultTopics);
         }
     }
 }
