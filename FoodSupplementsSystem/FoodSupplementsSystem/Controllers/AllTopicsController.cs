@@ -20,8 +20,8 @@ namespace FoodSupplementsSystem.Controllers
 
         public AllTopicsController(ITopicsService topics, ICommentsService comments)
         {
-            Guard.WhenArgument(topics, "topics").IsNotNull().Throw();
-            Guard.WhenArgument(comments, "comments").IsNotNull().Throw();
+            Guard.WhenArgument(topics, "topics").IsNull().Throw();
+            Guard.WhenArgument(comments, "comments").IsNull().Throw();
 
             this.topics = topics;
             this.comments = comments;
