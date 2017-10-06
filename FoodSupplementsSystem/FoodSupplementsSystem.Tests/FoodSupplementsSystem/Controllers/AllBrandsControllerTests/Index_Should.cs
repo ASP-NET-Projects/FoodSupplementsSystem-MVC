@@ -9,8 +9,7 @@ using FoodSupplementsSystem.App_Start;
 using FoodSupplementsSystem.Controllers;
 using FoodSupplementsSystem.Data.Models;
 using FoodSupplementsSystem.Services.Data.Contracts;
-using System.Web.Mvc;
-using FoodSupplementsSystem.Areas.Administration.ViewModels.Brands;
+using FoodSupplementsSystem.ViewModels.AllBrands;
 using AutoMapper.QueryableExtensions;
 
 namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.AllBrandsControllerTests
@@ -26,7 +25,7 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.AllBrand
             var brands = GetBrands();
 
             brandsServiceMock.Setup(x => x.GetAll())
-                .Returns(brands.AsQueryable());
+                .Returns(brands);
 
             AutoMapperConfig.Config();
 
@@ -38,28 +37,47 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.AllBrand
         }
 
         [Test]
-        public void Test()
+        public void ReturnCorrectModelType_WhenGetToIndex()
         {
             //Arrange
             var brandsServiceMock = new Mock<IBrandsService>();
             var brands = GetBrands();
 
-            brandsServiceMock.Setup(s=>s.GetAll()).Returns(brands.AsQueryable());
+            brandsServiceMock.Setup(s => s.GetAll()).Returns(brands);
 
             AutoMapperConfig.Config();
 
             var brandsController = new AllBrandsController(brandsServiceMock.Object);
 
-            //Act
-            //var result = brandsController.Index() as ViewResult;
-
-            //Assert
-            brandsController.WithCallTo(c => c.Index()).ShouldRenderView("Index")
-                .WithModel<List<BrandViewModel>>();
-
+            //Act & Assert
+            brandsController.WithCallTo(c => c.Index()).ShouldRenderView("Index").WithModel<List<BrandViewModel>>();
         }
 
-        private IEnumerable<Brand> GetBrands()
+        [Test]
+        public void ReturnCorrectResultModel_WhenGetToIndex()
+        {
+            //Arrange
+            var brandsServiceMock = new Mock<IBrandsService>();
+            var brands = GetBrands();
+
+            brandsServiceMock.Setup(s => s.GetAll()).Returns(brands);
+
+            AutoMapperConfig.Config();
+
+            var brandsController = new AllBrandsController(brandsServiceMock.Object);
+            var expectedResult = brands.ProjectTo<BrandViewModel>().ToList();
+
+            //Act & Assert
+            brandsController.WithCallTo(c => c.Index()).ShouldRenderView("Index")
+                .WithModel<IList<BrandViewModel>>(x =>
+               {
+                   Assert.AreEqual(x.FirstOrDefault().Id, expectedResult.FirstOrDefault().Id);
+                   Assert.AreEqual(x.FirstOrDefault().Name, expectedResult.FirstOrDefault().Name);
+                   Assert.AreEqual(x.FirstOrDefault().WebSite, expectedResult.FirstOrDefault().WebSite);
+               });
+        }
+
+        private IQueryable<Brand> GetBrands()
         {
             var brands = new List<Brand>();
 
@@ -73,7 +91,7 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.AllBrand
                 });
             }
 
-            return brands;
+            return brands.AsQueryable();
         }
     }
 }
