@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 using FoodSupplementsSystem.Data.Models;
@@ -9,7 +10,7 @@ namespace FoodSupplementsSystem.Tests.DataHelpers
     {
         internal static IQueryable<Brand> GetBrands()
         {
-            var brands = new List<Brand>();
+            List<Brand> brands = new List<Brand>();
 
             for (int i = 1; i <= 10; i++)
             {
@@ -42,7 +43,7 @@ namespace FoodSupplementsSystem.Tests.DataHelpers
 
         internal static IQueryable<Topic> GetTopics()
         {
-            var topics = new List<Topic>();
+            List<Topic> topics = new List<Topic>();
 
             for (int i = 1; i <= 10; i++)
             {
@@ -72,6 +73,41 @@ namespace FoodSupplementsSystem.Tests.DataHelpers
             }
 
             return supplements.AsQueryable();
+        }
+
+        internal static IQueryable<Comment> GetComments()
+        {
+            List<Comment> comments = new List<Comment>();
+
+            for (int i = 1; i <= 10; i++)
+            {
+                comments.Add(new Comment()
+                {
+                    Id = i,
+                    Content = "comment" + i + "content",
+                    CreationDate = DateTime.Now.AddHours(i)
+                });
+            }
+
+            return comments.AsQueryable();
+        }
+
+        internal static IQueryable<Topic> GetTopicWithComments()
+        {
+            List<Topic> topicWithComments = new List<Topic>();
+
+            for (int i = 1; i <= 10; i++)
+            {
+                topicWithComments.Add(new Topic()
+                {
+                    Id = i,
+                    Name = "topic" + i,
+                    Description = "description" + i,
+                    Comments = GetComments().ToList()
+                });
+            }
+
+            return topicWithComments.AsQueryable();
         }
     }
 }
