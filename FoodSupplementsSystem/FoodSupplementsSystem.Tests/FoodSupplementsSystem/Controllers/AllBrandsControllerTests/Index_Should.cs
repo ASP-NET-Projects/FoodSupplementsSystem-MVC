@@ -1,16 +1,16 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
+using AutoMapper.QueryableExtensions;
 using Moq;
 using NUnit.Framework;
 using TestStack.FluentMVCTesting;
 
 using FoodSupplementsSystem.App_Start;
 using FoodSupplementsSystem.Controllers;
-using FoodSupplementsSystem.Data.Models;
 using FoodSupplementsSystem.Services.Data.Contracts;
 using FoodSupplementsSystem.ViewModels.AllBrands;
-using AutoMapper.QueryableExtensions;
+using FoodSupplementsSystem.Tests.DataHelpers;
 
 namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.AllBrandsControllerTests
 {
@@ -22,7 +22,7 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.AllBrand
         {
             // Arrange
             var brandsServiceMock = new Mock<IBrandsService>();
-            var brands = GetBrands();
+            var brands = DataHelper.GetBrands();
 
             brandsServiceMock.Setup(x => x.GetAll())
                 .Returns(brands);
@@ -41,7 +41,7 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.AllBrand
         {
             //Arrange
             var brandsServiceMock = new Mock<IBrandsService>();
-            var brands = GetBrands();
+            var brands = DataHelper.GetBrands();
 
             brandsServiceMock.Setup(s => s.GetAll()).Returns(brands);
 
@@ -58,7 +58,7 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.AllBrand
         {
             //Arrange
             var brandsServiceMock = new Mock<IBrandsService>();
-            var brands = GetBrands();
+            var brands = DataHelper.GetBrands();
 
             brandsServiceMock.Setup(s => s.GetAll()).Returns(brands);
 
@@ -75,23 +75,6 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.AllBrand
                    Assert.AreEqual(x.FirstOrDefault().Name, expectedResult.FirstOrDefault().Name);
                    Assert.AreEqual(x.FirstOrDefault().WebSite, expectedResult.FirstOrDefault().WebSite);
                });
-        }
-
-        private IQueryable<Brand> GetBrands()
-        {
-            var brands = new List<Brand>();
-
-            for (int i = 1; i <= 10; i++)
-            {
-                brands.Add(new Brand()
-                {
-                    Id = i,
-                    Name = "brand" + i,
-                    WebSite = "website" + i
-                });
-            }
-
-            return brands.AsQueryable();
         }
     }
 }

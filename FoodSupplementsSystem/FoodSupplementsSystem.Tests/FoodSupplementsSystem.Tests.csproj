@@ -104,6 +104,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="DataHelpers\DataHelpers.cs" />
     <Compile Include="FoodSupplementsSystem\Controllers\AllBrandsControllerTests\Class_Should.cs" />
     <Compile Include="FoodSupplementsSystem\Controllers\AllBrandsControllerTests\Index_Should.cs" />
     <Compile Include="FoodSupplementsSystem\Controllers\AllCategoriesControllerTests\Class_Should.cs" />

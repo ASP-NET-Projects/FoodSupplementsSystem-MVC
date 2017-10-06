@@ -1,15 +1,12 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-
-using Moq;
+﻿using Moq;
 using NUnit.Framework;
 using TestStack.FluentMVCTesting;
 
 using FoodSupplementsSystem.App_Start;
 using FoodSupplementsSystem.Controllers;
-using FoodSupplementsSystem.Data.Models;
 using FoodSupplementsSystem.Infrastructure.Services;
 using FoodSupplementsSystem.Services.Data.Contracts;
+using FoodSupplementsSystem.Tests.DataHelpers;
 
 namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.HomeControllerTests
 {
@@ -23,10 +20,10 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.HomeCont
             var categoriesServiceMock = new Mock<ICategoriesService>();
             var brandsServiceMock = new Mock<IBrandsService>();
 
-            var brands = GetBrands();
+            var brands = DataHelper.GetBrands();
 
             brandsServiceMock.Setup(x => x.GetAll())
-                .Returns(brands.AsQueryable());
+                .Returns(brands);
 
             var supplementsServiceMock = new Mock<ISupplementsService>();
             var homeServiceMock = new Mock<IHomeService>();
@@ -38,23 +35,6 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.HomeCont
             // Act & Assert
             controller.WithCallTo(c => c.TopBrands())
                 .ShouldRenderPartialView("_TopBrands");
-        }
-
-        private IEnumerable<Brand> GetBrands()
-        {
-            List<Brand> brands = new List<Brand>();
-
-            for (int i = 1; i <= 10; i++)
-            {
-                brands.Add(new Brand()
-                {
-                    Id = i,
-                    Name = "category" + i,
-                    WebSite = "website" + i
-                });
-            }
-
-            return brands;
         }
     }
 }

@@ -8,9 +8,9 @@ using TestStack.FluentMVCTesting;
 
 using FoodSupplementsSystem.App_Start;
 using FoodSupplementsSystem.Controllers;
-using FoodSupplementsSystem.Data.Models;
 using FoodSupplementsSystem.Services.Data.Contracts;
 using FoodSupplementsSystem.ViewModels.AllTopics;
+using FoodSupplementsSystem.Tests.DataHelpers;
 
 namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.AllTopicsControllerTests
 {
@@ -23,7 +23,7 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.AllTopic
             // Arrange
             var topicsService = new Mock<ITopicsService>();
             var commentsService = new Mock<ICommentsService>();
-            var topics = GetTopics();
+            var topics = DataHelper.GetTopics();
 
             topicsService.Setup(x => x.GetAll()).Returns(topics);
 
@@ -42,7 +42,7 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.AllTopic
             //Arrange
             var topicsService = new Mock<ITopicsService>();
             var commentsService = new Mock<ICommentsService>();
-            var topics = GetTopics();
+            var topics = DataHelper.GetTopics();
 
             topicsService.Setup(x => x.GetAll()).Returns(topics);
 
@@ -60,7 +60,7 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.AllTopic
             //Arrange
             var topicsService = new Mock<ITopicsService>();
             var commentsService = new Mock<ICommentsService>();
-            var topics = GetTopics();
+            var topics = DataHelper.GetTopics();
 
             topicsService.Setup(x => x.GetAll()).Returns(topics);
 
@@ -77,23 +77,6 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.AllTopic
                     Assert.AreEqual(x.FirstOrDefault().Name, expectedResult.FirstOrDefault().Name);
                     Assert.AreEqual(x.FirstOrDefault().Description, expectedResult.FirstOrDefault().Description);
                 });
-        }
-
-        private IQueryable<Topic> GetTopics()
-        {
-            var topics = new List<Topic>();
-
-            for (int i = 1; i <= 10; i++)
-            {
-                topics.Add(new Topic()
-                {
-                    Id = i,
-                    Name = "topic" + i,
-                    Description = "description" + i
-                });
-            }
-
-            return topics.AsQueryable();
         }
     }
 }

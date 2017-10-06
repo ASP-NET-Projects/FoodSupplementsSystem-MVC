@@ -1,16 +1,16 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
+using AutoMapper.QueryableExtensions;
 using Moq;
 using NUnit.Framework;
 using TestStack.FluentMVCTesting;
 
 using FoodSupplementsSystem.App_Start;
 using FoodSupplementsSystem.Controllers;
-using FoodSupplementsSystem.Data.Models;
 using FoodSupplementsSystem.Services.Data.Contracts;
 using FoodSupplementsSystem.ViewModels.AllCategories;
-using AutoMapper.QueryableExtensions;
+using FoodSupplementsSystem.Tests.DataHelpers;
 
 namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.AllCategoriesControllerTests
 {
@@ -22,7 +22,7 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.AllCateg
         {
             // Arrange
             var categoriesServiceMock = new Mock<ICategoriesService>();
-            var categories = GetCategories();
+            var categories = DataHelper.GetCategories();
 
             categoriesServiceMock.Setup(x => x.GetAll())
                 .Returns(categories);
@@ -41,7 +41,7 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.AllCateg
         {
             //Arrange
             var categoriesServiceMock = new Mock<ICategoriesService>();
-            var categories = GetCategories();
+            var categories = DataHelper.GetCategories();
 
             categoriesServiceMock.Setup(s => s.GetAll()).Returns(categories);
 
@@ -58,7 +58,7 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.AllCateg
         {
             //Arrange
             var categoriesServiceMock = new Mock<ICategoriesService>();
-            var categories = GetCategories();
+            var categories = DataHelper.GetCategories();
 
             categoriesServiceMock.Setup(s => s.GetAll()).Returns(categories);
 
@@ -74,22 +74,6 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.AllCateg
                     Assert.AreEqual(x.FirstOrDefault().Id, expectedResult.FirstOrDefault().Id);
                     Assert.AreEqual(x.FirstOrDefault().Name, expectedResult.FirstOrDefault().Name);
                 });
-        }
-
-        private IQueryable<Category> GetCategories()
-        {
-            List<Category> categories = new List<Category>();
-
-            for (int i = 1; i <= 10; i++)
-            {
-                categories.Add(new Category()
-                {
-                    Id = i,
-                    Name = "category" + i
-                });
-            }
-
-            return categories.AsQueryable();
         }
     }
 }

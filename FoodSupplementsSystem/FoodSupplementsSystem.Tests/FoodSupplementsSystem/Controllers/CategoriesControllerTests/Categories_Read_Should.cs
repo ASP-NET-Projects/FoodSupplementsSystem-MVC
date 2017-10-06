@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using System.Web.Mvc;
 
 using Kendo.Mvc.UI;
@@ -12,6 +11,7 @@ using FoodSupplementsSystem.Areas.Administration.Controllers;
 using FoodSupplementsSystem.Areas.Administration.ViewModels.Categories;
 using FoodSupplementsSystem.Data.Models;
 using FoodSupplementsSystem.Services.Data.Contracts;
+using FoodSupplementsSystem.Tests.DataHelpers;
 
 namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.CategoriesControllerTests
 {
@@ -23,9 +23,9 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.Categori
         {
             //Arrange
             var categoriesServiceMock = new Mock<ICategoriesService>();
-            var categories = GetCategories();
+            var categories = DataHelper.GetCategories();
             categoriesServiceMock.Setup(x => x.GetAll())
-                .Returns(categories.AsQueryable());
+                .Returns(categories);
             AutoMapperConfig.Config();
             var controller = new CategoriesController(categoriesServiceMock.Object);
             var kendoDataRequest = new DataSourceRequest();
@@ -38,22 +38,6 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.Categori
 
             //Assert
             Assert.IsInstanceOf<List<CategoryViewModel>>(results);
-        }
-
-        private IEnumerable<Category> GetCategories()
-        {
-            List<Category> categories = new List<Category>();
-
-            for (int i = 1; i <= 10; i++)
-            {
-                categories.Add(new Category()
-                {
-                    Id = i,
-                    Name = "category" + i
-                });
-            }
-
-            return categories;
         }
     }
 }
