@@ -2,9 +2,10 @@
 using System.Linq;
 using System.Web;
 
+using AutoMapper.QueryableExtensions;
+using Bytes2you.Validation;
 using Kendo.Mvc.Extensions;
 using Kendo.Mvc.UI;
-using AutoMapper.QueryableExtensions;
 
 using FoodSupplementsSystem.Infrastructure.Populators;
 using FoodSupplementsSystem.Services.Data.Contracts;
@@ -21,10 +22,14 @@ namespace FoodSupplementsSystem.Controllers
 
         public AllSupplementsController(ISupplementsService supplements, IDropDownListPopulator populator)
         {
+            Guard.WhenArgument(supplements, "supplements").IsNull().Throw();
+            Guard.WhenArgument(populator, "populator").IsNull().Throw();
+
             this.supplements = supplements;
             this.populator = populator;
         }
 
+        [HttpGet]
         public ActionResult All(int? category, int? brand, int? topic)
         {
             var filterSupplementsModel = new FilterSupplementsViewModel
@@ -63,6 +68,7 @@ namespace FoodSupplementsSystem.Controllers
             return Json(resultSupplements.ToDataSourceResult(request));
         }
 
+        [HttpGet]
         public ActionResult Details(int id)
         {
             var supplement = this.supplements
@@ -73,22 +79,25 @@ namespace FoodSupplementsSystem.Controllers
 
             if (supplement == null)
             {
-                throw new HttpException(404, "Topic not found");
+                throw new HttpException(404, "Supplement not found");
             }
 
             return View(supplement);
         }
 
+        [HttpGet]
         public ActionResult GetCategories()
         {
             return Json(this.populator.GetCategories(), JsonRequestBehavior.AllowGet);
         }
 
+        [HttpGet]
         public ActionResult GetBrands()
         {
             return Json(this.populator.GetBrands(), JsonRequestBehavior.AllowGet);
         }
 
+        [HttpGet]
         public ActionResult GetTopics()
         {
             return Json(this.populator.GetTopics(), JsonRequestBehavior.AllowGet);
