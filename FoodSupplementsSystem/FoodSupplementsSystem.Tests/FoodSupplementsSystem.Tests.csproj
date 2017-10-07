@@ -111,6 +111,14 @@
     <Compile Include="FoodSupplementsSystem\Controllers\AllCategoriesControllerTests\Constructor_Should.cs" />
     <Compile Include="FoodSupplementsSystem\Controllers\AllBrandsControllerTests\Constructor_Should.cs" />
     <Compile Include="FoodSupplementsSystem\Controllers\AllCategoriesControllerTests\Index_Should.cs" />
+    <Compile Include="FoodSupplementsSystem\Controllers\AllSupplementsControllerTests\All_Should.cs" />
+    <Compile Include="FoodSupplementsSystem\Controllers\AllSupplementsControllerTests\Class_Should.cs" />
+    <Compile Include="FoodSupplementsSystem\Controllers\AllSupplementsControllerTests\Constructor_Should.cs" />
+    <Compile Include="FoodSupplementsSystem\Controllers\AllSupplementsControllerTests\Details_Should.cs" />
+    <Compile Include="FoodSupplementsSystem\Controllers\AllSupplementsControllerTests\GetBrands_Should.cs" />
+    <Compile Include="FoodSupplementsSystem\Controllers\AllSupplementsControllerTests\GetCategories_Should.cs" />
+    <Compile Include="FoodSupplementsSystem\Controllers\AllSupplementsControllerTests\GetTopics_Should.cs" />
+    <Compile Include="FoodSupplementsSystem\Controllers\AllSupplementsControllerTests\ReadSupplements_Should.cs" />
     <Compile Include="FoodSupplementsSystem\Controllers\AllTopicsControllerTests\Constructor_Should.cs" />
     <Compile Include="FoodSupplementsSystem\Controllers\AllTopicsControllerTests\Details_Should.cs" />
     <Compile Include="FoodSupplementsSystem\Controllers\AllTopicsControllerTests\Index_Should.cs" />
