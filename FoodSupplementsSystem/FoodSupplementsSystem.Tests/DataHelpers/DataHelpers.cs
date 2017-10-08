@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using FoodSupplementsSystem.Data.Models;
 using FoodSupplementsSystem.Areas.Administration.ViewModels.Categories;
 using FoodSupplementsSystem.Areas.Administration.ViewModels.Brands;
+using FoodSupplementsSystem.Areas.Administration.ViewModels.Topics;
 
 namespace FoodSupplementsSystem.Tests.DataHelpers
 {
@@ -213,6 +214,16 @@ namespace FoodSupplementsSystem.Tests.DataHelpers
                 Id = 1,
                 Name = "brans name",
                 WebSite = "website name"
+            };
+        }
+
+        internal static TopicViewModel GetAdminTopicViewModel()
+        {
+            return new TopicViewModel()
+            {
+                Id = 1,
+                Name = "topic name",
+                Description = "topic description"
             };
         }
     }
