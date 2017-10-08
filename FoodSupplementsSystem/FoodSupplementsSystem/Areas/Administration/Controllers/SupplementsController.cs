@@ -13,6 +13,7 @@ using FoodSupplementsSystem.Data.Models;
 using FoodSupplementsSystem.Data.Repositories;
 using FoodSupplementsSystem.Infrastructure.Populators;
 using FoodSupplementsSystem.Services.Data.Contracts;
+using Bytes2you.Validation;
 
 namespace FoodSupplementsSystem.Areas.Administration.Controllers
 {
@@ -25,6 +26,9 @@ namespace FoodSupplementsSystem.Areas.Administration.Controllers
         public SupplementsController(ISupplementsService supplements, IDropDownListPopulator populator, IEfGenericRepository<ApplicationUser> repoUser)
             : base(repoUser)
         {
+            Guard.WhenArgument(supplements, "supplements").IsNull().Throw();
+            Guard.WhenArgument(populator, "populator").IsNull().Throw();
+
             this.supplements = supplements;
             this.populator = populator;
         }
@@ -34,6 +38,7 @@ namespace FoodSupplementsSystem.Areas.Administration.Controllers
             return View();
         }
 
+        [HttpGet]
         public ActionResult Add()
         {
             var addSupplementViewModel = new AddSupplementViewModel

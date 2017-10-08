@@ -7,6 +7,7 @@ using FoodSupplementsSystem.Data.Models;
 using FoodSupplementsSystem.Areas.Administration.ViewModels.Categories;
 using FoodSupplementsSystem.Areas.Administration.ViewModels.Brands;
 using FoodSupplementsSystem.Areas.Administration.ViewModels.Topics;
+using FoodSupplementsSystem.Areas.Administration.ViewModels.Supplements;
 
 namespace FoodSupplementsSystem.Tests.DataHelpers
 {
@@ -224,6 +225,19 @@ namespace FoodSupplementsSystem.Tests.DataHelpers
                 Id = 1,
                 Name = "topic name",
                 Description = "topic description"
+            };
+        }
+
+        internal static SupplementViewModel GetAdminSupplementViewModel()
+        {
+            return new SupplementViewModel()
+            {
+                Id = 1,
+                Name = "supplement name",
+                ImageUrl = "supplement image url",
+                Ingredients = "supplement ingredients",
+                Use = "supplement use",
+                Description = "supplement description"
             };
         }
     }
