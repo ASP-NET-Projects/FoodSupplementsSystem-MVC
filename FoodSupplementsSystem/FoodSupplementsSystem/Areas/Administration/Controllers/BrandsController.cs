@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Web.Mvc;
 
+using AutoMapper.QueryableExtensions;
+using Bytes2you.Validation;
 using Kendo.Mvc.Extensions;
 using Kendo.Mvc.UI;
-using AutoMapper.QueryableExtensions;
 
 using FoodSupplementsSystem.Services.Data.Contracts;
 using FoodSupplementsSystem.Areas.Administration.ViewModels.Brands;
@@ -17,6 +18,8 @@ namespace FoodSupplementsSystem.Areas.Administration.Controllers
 
         public BrandsController(IBrandsService brands)
         {
+            Guard.WhenArgument(brands, "brands").IsNull().Throw();
+
             this.brands = brands;
         }
 

@@ -5,6 +5,7 @@ using System.Web.Mvc;
 
 using FoodSupplementsSystem.Data.Models;
 using FoodSupplementsSystem.Areas.Administration.ViewModels.Categories;
+using FoodSupplementsSystem.Areas.Administration.ViewModels.Brands;
 
 namespace FoodSupplementsSystem.Tests.DataHelpers
 {
@@ -202,6 +203,16 @@ namespace FoodSupplementsSystem.Tests.DataHelpers
             {
                 Id = 1,
                 Name = "category name"
+            };
+        }
+
+        internal static BrandViewModel GetAdminBrandViewModel()
+        {
+            return new BrandViewModel()
+            {
+                Id = 1,
+                Name = "brans name",
+                WebSite = "website name"
             };
         }
     }
