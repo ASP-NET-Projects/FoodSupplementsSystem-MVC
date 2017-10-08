@@ -21,7 +21,7 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.AllSuppl
     public class ReadSupplements_Should
     {
         [Test]
-        public void ReturnJsonResult_WhenGetToGetTopics()
+        public void ReturnJsonResult_WhenGetToReadSupplements()
         {
             //Arrange
             var supplementsService = new Mock<ISupplementsService>();
@@ -30,7 +30,7 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.AllSuppl
             var categoryId = 1;
             var brandId = 1;
             var topicId = 1;
-            var request = new DataSourceRequest();
+            var kendoDataRequest = new DataSourceRequest();
 
             supplementsService.Setup(x => x.GetAll()).Returns(supplements);
 
@@ -39,16 +39,16 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.AllSuppl
             var controller = new AllSupplementsController(supplementsService.Object, dropDownListPopulator.Object);
 
             //Act & Assert
-            controller.WithCallTo(c => c.ReadSupplements(request, categoryId, brandId, topicId)).ShouldReturnJson();
+            controller.WithCallTo(c => c.ReadSupplements(kendoDataRequest, categoryId, brandId, topicId)).ShouldReturnJson();
         }
 
         [Test]
-        public void ReturnJsonResultWithCorrectModelType_WhenGetToReadSupplements()
+        public void ReturnJsonResultWithCorrectModelInstance_WhenGetToReadSupplements()
         {
+            //Arrange
             var supplementsService = new Mock<ISupplementsService>();
             var dropDownListPopulator = new Mock<IDropDownListPopulator>();
             var supplements = DataHelper.GetSupplements();
-            var request = new DataSourceRequest();
             var categoryId = 1;
             var brandId = 1;
             var topicId = 1;
@@ -73,10 +73,10 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.AllSuppl
         [Test]
         public void ReturnJsonResultWithCorrectModel_WhenGetToReadSupplements()
         {
+            //Arrange
             var supplementsService = new Mock<ISupplementsService>();
             var dropDownListPopulator = new Mock<IDropDownListPopulator>();
             var supplements = DataHelper.GetSupplements();
-            var request = new DataSourceRequest();
             var categoryId = 1;
             var brandId = 1;
             var topicId = 1;

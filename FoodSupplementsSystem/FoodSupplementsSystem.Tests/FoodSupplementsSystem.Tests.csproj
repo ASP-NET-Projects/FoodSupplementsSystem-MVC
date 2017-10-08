@@ -122,7 +122,10 @@
     <Compile Include="FoodSupplementsSystem\Controllers\AllTopicsControllerTests\Constructor_Should.cs" />
     <Compile Include="FoodSupplementsSystem\Controllers\AllTopicsControllerTests\Details_Should.cs" />
     <Compile Include="FoodSupplementsSystem\Controllers\AllTopicsControllerTests\Index_Should.cs" />
+    <Compile Include="FoodSupplementsSystem\Controllers\CategoriesControllerTests\Categories_Create_Should.cs" />
+    <Compile Include="FoodSupplementsSystem\Controllers\CategoriesControllerTests\Categories_Destroy_Should.cs" />
     <Compile Include="FoodSupplementsSystem\Controllers\CategoriesControllerTests\Categories_Read_Should.cs" />
+    <Compile Include="FoodSupplementsSystem\Controllers\CategoriesControllerTests\Categories_Update_Should.cs" />
     <Compile Include="FoodSupplementsSystem\Controllers\CategoriesControllerTests\Class_Should.cs" />
     <Compile Include="FoodSupplementsSystem\Controllers\CategoriesControllerTests\Constructor_Should.cs" />
     <Compile Include="FoodSupplementsSystem\Controllers\CategoriesControllerTests\Index_Should.cs" />

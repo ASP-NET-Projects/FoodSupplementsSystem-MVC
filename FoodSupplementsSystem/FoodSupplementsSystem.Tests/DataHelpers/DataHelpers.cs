@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web.Mvc;
 
 using FoodSupplementsSystem.Data.Models;
+using FoodSupplementsSystem.Areas.Administration.ViewModels.Categories;
 
 namespace FoodSupplementsSystem.Tests.DataHelpers
 {
@@ -193,6 +194,15 @@ namespace FoodSupplementsSystem.Tests.DataHelpers
             }
 
             return collection.AsQueryable();
+        }
+
+        internal static CategoryViewModel GetAdminCategoryViewModel()
+        {
+            return new CategoryViewModel()
+            {
+                Id = 1,
+                Name = "category name"
+            };
         }
     }
 }

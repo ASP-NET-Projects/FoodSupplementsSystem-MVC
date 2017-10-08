@@ -1,15 +1,16 @@
 ﻿using System.Collections.Generic;
 using System.Web.Mvc;
 
-using Kendo.Mvc.UI;
-
+using AutoMapper;
 using Moq;
 using NUnit.Framework;
+using Kendo.Mvc.UI;
+using TestStack.FluentMVCTesting;
+
 
 using FoodSupplementsSystem.App_Start;
 using FoodSupplementsSystem.Areas.Administration.Controllers;
 using FoodSupplementsSystem.Areas.Administration.ViewModels.Categories;
-using FoodSupplementsSystem.Data.Models;
 using FoodSupplementsSystem.Services.Data.Contracts;
 using FoodSupplementsSystem.Tests.DataHelpers;
 
@@ -19,25 +20,71 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.Categori
     public class Categories_Read_Should
     {
         [Test]
-        public void ReturnsAnInstance_WhenParameterIsNotNull_test()
+        public void ReturnJsonResult_WhenGetToCategories_Read()
         {
             //Arrange
-            var categoriesServiceMock = new Mock<ICategoriesService>();
+            var categoriesService = new Mock<ICategoriesService>();
             var categories = DataHelper.GetCategories();
-            categoriesServiceMock.Setup(x => x.GetAll())
-                .Returns(categories);
-            AutoMapperConfig.Config();
-            var controller = new CategoriesController(categoriesServiceMock.Object);
             var kendoDataRequest = new DataSourceRequest();
+
+            categoriesService.Setup(x => x.GetAll()).Returns(categories);
+
+            AutoMapperConfig.Config();
+
+            var controller = new CategoriesController(categoriesService.Object);
+
+            //Act & Assert
+            controller.WithCallTo(c => c.Categories_Read(kendoDataRequest)).ShouldReturnJson();
+        }
+
+        [Test]
+        public void ReturnJsonResultWithCorrectModelInstance_WhenGetToCategories_Read()
+        {
+            //Arrange
+            var categoriesService = new Mock<ICategoriesService>();
+            var categories = DataHelper.GetCategories();
+            var kendoDataRequest = new DataSourceRequest();
+
+            categoriesService.Setup(x => x.GetAll()).Returns(categories);
+
+            AutoMapperConfig.Config();
+
+            var controller = new CategoriesController(categoriesService.Object);
 
             //Act
             var controllerResult = controller.Categories_Read(kendoDataRequest);
             var jsonResult = controllerResult as JsonResult;
             dynamic kendoResultData = jsonResult.Data;
-            var results = kendoResultData.Data as List<CategoryViewModel>;
+            var results = kendoResultData.Data as IEnumerable<CategoryViewModel>;
 
             //Assert
-            Assert.IsInstanceOf<List<CategoryViewModel>>(results);
+            Assert.IsInstanceOf<IList<CategoryViewModel>>(results);
         }
+
+        //[Test]
+        //public void ReturnJsonResultWithCorrectModel_WhenGetToCategories_Read()
+        //{
+        //    //Arrange
+        //    var categoriesService = new Mock<ICategoriesService>();
+        //    var categories = DataHelper.GetCategories();
+        //    var kendoDataRequest = new DataSourceRequest();
+        //
+        //    categoriesService.Setup(x => x.GetAll()).Returns(categories);
+        //
+        //    AutoMapperConfig.Config();
+        //
+        //    var controller = new CategoriesController(categoriesService.Object);
+        //
+        //    //Act
+        //    var controllerResult = controller.Categories_Read(kendoDataRequest);
+        //    var jsonResult = controllerResult as JsonResult;
+        //    dynamic kendoResultData = jsonResult.Data;
+        //    var results = kendoResultData.Data as IEnumerable<CategoryViewModel>;
+        //
+        //    var expectedResult = Mapper.Map<List<CategoryViewModel>>(categories);
+        //
+        //    //Assert
+        //    Assert.AreEqual(expectedResult, results);
+        //}
     }
 }
