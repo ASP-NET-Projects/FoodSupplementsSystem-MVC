@@ -18,9 +18,7 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSytem.DataServices.Categori
         {
             // Arrange
             var categories = new Mock<IEfGenericRepository<Category>>();
-            var category = DataHelper.GetCategory();
             var invalidGategoryId = 0;
-            categories.Setup(x => x.GetById(It.IsAny<int>())).Returns(category);
             var categoriesService = new CategoriesService(categories.Object);
 
             //Act & Assert

@@ -14,6 +14,8 @@ namespace FoodSupplementsSystem.Services.Data
 
         public TopicsService(IEfGenericRepository<Topic> topics)
         {
+            Guard.WhenArgument(topics, "topics").IsNull().Throw();
+
             this.topics = topics;
         }
 
@@ -24,6 +26,8 @@ namespace FoodSupplementsSystem.Services.Data
 
         public Topic GetById(int id)
         {
+            Guard.WhenArgument(id, "id").IsLessThan(1).Throw();
+
             return this.topics.GetById(id);
         }
 
@@ -32,7 +36,7 @@ namespace FoodSupplementsSystem.Services.Data
             Guard.WhenArgument(name, "name").IsNullOrEmpty().Throw();
             Guard.WhenArgument(description, "description").IsNullOrEmpty().Throw();
 
-            var topic = new Topic() { Name = name, Description = description };
+            var topic = new Topic { Name = name, Description = description };
 
             this.topics.Add(topic);
 
@@ -43,9 +47,11 @@ namespace FoodSupplementsSystem.Services.Data
 
         public void UpdateById(int id, string name, string description)
         {
-            Guard.WhenArgument(id, "id").IsLessThan(0).Throw();
+            Guard.WhenArgument(id, "id").IsLessThan(1).Throw();
 
             Guard.WhenArgument(name, "name").IsNull().Throw();
+
+            Guard.WhenArgument(description, "description").IsNull().Throw();
 
             this.topics.GetById(id).Name = name;
 
@@ -56,6 +62,8 @@ namespace FoodSupplementsSystem.Services.Data
 
         public void DeleteById(int id)
         {
+            Guard.WhenArgument(id, "id").IsLessThan(1).Throw();
+
             this.topics.Delete(id);
             this.topics.SaveChanges();
         }

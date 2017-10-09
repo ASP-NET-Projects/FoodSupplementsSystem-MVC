@@ -269,5 +269,15 @@ namespace FoodSupplementsSystem.Tests.DataHelpers
                 CreationDate = DateTime.Now
             };
         }
+
+        internal static Topic GetTopic()
+        {
+            return new Topic
+            {
+                Id = 1,
+                Name = "topic name",
+                Description = "topic description"
+            };
+        }
     }
 }
