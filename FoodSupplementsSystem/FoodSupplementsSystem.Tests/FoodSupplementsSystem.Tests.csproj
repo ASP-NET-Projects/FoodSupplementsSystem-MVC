@@ -184,10 +184,10 @@
     <Compile Include="FoodSupplementsSytem.DataServices\SupplementsServiceTests\GetAll_Should.cs" />
     <Compile Include="FoodSupplementsSytem.DataServices\TopicsServiceTests\Constructor_Should.cs" />
     <Compile Include="FoodSupplementsSytem.DataServices\TopicsServiceTests\Create_Should.cs" />
-    <Compile Include="FoodSupplementsSytem.DataServices\TopicsServiceTests\DeleteById_Should.cs" />
+    <Compile Include="FoodSupplementsSytem.DataServices\TopicsServiceTests\Delete_Should.cs" />
     <Compile Include="FoodSupplementsSytem.DataServices\TopicsServiceTests\GetAll_Should.cs" />
     <Compile Include="FoodSupplementsSytem.DataServices\TopicsServiceTests\GetById_Should.cs" />
-    <Compile Include="FoodSupplementsSytem.DataServices\TopicsServiceTests\UpdateById_Should.cs" />
+    <Compile Include="FoodSupplementsSytem.DataServices\TopicsServiceTests\Update_Should.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

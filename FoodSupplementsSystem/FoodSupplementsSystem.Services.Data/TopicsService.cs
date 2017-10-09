@@ -31,40 +31,27 @@ namespace FoodSupplementsSystem.Services.Data
             return this.topics.GetById(id);
         }
 
-        public Topic Create(string name, string description)
+        public void Create(Topic topic)
         {
-            Guard.WhenArgument(name, "name").IsNullOrEmpty().Throw();
-            Guard.WhenArgument(description, "description").IsNullOrEmpty().Throw();
-
-            var topic = new Topic { Name = name, Description = description };
+            Guard.WhenArgument(topic, "topic").IsNull().Throw();
 
             this.topics.Add(topic);
-
-            this.topics.SaveChanges();
-
-            return topic;
-        }
-
-        public void UpdateById(int id, string name, string description)
-        {
-            Guard.WhenArgument(id, "id").IsLessThan(1).Throw();
-
-            Guard.WhenArgument(name, "name").IsNull().Throw();
-
-            Guard.WhenArgument(description, "description").IsNull().Throw();
-
-            this.topics.GetById(id).Name = name;
-
-            this.topics.GetById(id).Description = description;
-
             this.topics.SaveChanges();
         }
 
-        public void DeleteById(int id)
+        public void Update(Topic topic)
         {
-            Guard.WhenArgument(id, "id").IsLessThan(1).Throw();
+            Guard.WhenArgument(topic, "topic").IsNull().Throw();
 
-            this.topics.Delete(id);
+            this.topics.Update(topic);
+            this.topics.SaveChanges();
+        }
+
+        public void Delete(Topic topic)
+        {
+            Guard.WhenArgument(topic, "topic").IsNull().Throw();
+
+            this.topics.Delete(topic);
             this.topics.SaveChanges();
         }
     }

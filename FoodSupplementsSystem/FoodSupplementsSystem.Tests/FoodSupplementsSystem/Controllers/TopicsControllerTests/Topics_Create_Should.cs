@@ -2,7 +2,6 @@
 using System.Linq;
 using System.Web.Mvc;
 
-using AutoMapper;
 using Moq;
 using NUnit.Framework;
 using Kendo.Mvc.UI;
@@ -30,8 +29,7 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.TopicsCo
 
             AutoMapperConfig.Config();
 
-            var topicDbModel = Mapper.Map<Topic>(topicViewModel);
-            topicsService.Setup(x => x.Create(It.IsAny<string>(), It.IsAny<string>())).Returns(topicDbModel);
+            topicsService.Setup(x => x.Create(It.IsAny<Topic>())).Verifiable();
 
             var controller = new TopicsController(topicsService.Object);
 
@@ -49,8 +47,7 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.TopicsCo
 
             AutoMapperConfig.Config();
 
-            var topicDbModel = Mapper.Map<Topic>(topicViewModel);
-            topicsService.Setup(x => x.Create(It.IsAny<string>(), It.IsAny<string>())).Returns(topicDbModel);
+            topicsService.Setup(x => x.Create(It.IsAny<Topic>())).Verifiable();
 
             var controller = new TopicsController(topicsService.Object);
 
@@ -74,8 +71,7 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.TopicsCo
 
             AutoMapperConfig.Config();
 
-            var topicDbModel = Mapper.Map<Topic>(topicViewModel);
-            topicsService.Setup(x => x.Create(It.IsAny<string>(), It.IsAny<string>())).Returns(topicDbModel);
+            topicsService.Setup(x => x.Create(It.IsAny<Topic>())).Verifiable();
 
             var controller = new TopicsController(topicsService.Object);
 

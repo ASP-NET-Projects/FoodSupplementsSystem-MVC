@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Web.Mvc;
 
-using Kendo.Mvc.Extensions;
-using Kendo.Mvc.UI;
+using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using Bytes2you.Validation;
+using Kendo.Mvc.Extensions;
+using Kendo.Mvc.UI;
 
 using FoodSupplementsSystem.Areas.Administration.ViewModels.Topics;
+using FoodSupplementsSystem.Data.Models;
 using FoodSupplementsSystem.Services.Data.Contracts;
 
 namespace FoodSupplementsSystem.Areas.Administration.Controllers
@@ -40,7 +42,8 @@ namespace FoodSupplementsSystem.Areas.Administration.Controllers
         {
             if (topic != null && this.ModelState.IsValid)
             {
-                this.topics.Create(topic.Name, topic.Description);
+                var topicDbModel = Mapper.Map<Topic>(topic);
+                this.topics.Create(topicDbModel);
             }
 
             return Json(new[] { topic }.ToDataSourceResult(request, ModelState));
@@ -53,7 +56,8 @@ namespace FoodSupplementsSystem.Areas.Administration.Controllers
             {
                 if (topic != null && this.ModelState.IsValid)
                 {
-                    this.topics.UpdateById(topic.Id, topic.Name, topic.Description);
+                    var topicDbModel = Mapper.Map<Topic>(topic);
+                    this.topics.Update(topicDbModel);
                 }
             }
 
@@ -67,7 +71,8 @@ namespace FoodSupplementsSystem.Areas.Administration.Controllers
             {
                 if (topic != null && this.ModelState.IsValid)
                 {
-                    this.topics.DeleteById(topic.Id);
+                    var topicDbModel = Mapper.Map<Topic>(topic);
+                    this.topics.Delete(topicDbModel);
                 }
             }
 
