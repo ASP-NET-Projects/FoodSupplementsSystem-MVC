@@ -80,6 +80,24 @@ namespace FoodSupplementsSystem.Tests.DataHelpers
             return supplements.AsQueryable();
         }
 
+        internal static IQueryable<Feedback> GetFeedbacks()
+        {
+            List<Feedback> feedbacks = new List<Feedback>();
+
+            for (int i = 1; i <= 10; i++)
+            {
+                feedbacks.Add(new Feedback
+                {
+                    Id = i,
+                    Title = "feedback title" + i,
+                    Content = "feedback content" + i,
+                    CreationDate = DateTime.Now.AddHours(i)
+                });
+            }
+
+            return feedbacks.AsQueryable();
+        }
+
         internal static IQueryable<Supplement> Test()
         {
             List<Supplement> supplements = new List<Supplement>();
@@ -247,6 +265,18 @@ namespace FoodSupplementsSystem.Tests.DataHelpers
             {
                 Id = 1,
                 Name = "category name"
+            };
+        }
+
+        internal static Feedback GetFeedback()
+        {
+            return new Feedback
+            {
+                Id = 1,
+                Title = "feedback title",
+                Content = "feedback content",
+                CreationDate = DateTime.Now,
+                Author = new ApplicationUser()
             };
         }
     }
