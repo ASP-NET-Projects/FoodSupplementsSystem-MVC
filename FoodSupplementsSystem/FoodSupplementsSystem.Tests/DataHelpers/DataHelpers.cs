@@ -98,26 +98,6 @@ namespace FoodSupplementsSystem.Tests.DataHelpers
             return feedbacks.AsQueryable();
         }
 
-        internal static IQueryable<Supplement> Test()
-        {
-            List<Supplement> supplements = new List<Supplement>();
-
-            for (int i = 1; i <= 10; i++)
-            {
-                supplements.Add(new Supplement
-                {
-                    Id = i,
-                    Name = "supplement" + i,
-                    ImageUrl = "imageUrl" + i,
-                    Ingredients = "ingredients" + i,
-                    Use = "use" + i,
-                    Description = "description" + i
-                });
-            }
-
-            return supplements.AsQueryable();
-        }
-
         internal static IQueryable<Comment> GetComments()
         {
             List<Comment> comments = new List<Comment>();
@@ -277,6 +257,16 @@ namespace FoodSupplementsSystem.Tests.DataHelpers
                 Content = "feedback content",
                 CreationDate = DateTime.Now,
                 Author = new ApplicationUser()
+            };
+        }
+
+        internal static Comment GetComment()
+        {
+            return new Comment
+            {
+                Id = 1,
+                Content = "comment content",
+                CreationDate = DateTime.Now
             };
         }
     }

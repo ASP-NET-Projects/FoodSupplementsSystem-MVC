@@ -174,6 +174,9 @@
     <Compile Include="FoodSupplementsSytem.DataServices\CategoriesServiceTests\GetById_Should.cs" />
     <Compile Include="FoodSupplementsSytem.DataServices\CategoriesServiceTests\GetLast3_Should.cs" />
     <Compile Include="FoodSupplementsSytem.DataServices\CategoriesServiceTests\UpdateNameById_Should.cs" />
+    <Compile Include="FoodSupplementsSytem.DataServices\CommentsServiceTests\Constructor_Should.cs" />
+    <Compile Include="FoodSupplementsSytem.DataServices\CommentsServiceTests\Create_Should.cs" />
+    <Compile Include="FoodSupplementsSytem.DataServices\CommentsServiceTests\GetAll_Should.cs" />
     <Compile Include="FoodSupplementsSytem.DataServices\FeedbacksServiceTests\Constructor_Should.cs" />
     <Compile Include="FoodSupplementsSytem.DataServices\FeedbacksServiceTests\Create_Should.cs" />
     <Compile Include="FoodSupplementsSytem.DataServices\FeedbacksServiceTests\GetAll_Should.cs" />
