@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 
 using Moq;
 using NUnit.Framework;
@@ -7,6 +6,7 @@ using NUnit.Framework;
 using FoodSupplementsSystem.Data.Models;
 using FoodSupplementsSystem.Data.Repositories;
 using FoodSupplementsSystem.Services.Data;
+using FoodSupplementsSystem.Tests.DataHelpers;
 
 namespace FoodSupplementsSystem.Tests.FoodSupplementsSytem.DataServices.CategoriesServiceTests
 {
@@ -14,79 +14,86 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSytem.DataServices.Categori
     public class GetAll_Should
     {
         [Test]
-        public void Invoke_TheRepositoryMethodGetAll_Once()
+        public void ReturnCorrectInstance()
         {
             //Arrange
-            var categoriesMock = new Mock<IEfGenericRepository<Category>>();
-            CategoriesService categoriesService = new CategoriesService(categoriesMock.Object);
+            var categories = new Mock<IEfGenericRepository<Category>>();
+            var categoriesCollection = DataHelper.GetCategories();
+            categories.Setup(x => x.All()).Returns(categoriesCollection);
+            var categoriesService = new CategoriesService(categories.Object);
 
             //Act
-            IQueryable<Category> categoryResult = categoriesService.GetAll();
+            var result = categoriesService.GetAll();
 
             //Assert
-            categoriesMock.Verify(c => c.All(), Times.Once);
+            Assert.IsInstanceOf<IQueryable<Category>>(result);
         }
 
         [Test]
-        public void ReturnResult_WhenInvokingRepositoryMethod_GetAll()
+        public void ReturnCorrectModel()
         {
             //Arrange
-            var categoriesMock = new Mock<IEfGenericRepository<Category>>();
-            IQueryable<Category> expectedResultCollection = new List<Category>().AsQueryable();
-
-            categoriesMock.Setup(c => c.All()).Returns(() =>
-            {
-                return expectedResultCollection;
-            });
-
-            CategoriesService categoriesService = new CategoriesService(categoriesMock.Object);
+            var categories = new Mock<IEfGenericRepository<Category>>();
+            var categoriesCollection = DataHelper.GetCategories();
+            categories.Setup(x => x.All()).Returns(categoriesCollection);
+            var categoriesService = new CategoriesService(categories.Object);
 
             //Act
-            IQueryable<Category> categoryResult = categoriesService.GetAll();
+            var result = categoriesService.GetAll();
 
             //Assert
-            Assert.That(categoryResult, Is.EqualTo(expectedResultCollection));
+            Assert.IsNotNull(result);
+            Assert.AreEqual(result, categoriesCollection);
         }
 
         [Test]
-        public void ReturnResultOfCorrectType()
+        public void ReturnCorrectModelWithRightProperties()
         {
             //Arrange
-            var categoriesMock = new Mock<IEfGenericRepository<Category>>();
-
-            categoriesMock.Setup(c => c.All()).Returns(() =>
-            {
-                IQueryable<Category> expectedResultCollection = new List<Category>().AsQueryable();
-                return expectedResultCollection;
-            });
-
-            CategoriesService categoriesService = new CategoriesService(categoriesMock.Object);
+            var categories = new Mock<IEfGenericRepository<Category>>();
+            var categoriesCollection = DataHelper.GetCategories();
+            categories.Setup(x => x.All()).Returns(categoriesCollection);
+            var categoriesService = new CategoriesService(categories.Object);
 
             //Act
-            IQueryable<Category> categoryResult = categoriesService.GetAll();
+            var result = categoriesService.GetAll();
 
             //Assert
-            Assert.That(categoryResult, Is.InstanceOf<IQueryable<Category>>());
+            Assert.IsNotNull(result);
+            Assert.AreEqual(result, categoriesCollection);
+            Assert.AreEqual(result.FirstOrDefault().Id, categoriesCollection.FirstOrDefault().Id);
+            Assert.AreEqual(result.FirstOrDefault().Name, categoriesCollection.FirstOrDefault().Name);
         }
 
         [Test]
-        public void ReturnNull_WhenReposityMethodGetAll_ReturnsNull()
+        public void ReturnNull_WhenRepositoryMethodAll_ReturnsNull()
         {
             //Arrange
-            var categoriesMock = new Mock<IEfGenericRepository<Category>>();
-
-            categoriesMock.Setup(c => c.All()).Returns(() =>
-            {
-                return null;
-            });
-
-            CategoriesService categoriesService = new CategoriesService(categoriesMock.Object);
+            var categories = new Mock<IEfGenericRepository<Category>>();
+            categories.Setup(x => x.All()).Returns(() => null);
+            var categoriesService = new CategoriesService(categories.Object);
 
             //Act
-            IQueryable<Category> categoryResult = categoriesService.GetAll();
+            var result = categoriesService.GetAll();
 
             //Assert
-            Assert.IsNull(categoryResult);
+            Assert.IsNull(result);
+        }
+
+        [Test]
+        public void InvokeRepositoryMethosAllOnce()
+        {
+            //Arrange
+            var categories = new Mock<IEfGenericRepository<Category>>();
+            var categoriesCollection = DataHelper.GetCategories();
+            categories.Setup(x => x.All()).Returns(categoriesCollection);
+            var categoriesService = new CategoriesService(categories.Object);
+
+            //Act
+            var result = categoriesService.GetAll();
+
+            //Assert
+            categories.Verify(x => x.All(), Times.Once);
         }
     }
 }

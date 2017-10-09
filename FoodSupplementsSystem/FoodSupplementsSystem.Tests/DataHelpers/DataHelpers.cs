@@ -19,7 +19,7 @@ namespace FoodSupplementsSystem.Tests.DataHelpers
 
             for (int i = 1; i <= 10; i++)
             {
-                brands.Add(new Brand()
+                brands.Add(new Brand
                 {
                     Id = i,
                     Name = "brand" + i,
@@ -36,7 +36,7 @@ namespace FoodSupplementsSystem.Tests.DataHelpers
 
             for (int i = 1; i <= 10; i++)
             {
-                categories.Add(new Category()
+                categories.Add(new Category
                 {
                     Id = i,
                     Name = "category" + i
@@ -52,7 +52,7 @@ namespace FoodSupplementsSystem.Tests.DataHelpers
 
             for (int i = 1; i <= 10; i++)
             {
-                topics.Add(new Topic()
+                topics.Add(new Topic
                 {
                     Id = i,
                     Name = "topic" + i,
@@ -69,7 +69,7 @@ namespace FoodSupplementsSystem.Tests.DataHelpers
 
             for (int i = 1; i <= 10; i++)
             {
-                supplements.Add(new Supplement()
+                supplements.Add(new Supplement
                 {
                     Id = i,
                     Name = "supplement" + i,
@@ -86,7 +86,7 @@ namespace FoodSupplementsSystem.Tests.DataHelpers
 
             for (int i = 1; i <= 10; i++)
             {
-                supplements.Add(new Supplement()
+                supplements.Add(new Supplement
                 {
                     Id = i,
                     Name = "supplement" + i,
@@ -106,7 +106,7 @@ namespace FoodSupplementsSystem.Tests.DataHelpers
 
             for (int i = 1; i <= 10; i++)
             {
-                comments.Add(new Comment()
+                comments.Add(new Comment
                 {
                     Id = i,
                     Content = "comment" + i + "content",
@@ -123,7 +123,7 @@ namespace FoodSupplementsSystem.Tests.DataHelpers
 
             for (int i = 1; i <= 10; i++)
             {
-                topicWithComments.Add(new Topic()
+                topicWithComments.Add(new Topic
                 {
                     Id = i,
                     Name = "topic" + i,
@@ -141,7 +141,7 @@ namespace FoodSupplementsSystem.Tests.DataHelpers
 
             for (int i = 1; i <= 10; i++)
             {
-                collection.Add(new SelectListItem()
+                collection.Add(new SelectListItem
                 {
                     Value = i.ToString(),
                     Text = "text" + i
@@ -157,7 +157,7 @@ namespace FoodSupplementsSystem.Tests.DataHelpers
 
             for (int i = 1; i <= 10; i++)
             {
-                collection.Add(new Category()
+                collection.Add(new Category
                 {
                     Id = i,
                     Name = "text" + i
@@ -173,7 +173,7 @@ namespace FoodSupplementsSystem.Tests.DataHelpers
 
             for (int i = 1; i <= 10; i++)
             {
-                collection.Add(new Brand()
+                collection.Add(new Brand
                 {
                     Id = i,
                     Name = "text" + i
@@ -189,7 +189,7 @@ namespace FoodSupplementsSystem.Tests.DataHelpers
 
             for (int i = 1; i <= 10; i++)
             {
-                collection.Add(new Topic()
+                collection.Add(new Topic
                 {
                     Id = i,
                     Name = "text" + i
@@ -201,7 +201,7 @@ namespace FoodSupplementsSystem.Tests.DataHelpers
 
         internal static CategoryViewModel GetAdminCategoryViewModel()
         {
-            return new CategoryViewModel()
+            return new CategoryViewModel
             {
                 Id = 1,
                 Name = "category name"
@@ -210,7 +210,7 @@ namespace FoodSupplementsSystem.Tests.DataHelpers
 
         internal static BrandViewModel GetAdminBrandViewModel()
         {
-            return new BrandViewModel()
+            return new BrandViewModel
             {
                 Id = 1,
                 Name = "brans name",
@@ -220,7 +220,7 @@ namespace FoodSupplementsSystem.Tests.DataHelpers
 
         internal static TopicViewModel GetAdminTopicViewModel()
         {
-            return new TopicViewModel()
+            return new TopicViewModel
             {
                 Id = 1,
                 Name = "topic name",
@@ -230,7 +230,7 @@ namespace FoodSupplementsSystem.Tests.DataHelpers
 
         internal static SupplementViewModel GetAdminSupplementViewModel()
         {
-            return new SupplementViewModel()
+            return new SupplementViewModel
             {
                 Id = 1,
                 Name = "supplement name",
@@ -238,6 +238,15 @@ namespace FoodSupplementsSystem.Tests.DataHelpers
                 Ingredients = "supplement ingredients",
                 Use = "supplement use",
                 Description = "supplement description"
+            };
+        }
+
+        internal static Category GetCategory()
+        {
+            return new Category
+            {
+                Id = 1,
+                Name = "category name"
             };
         }
     }

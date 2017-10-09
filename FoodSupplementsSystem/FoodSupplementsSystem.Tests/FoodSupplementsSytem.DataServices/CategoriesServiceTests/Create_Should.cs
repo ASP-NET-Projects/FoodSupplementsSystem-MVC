@@ -6,6 +6,7 @@ using NUnit.Framework;
 using FoodSupplementsSystem.Data.Models;
 using FoodSupplementsSystem.Data.Repositories;
 using FoodSupplementsSystem.Services.Data;
+using FoodSupplementsSystem.Tests.DataHelpers;
 
 namespace FoodSupplementsSystem.Tests.FoodSupplementsSytem.DataServices.CategoriesServiceTests
 {
@@ -13,30 +14,63 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSytem.DataServices.Categori
     public class Create_Should
     {
         [Test]
-        public void Throw_WhenThePassedCategoryIsNull()
+        public void Throw_WhenPassedParameterIsNull()
         {
             //Arrange
-            var categoriesMock = new Mock<IEfGenericRepository<Category>>();
-            CategoriesService categoriesService = new CategoriesService(categoriesMock.Object);
+            var categories = new Mock<IEfGenericRepository<Category>>();
+            var categoriesService = new CategoriesService(categories.Object);
 
             //Act & Assert
             Assert.Throws<ArgumentNullException>(() => categoriesService.Create(null));
         }
 
         [Test]
-        public void InvokeRepositoryMethodAddOnce_WhenThePassedCategoryIsValid()
+        public void ReturnCorrectInstance_WhenPassedParameterIsValid()
         {
             //Arrange
-            var categoriesMock = new Mock<IEfGenericRepository<Category>>();
-            CategoriesService categoriesService = new CategoriesService(categoriesMock.Object);
-            int categoryId = 6;
-            Category category = new Category() { Id = categoryId, Name = "Amino Acids" };
+            var categories = new Mock<IEfGenericRepository<Category>>();
+            var category = DataHelper.GetCategory();
+            categories.Setup(x => x.Add(It.IsAny<Category>())).Verifiable();
+            var categoriesService = new CategoriesService(categories.Object);
+
+            //Act
+            var result = categoriesService.Create(category.Name);
+
+            //Assert
+            Assert.IsInstanceOf<Category>(result);
+        }
+
+        [Test]
+        public void ReturnCorrectModel_WhenPassedParameterIsValid()
+        {
+            //Arrange
+            var categories = new Mock<IEfGenericRepository<Category>>();
+            var category = DataHelper.GetCategory();
+            categories.Setup(x => x.Add(It.IsAny<Category>())).Verifiable();
+            var categoriesService = new CategoriesService(categories.Object);
+
+            //Act
+            var result = categoriesService.Create(category.Name);
+
+            //Assert
+            Assert.IsNotNull(result);
+            Assert.AreEqual(category.Name, result.Name);
+        }
+
+        [Test]
+        public void InvokeRepositoryMethodAddOnce_WhenPassedParameterIsValid()
+        {
+            //Arrange
+            var categories = new Mock<IEfGenericRepository<Category>>();
+            categories.Setup(x => x.Add(It.IsAny<Category>())).Verifiable();
+            var categoriesService = new CategoriesService(categories.Object);
+            var category = DataHelper.GetCategory();
 
             //Act
             categoriesService.Create(category.Name);
 
             //Assert
-            categoriesMock.Verify(x => x.Add(It.IsAny<Category>()), Times.Once);
+            categories.Verify(x => x.Add(It.IsAny<Category>()), Times.Once);
         }
     }
 }

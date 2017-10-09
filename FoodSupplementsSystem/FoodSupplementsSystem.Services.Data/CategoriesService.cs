@@ -31,6 +31,8 @@ namespace FoodSupplementsSystem.Services.Data
 
         public Category GetById(int id)
         {
+            Guard.WhenArgument(id, "id").IsLessThan(1).Throw();
+
             return this.categories.GetById(id);
         }
 
@@ -38,7 +40,7 @@ namespace FoodSupplementsSystem.Services.Data
         {
             Guard.WhenArgument(name, "name").IsNullOrEmpty().Throw();
 
-            var category = new Category() { Name = name };
+            var category = new Category { Name = name };
 
             this.categories.Add(category);
 
@@ -49,7 +51,7 @@ namespace FoodSupplementsSystem.Services.Data
 
         public void UpdateNameById(int id, string name)
         {
-            Guard.WhenArgument(id, "id").IsLessThan(0).Throw();
+            Guard.WhenArgument(id, "id").IsLessThan(1).Throw();
 
             Guard.WhenArgument(name, "name").IsNull().Throw();
 
@@ -60,7 +62,7 @@ namespace FoodSupplementsSystem.Services.Data
 
         public void DeleteById(int id)
         {
-            //Guard.WhenArgument(id, "id").IsLessThan(0).Throw();
+            Guard.WhenArgument(id, "id").IsLessThan(1).Throw();
 
             this.categories.Delete(id);
 
