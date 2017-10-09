@@ -1,6 +1,5 @@
 ﻿using System.Web.Mvc;
 
-using AutoMapper;
 using Kendo.Mvc.UI;
 using Moq;
 using NUnit.Framework;
@@ -30,8 +29,7 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.Categori
 
             AutoMapperConfig.Config();
 
-            var categoryDbModel = Mapper.Map<Category>(categoryViewModel);
-            categoriesService.Setup(x => x.Create(It.IsAny<string>())).Returns(categoryDbModel);
+            categoriesService.Setup(x => x.Create(It.IsAny<Category>())).Verifiable();
 
             var controller = new CategoriesController(categoriesService.Object);
 
@@ -49,8 +47,7 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.Categori
 
             AutoMapperConfig.Config();
 
-            var categoryDbModel = Mapper.Map<Category>(categoryViewModel);
-            categoriesService.Setup(x => x.Create(It.IsAny<string>())).Returns(categoryDbModel);
+            categoriesService.Setup(x => x.Create(It.IsAny<Category>())).Verifiable();
 
             var controller = new CategoriesController(categoriesService.Object);
 
@@ -74,8 +71,7 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.Categori
 
             AutoMapperConfig.Config();
 
-            var categoryDbModel = Mapper.Map<Category>(categoryViewModel);
-            categoriesService.Setup(x => x.Create(It.IsAny<string>())).Returns(categoryDbModel);
+            categoriesService.Setup(x => x.Create(It.IsAny<Category>())).Verifiable();
 
             var controller = new CategoriesController(categoriesService.Object);
 

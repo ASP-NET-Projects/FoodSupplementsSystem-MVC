@@ -36,36 +36,27 @@ namespace FoodSupplementsSystem.Services.Data
             return this.categories.GetById(id);
         }
 
-        public Category Create(string name)
+        public void Create(Category category)
         {
-            Guard.WhenArgument(name, "name").IsNullOrEmpty().Throw();
-
-            var category = new Category { Name = name };
+            Guard.WhenArgument(category, "category").IsNull().Throw();
 
             this.categories.Add(category);
-
-            this.categories.SaveChanges();
-
-            return category;
-        }
-
-        public void UpdateNameById(int id, string name)
-        {
-            Guard.WhenArgument(id, "id").IsLessThan(1).Throw();
-
-            Guard.WhenArgument(name, "name").IsNull().Throw();
-
-            this.categories.GetById(id).Name = name;
-
             this.categories.SaveChanges();
         }
 
-        public void DeleteById(int id)
+        public void Update(Category category)
         {
-            Guard.WhenArgument(id, "id").IsLessThan(1).Throw();
+            Guard.WhenArgument(category, "category").IsNull().Throw();
 
-            this.categories.Delete(id);
+            this.categories.Update(category);
+            this.categories.SaveChanges();
+        }
 
+        public void Delete(Category category)
+        {
+            Guard.WhenArgument(category, "category").IsNull().Throw();
+
+            this.categories.Delete(category);
             this.categories.SaveChanges();
         }
     }

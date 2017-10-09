@@ -10,12 +10,12 @@ namespace FoodSupplementsSystem.Services.Data.Contracts
 
         IQueryable<Category> GetLast3();
 
-        Category Create(string name);
-
-        void UpdateNameById(int id, string name);
-
-        void DeleteById(int id);
-
         Category GetById(int id);
+
+        void Create(Category category);
+
+        void Update(Category category);
+
+        void Delete(Category category);
     }
 }

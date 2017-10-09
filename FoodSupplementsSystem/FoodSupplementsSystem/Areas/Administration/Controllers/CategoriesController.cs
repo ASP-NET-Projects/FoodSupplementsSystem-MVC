@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Web.Mvc;
 
-using Kendo.Mvc.Extensions;
-using Kendo.Mvc.UI;
+using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using Bytes2you.Validation;
+using Kendo.Mvc.Extensions;
+using Kendo.Mvc.UI;
 
 using FoodSupplementsSystem.Services.Data.Contracts;
 using FoodSupplementsSystem.Areas.Administration.ViewModels.Categories;
+using FoodSupplementsSystem.Data.Models;
 
 namespace FoodSupplementsSystem.Areas.Administration.Controllers
 {
@@ -40,7 +42,8 @@ namespace FoodSupplementsSystem.Areas.Administration.Controllers
         {
             if (category != null && this.ModelState.IsValid)
             {
-                this.categories.Create(category.Name);
+                var categoryDbModel = Mapper.Map<Category>(category);
+                this.categories.Create(categoryDbModel);
             }
 
             return Json(new[] { category }.ToDataSourceResult(request, ModelState));
@@ -53,7 +56,8 @@ namespace FoodSupplementsSystem.Areas.Administration.Controllers
             {
                 if (category != null && this.ModelState.IsValid)
                 {
-                    this.categories.UpdateNameById(category.Id, category.Name);
+                    var categoryDbModel = Mapper.Map<Category>(category);
+                    this.categories.Update(categoryDbModel);
                 }
             }
 
@@ -67,7 +71,8 @@ namespace FoodSupplementsSystem.Areas.Administration.Controllers
             {
                 if (category != null && this.ModelState.IsValid)
                 {
-                    this.categories.DeleteById(category.Id);
+                    var categoryDbModel = Mapper.Map<Category>(category);
+                    this.categories.Delete(categoryDbModel);
                 }
             }
 
@@ -82,10 +87,10 @@ namespace FoodSupplementsSystem.Areas.Administration.Controllers
             return File(fileContents, contentType, fileName);
         }
 
-       // protected override void Dispose(bool disposing)
-       // {
-       //     categoriesWrapper.Dispose();
-       //     base.Dispose(disposing);
-       // }
+        // protected override void Dispose(bool disposing)
+        // {
+        //     categoriesWrapper.Dispose();
+        //     base.Dispose(disposing);
+        // }
     }
 }

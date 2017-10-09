@@ -11,33 +11,33 @@ using FoodSupplementsSystem.Tests.DataHelpers;
 namespace FoodSupplementsSystem.Tests.FoodSupplementsSytem.DataServices.CategoriesServiceTests
 {
     [TestFixture]
-    public class Create_Should
+    public class Delete_Should
     {
         [Test]
-        public void Throw_WhenPassedParameterIsNull()
+        public void Throw_WhenIdParameterIsInvalid()
         {
             //Arrange
             var categories = new Mock<IEfGenericRepository<Category>>();
             var categoriesService = new CategoriesService(categories.Object);
 
             //Act & Assert
-            Assert.Throws<ArgumentNullException>(() => categoriesService.Create(null));
+            Assert.Throws<ArgumentNullException>(() => categoriesService.Delete(null));
         }
 
         [Test]
-        public void InvokeRepositoryMethodAddOnce_WhenPassedParameterIsValid()
+        public void InvokeRepositoryMethosDeleteOnce()
         {
             //Arrange
             var categories = new Mock<IEfGenericRepository<Category>>();
-            categories.Setup(x => x.Add(It.IsAny<Category>())).Verifiable();
-            var categoriesService = new CategoriesService(categories.Object);
             var category = DataHelper.GetCategory();
+            categories.Setup(x => x.Delete(It.IsAny<Category>())).Verifiable();
+            var categoriesService = new CategoriesService(categories.Object);
 
             //Act
-            categoriesService.Create(category);
+            categoriesService.Delete(category);
 
             //Assert
-            categories.Verify(x => x.Add(It.IsAny<Category>()), Times.Once);
+            categories.Verify(x => x.Delete(It.IsAny<Category>()), Times.Once);
         }
     }
 }

@@ -2,7 +2,6 @@
 using System.Linq;
 using System.Web.Mvc;
 
-using AutoMapper;
 using Moq;
 using NUnit.Framework;
 using Kendo.Mvc.UI;
@@ -30,8 +29,7 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.Categori
 
             AutoMapperConfig.Config();
 
-            var categoryDbModel = Mapper.Map<Category>(categoryViewModel);
-            categoriesService.Setup(x => x.DeleteById(It.IsAny<int>())).Verifiable();
+            categoriesService.Setup(x => x.Delete(It.IsAny<Category>())).Verifiable();
 
             var controller = new CategoriesController(categoriesService.Object);
 
@@ -49,8 +47,7 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.Categori
 
             AutoMapperConfig.Config();
 
-            var categoryDbModel = Mapper.Map<Category>(categoryViewModel);
-            categoriesService.Setup(x => x.DeleteById(It.IsAny<int>())).Verifiable();
+            categoriesService.Setup(x => x.Delete(It.IsAny<Category>())).Verifiable();
 
             var controller = new CategoriesController(categoriesService.Object);
 
@@ -74,8 +71,7 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.Categori
 
             AutoMapperConfig.Config();
 
-            var categoryDbModel = Mapper.Map<Category>(categoryViewModel);
-            categoriesService.Setup(x => x.DeleteById(It.IsAny<int>())).Verifiable();
+            categoriesService.Setup(x => x.Delete(It.IsAny<Category>())).Verifiable();
 
             var controller = new CategoriesController(categoriesService.Object);
 

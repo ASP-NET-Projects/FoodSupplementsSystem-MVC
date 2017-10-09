@@ -169,11 +169,11 @@
     <Compile Include="FoodSupplementsSytem.DataServices\BrandsServiceTests\GetAll_Should.cs" />
     <Compile Include="FoodSupplementsSytem.DataServices\CategoriesServiceTests\Constructor_Should.cs" />
     <Compile Include="FoodSupplementsSytem.DataServices\CategoriesServiceTests\Create_Should.cs" />
-    <Compile Include="FoodSupplementsSytem.DataServices\CategoriesServiceTests\DeleteById_Should.cs" />
+    <Compile Include="FoodSupplementsSytem.DataServices\CategoriesServiceTests\Delete_Should.cs" />
     <Compile Include="FoodSupplementsSytem.DataServices\CategoriesServiceTests\GetAll_Should.cs" />
     <Compile Include="FoodSupplementsSytem.DataServices\CategoriesServiceTests\GetById_Should.cs" />
     <Compile Include="FoodSupplementsSytem.DataServices\CategoriesServiceTests\GetLast3_Should.cs" />
-    <Compile Include="FoodSupplementsSytem.DataServices\CategoriesServiceTests\UpdateNameById_Should.cs" />
+    <Compile Include="FoodSupplementsSytem.DataServices\CategoriesServiceTests\Update_Should.cs" />
     <Compile Include="FoodSupplementsSytem.DataServices\CommentsServiceTests\Constructor_Should.cs" />
     <Compile Include="FoodSupplementsSytem.DataServices\CommentsServiceTests\Create_Should.cs" />
     <Compile Include="FoodSupplementsSytem.DataServices\CommentsServiceTests\GetAll_Should.cs" />
