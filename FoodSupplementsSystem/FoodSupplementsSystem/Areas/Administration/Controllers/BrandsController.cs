@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Web.Mvc;
 
+using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using Bytes2you.Validation;
 using Kendo.Mvc.Extensions;
@@ -8,6 +9,7 @@ using Kendo.Mvc.UI;
 
 using FoodSupplementsSystem.Services.Data.Contracts;
 using FoodSupplementsSystem.Areas.Administration.ViewModels.Brands;
+using FoodSupplementsSystem.Data.Models;
 
 namespace FoodSupplementsSystem.Areas.Administration.Controllers
 {
@@ -40,7 +42,8 @@ namespace FoodSupplementsSystem.Areas.Administration.Controllers
         {
             if (brand != null && this.ModelState.IsValid)
             {
-                this.brands.Create(brand.Name, brand.WebSite);
+                var brandDbModel = Mapper.Map<Brand>(brand);
+                this.brands.Create(brandDbModel);
             }
 
             return Json(new[] { brand }.ToDataSourceResult(request, ModelState));
@@ -53,7 +56,8 @@ namespace FoodSupplementsSystem.Areas.Administration.Controllers
             {
                 if (brand != null && this.ModelState.IsValid)
                 {
-                    this.brands.UpdateById(brand.Id, brand.Name, brand.WebSite);
+                    var brandDbModel = Mapper.Map<Brand>(brand);
+                    this.brands.Update(brandDbModel);
                 }
             }
 
@@ -67,7 +71,8 @@ namespace FoodSupplementsSystem.Areas.Administration.Controllers
             {
                 if (brand != null && this.ModelState.IsValid)
                 {
-                    this.brands.DeleteById(brand.Id);
+                    var brandDbModel = Mapper.Map<Brand>(brand);
+                    this.brands.Delete(brandDbModel);
                 }
             }
 

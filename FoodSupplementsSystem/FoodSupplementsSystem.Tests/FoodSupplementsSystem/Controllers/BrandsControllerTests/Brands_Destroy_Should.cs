@@ -2,7 +2,6 @@
 using System.Linq;
 using System.Web.Mvc;
 
-using AutoMapper;
 using Moq;
 using NUnit.Framework;
 using Kendo.Mvc.UI;
@@ -30,8 +29,7 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.BrandsCo
 
             AutoMapperConfig.Config();
 
-            var brandDbModel = Mapper.Map<Brand>(brandViewModel);
-            brandsService.Setup(x => x.DeleteById(It.IsAny<int>())).Verifiable();
+            brandsService.Setup(x => x.Delete(It.IsAny<Brand>())).Verifiable();
 
             var controller = new BrandsController(brandsService.Object);
 
@@ -49,8 +47,7 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.BrandsCo
 
             AutoMapperConfig.Config();
 
-            var brandDbModel = Mapper.Map<Brand>(brandViewModel);
-            brandsService.Setup(x => x.DeleteById(It.IsAny<int>())).Verifiable();
+            brandsService.Setup(x => x.Delete(It.IsAny<Brand>())).Verifiable();
 
             var controller = new BrandsController(brandsService.Object);
 
@@ -74,8 +71,7 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.BrandsCo
 
             AutoMapperConfig.Config();
 
-            var brandDbModel = Mapper.Map<Brand>(brandViewModel);
-            brandsService.Setup(x => x.DeleteById(It.IsAny<int>())).Verifiable();
+            brandsService.Setup(x => x.Delete(It.IsAny<Brand>())).Verifiable();
 
             var controller = new BrandsController(brandsService.Object);
 

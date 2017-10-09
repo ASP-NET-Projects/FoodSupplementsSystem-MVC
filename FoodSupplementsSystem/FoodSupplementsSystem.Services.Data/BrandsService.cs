@@ -31,39 +31,32 @@ namespace FoodSupplementsSystem.Services.Data
 
         public Brand GetById(int id)
         {
+            Guard.WhenArgument(id, "id").IsLessThan(1).Throw();
+
             return this.brands.GetById(id);
         }
 
-        public Brand Create(string name, string website)
+        public void Create(Brand brand)
         {
-            Guard.WhenArgument(name, "name").IsNullOrEmpty().Throw();
-            Guard.WhenArgument(website, "website").IsNullOrEmpty().Throw();
-
-            var brand = new Brand() { Name = name, WebSite = website };
+            Guard.WhenArgument(brand, "brand").IsNull().Throw();
 
             this.brands.Add(brand);
-
-            this.brands.SaveChanges();
-
-            return brand;
-        }
-
-        public void UpdateById(int id, string name, string website)
-        {
-            Guard.WhenArgument(id, "id").IsLessThan(0).Throw();
-
-            Guard.WhenArgument(name, "name").IsNull().Throw();
-
-            this.brands.GetById(id).Name = name;
-
-            this.brands.GetById(id).WebSite = website;
-
             this.brands.SaveChanges();
         }
 
-        public void DeleteById(int id)
+        public void Update(Brand brand)
         {
-            this.brands.Delete(id);
+            Guard.WhenArgument(brand, "brand").IsNull().Throw();
+
+            this.brands.Update(brand);
+            this.brands.SaveChanges();
+        }
+
+        public void Delete(Brand brand)
+        {
+            Guard.WhenArgument(brand, "brand").IsNull().Throw();
+
+            this.brands.Delete(brand);
             this.brands.SaveChanges();
         }
     }

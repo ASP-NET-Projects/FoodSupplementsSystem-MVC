@@ -12,10 +12,12 @@ namespace FoodSupplementsSystem.Services.Data.Contracts
 
         Brand GetById(int id);
 
-        Brand Create(string name, string website);
+        void Create(Brand brand);
 
-        void UpdateById(int id, string name, string website);
+        void Update(Brand brand);
 
-        void DeleteById(int id);
+        void Delete(Brand brand);
+
+        //void DeleteById(int id);
     }
 }
