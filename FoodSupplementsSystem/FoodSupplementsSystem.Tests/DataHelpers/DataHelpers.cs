@@ -4,10 +4,14 @@ using System.Linq;
 using System.Web.Mvc;
 
 using FoodSupplementsSystem.Data.Models;
-using FoodSupplementsSystem.Areas.Administration.ViewModels.Categories;
-using FoodSupplementsSystem.Areas.Administration.ViewModels.Brands;
-using FoodSupplementsSystem.Areas.Administration.ViewModels.Topics;
-using FoodSupplementsSystem.Areas.Administration.ViewModels.Supplements;
+using BrandViewModelAdmin = FoodSupplementsSystem.Areas.Administration.ViewModels.Brands.BrandViewModel;
+using BrandViewModel = FoodSupplementsSystem.ViewModels.AllBrands.BrandViewModel;
+using SupplementViewModelAdmin = FoodSupplementsSystem.Areas.Administration.ViewModels.Supplements.SupplementViewModel;
+using SupplementViewModel = FoodSupplementsSystem.ViewModels.AllSupplements.SupplementViewModel;
+using TopicViewModelAdmin = FoodSupplementsSystem.Areas.Administration.ViewModels.Topics.TopicViewModel;
+using TopicViewModel = FoodSupplementsSystem.ViewModels.AllTopics.TopicViewModel;
+using CategoryViewModelAdmin = FoodSupplementsSystem.Areas.Administration.ViewModels.Categories.CategoryViewModel;
+using CategoryViewModel = FoodSupplementsSystem.ViewModels.AllCategories.CategoryViewModel;
 
 namespace FoodSupplementsSystem.Tests.DataHelpers
 {
@@ -197,28 +201,28 @@ namespace FoodSupplementsSystem.Tests.DataHelpers
             return collection.AsQueryable();
         }
 
-        internal static CategoryViewModel GetAdminCategoryViewModel()
+        internal static CategoryViewModelAdmin GetAdminCategoryViewModel()
         {
-            return new CategoryViewModel
+            return new CategoryViewModelAdmin
             {
                 Id = 1,
                 Name = "category name"
             };
         }
 
-        internal static BrandViewModel GetAdminBrandViewModel()
+        internal static BrandViewModelAdmin GetAdminBrandViewModel()
         {
-            return new BrandViewModel
+            return new BrandViewModelAdmin
             {
                 Id = 1,
-                Name = "brans name",
+                Name = "brand name",
                 WebSite = "website name"
             };
         }
 
-        internal static TopicViewModel GetAdminTopicViewModel()
+        internal static TopicViewModelAdmin GetAdminTopicViewModel()
         {
-            return new TopicViewModel
+            return new TopicViewModelAdmin
             {
                 Id = 1,
                 Name = "topic name",
@@ -226,9 +230,9 @@ namespace FoodSupplementsSystem.Tests.DataHelpers
             };
         }
 
-        internal static SupplementViewModel GetAdminSupplementViewModel()
+        internal static SupplementViewModelAdmin GetAdminSupplementViewModel()
         {
-            return new SupplementViewModel
+            return new SupplementViewModelAdmin
             {
                 Id = 1,
                 Name = "supplement name",
@@ -298,6 +302,73 @@ namespace FoodSupplementsSystem.Tests.DataHelpers
                 Name = "brand name",
                 WebSite = "brand website"
             };
+        }
+
+        internal static IList<BrandViewModel> GetCommonBrandsCollection()
+        {
+            IList<BrandViewModel> brands = new List<BrandViewModel>();
+
+            for (int i = 1; i <= 10; i++)
+            {
+                brands.Add(new BrandViewModel
+                {
+                    Id = i,
+                    Name = "test brand name" + i,
+                    WebSite = "test brand website" + i,
+                });
+            }
+
+            return brands;
+        }
+
+        internal static IQueryable<TopicViewModel> GetCommonTopicsColection()
+        {
+            List<TopicViewModel> topics = new List<TopicViewModel>();
+
+            for (int i = 1; i <= 10; i++)
+            {
+                topics.Add(new TopicViewModel
+                {
+                    Id = i,
+                    Name = "test topic name" + i,
+                    Description = "test topic description" + i
+                });
+            }
+
+            return topics.AsQueryable();
+        }
+
+        internal static IQueryable<CategoryViewModel> GetCommonCategoriesCollection()
+        {
+            List<CategoryViewModel> categories = new List<CategoryViewModel>();
+
+            for (int i = 1; i <= 10; i++)
+            {
+                categories.Add(new CategoryViewModel
+                {
+                    Id = i,
+                    Name = "test category name" + i
+                });
+            }
+
+            return categories.AsQueryable();
+        }
+
+        internal static IQueryable<SupplementViewModel> GetCommonSupplementsCollection()
+        {
+            List<SupplementViewModel> supplements = new List<SupplementViewModel>();
+
+            for (int i = 1; i <= 10; i++)
+            {
+                supplements.Add(new SupplementViewModel
+                {
+                    Id = i,
+                    ImageUrl = "test supplement image url" + i,
+                    Name = "test supplement name" + i
+                });
+            }
+
+            return supplements.AsQueryable();
         }
     }
 }

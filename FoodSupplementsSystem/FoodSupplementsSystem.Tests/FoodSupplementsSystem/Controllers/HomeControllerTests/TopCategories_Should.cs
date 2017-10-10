@@ -1,11 +1,12 @@
-﻿using Moq;
+﻿using System.Linq;
+
+using Moq;
 using NUnit.Framework;
 using TestStack.FluentMVCTesting;
 
 using FoodSupplementsSystem.App_Start;
 using FoodSupplementsSystem.Controllers;
 using FoodSupplementsSystem.Infrastructure.Services;
-using FoodSupplementsSystem.Services.Data.Contracts;
 using FoodSupplementsSystem.Tests.DataHelpers;
 
 namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.HomeControllerTests
@@ -17,19 +18,13 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.HomeCont
         public void ReturnPartialView_WhenGetToTopCategories()
         {
             // Arrange
-            var brandsServiceMock = new Mock<IBrandsService>();
-            var categoriesServiceMock = new Mock<ICategoriesService>();
-            var categories = DataHelper.GetCategories();
-
-            categoriesServiceMock.Setup(x => x.GetAll())
-                .Returns(categories);
-
-            var supplementsServiceMock = new Mock<ISupplementsService>();
-            var homeServiceMock = new Mock<IHomeService>();
+            var homeService = new Mock<IHomeService>();
+            var categoriesLast3 = DataHelper.GetCommonCategoriesCollection().Take(3).ToList();
+            homeService.Setup(x => x.GetLastCategories()).Returns(categoriesLast3);
 
             AutoMapperConfig.Config();
 
-            var controller = new HomeController(categoriesServiceMock.Object, brandsServiceMock.Object, supplementsServiceMock.Object, homeServiceMock.Object);
+            var controller = new HomeController(homeService.Object);
 
             // Act & Assert
             controller.WithCallTo(c => c.TopCategories())

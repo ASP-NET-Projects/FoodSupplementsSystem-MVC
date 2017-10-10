@@ -4,7 +4,6 @@ using TestStack.FluentMVCTesting;
 
 using FoodSupplementsSystem.Controllers;
 using FoodSupplementsSystem.Infrastructure.Services;
-using FoodSupplementsSystem.Services.Data.Contracts;
 
 namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.HomeControllerTests
 {
@@ -15,15 +14,12 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.HomeCont
         public void ReturnDefaultView_WhenGetToIndex()
         {
             // Arrange
-            var categoriesServiceMock = new Mock<ICategoriesService>();
-            var brandsServiceMock = new Mock<IBrandsService>();
-            var supplementsServiceMock = new Mock<ISupplementsService>();
-            var homeServiceMock = new Mock<IHomeService>();
+            var homeService = new Mock<IHomeService>();
 
-            var homeController = new HomeController(categoriesServiceMock.Object, brandsServiceMock.Object, supplementsServiceMock.Object, homeServiceMock.Object);
+            var controller = new HomeController(homeService.Object);
 
             // Act && Assert
-            homeController.WithCallTo(c => c.Index()).ShouldRenderDefaultView();
+            controller.WithCallTo(c => c.Index()).ShouldRenderDefaultView();
         }
     }
 }
