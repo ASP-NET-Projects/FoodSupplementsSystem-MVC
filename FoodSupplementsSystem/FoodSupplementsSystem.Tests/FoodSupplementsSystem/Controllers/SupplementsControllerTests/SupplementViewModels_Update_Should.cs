@@ -2,7 +2,6 @@
 using System.Linq;
 using System.Web.Mvc;
 
-using AutoMapper;
 using Moq;
 using NUnit.Framework;
 using Kendo.Mvc.UI;
@@ -34,9 +33,7 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.Suppleme
 
             AutoMapperConfig.Config();
 
-            var supplementDbModel = Mapper.Map<Supplement>(supplementViewModel);
-            supplementsService.Setup(x => x.UpdateById(It.IsAny<int>(), It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>()))
-                .Verifiable();
+            supplementsService.Setup(x => x.Update(It.IsAny<Supplement>())).Verifiable();
 
             var controller = new SupplementsController(supplementsService.Object, dropDownListPopulator.Object, repoUser.Object);
 
@@ -56,9 +53,7 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.Suppleme
 
             AutoMapperConfig.Config();
 
-            var supplementDbModel = Mapper.Map<Supplement>(supplementViewModel);
-            supplementsService.Setup(x => x.UpdateById(It.IsAny<int>(), It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>()))
-                .Verifiable();
+            supplementsService.Setup(x => x.Update(It.IsAny<Supplement>())).Verifiable();
 
             var controller = new SupplementsController(supplementsService.Object, dropDownListPopulator.Object, repoUser.Object);
 
@@ -84,9 +79,7 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.Suppleme
 
             AutoMapperConfig.Config();
 
-            var supplementDbModel = Mapper.Map<Supplement>(supplementViewModel);
-            supplementsService.Setup(x => x.UpdateById(It.IsAny<int>(), It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>()))
-                .Verifiable();
+            supplementsService.Setup(x => x.Update(It.IsAny<Supplement>())).Verifiable();
 
             var controller = new SupplementsController(supplementsService.Object, dropDownListPopulator.Object, repoUser.Object);
 

@@ -33,7 +33,7 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.Suppleme
 
             AutoMapperConfig.Config();
 
-            supplementsService.Setup(x => x.DeleteById(It.IsAny<int>())).Verifiable();
+            supplementsService.Setup(x => x.Delete(It.IsAny<Supplement>())).Verifiable();
 
             var controller = new SupplementsController(supplementsService.Object, dropDownListPopulator.Object, repoUser.Object);
 
@@ -53,7 +53,7 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.Suppleme
 
             AutoMapperConfig.Config();
 
-            supplementsService.Setup(x => x.DeleteById(It.IsAny<int>())).Verifiable();
+            supplementsService.Setup(x => x.Delete(It.IsAny<Supplement>())).Verifiable();
 
             var controller = new SupplementsController(supplementsService.Object, dropDownListPopulator.Object, repoUser.Object);
 
@@ -79,7 +79,7 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.Suppleme
 
             AutoMapperConfig.Config();
 
-            supplementsService.Setup(x => x.DeleteById(It.IsAny<int>())).Verifiable();
+            supplementsService.Setup(x => x.Delete(It.IsAny<Supplement>())).Verifiable();
 
             var controller = new SupplementsController(supplementsService.Object, dropDownListPopulator.Object, repoUser.Object);
 

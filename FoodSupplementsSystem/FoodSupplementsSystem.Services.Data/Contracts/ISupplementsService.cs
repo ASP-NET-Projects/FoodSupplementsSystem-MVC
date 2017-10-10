@@ -14,10 +14,8 @@ namespace FoodSupplementsSystem.Services.Data.Contracts
 
         void Create(Supplement supplement);
 
-        Supplement Create(string name, string imageUrl, string ingredients, string use, string description);
+        void Update(Supplement supplement);
 
-        void UpdateById(int id, string name, string imageUrl, string ingredients, string use, string description);
-
-        void DeleteById(int id);
+        void Delete(Supplement supplement);
     }
 }

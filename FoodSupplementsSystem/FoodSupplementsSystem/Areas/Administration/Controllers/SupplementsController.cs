@@ -85,7 +85,8 @@ namespace FoodSupplementsSystem.Areas.Administration.Controllers
         {
             if (supplement != null && this.ModelState.IsValid)
             {
-                this.supplements.Create(supplement.Name, supplement.ImageUrl, supplement.Ingredients, supplement.Use, supplement.Description);
+                var supplementDbModel = Mapper.Map<Supplement>(supplement);
+                this.supplements.Create(supplementDbModel);
             }
 
             return Json(new[] { supplement }.ToDataSourceResult(request, ModelState));
@@ -98,7 +99,8 @@ namespace FoodSupplementsSystem.Areas.Administration.Controllers
             {
                 if (supplement != null && this.ModelState.IsValid)
                 {
-                    this.supplements.UpdateById(supplement.Id, supplement.Name, supplement.ImageUrl, supplement.Ingredients, supplement.Use, supplement.Description);
+                    var supplementDbModel = Mapper.Map<Supplement>(supplement);
+                    this.supplements.Update(supplementDbModel);
                 }
             }
 
@@ -112,7 +114,8 @@ namespace FoodSupplementsSystem.Areas.Administration.Controllers
             {
                 if (supplement != null && this.ModelState.IsValid)
                 {
-                    this.supplements.DeleteById(supplement.Id);
+                    var supplementDbModel = Mapper.Map<Supplement>(supplement);
+                    this.supplements.Delete(supplementDbModel);
                 }
             }
 
