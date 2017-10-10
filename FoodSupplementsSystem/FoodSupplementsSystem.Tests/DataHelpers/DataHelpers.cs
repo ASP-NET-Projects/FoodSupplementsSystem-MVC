@@ -279,5 +279,15 @@ namespace FoodSupplementsSystem.Tests.DataHelpers
                 Description = "topic description"
             };
         }
+
+        internal static Supplement GetSupplement()
+        {
+            return new Supplement
+            {
+                Id = 1,
+                Name = "supplement name ",
+                ImageUrl = "supplement imageUrl"
+            };
+        }
     }
 }

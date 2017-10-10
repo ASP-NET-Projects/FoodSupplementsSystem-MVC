@@ -181,7 +181,12 @@
     <Compile Include="FoodSupplementsSytem.DataServices\FeedbacksServiceTests\Create_Should.cs" />
     <Compile Include="FoodSupplementsSytem.DataServices\FeedbacksServiceTests\GetAll_Should.cs" />
     <Compile Include="FoodSupplementsSytem.DataServices\SupplementsServiceTests\Constructor_Should.cs" />
+    <Compile Include="FoodSupplementsSytem.DataServices\SupplementsServiceTests\Create_Should.cs" />
+    <Compile Include="FoodSupplementsSytem.DataServices\SupplementsServiceTests\Delete_Should.cs" />
     <Compile Include="FoodSupplementsSytem.DataServices\SupplementsServiceTests\GetAll_Should.cs" />
+    <Compile Include="FoodSupplementsSytem.DataServices\SupplementsServiceTests\GetById_Should.cs" />
+    <Compile Include="FoodSupplementsSytem.DataServices\SupplementsServiceTests\GetLast3_Should.cs" />
+    <Compile Include="FoodSupplementsSytem.DataServices\SupplementsServiceTests\Update_Should.cs" />
     <Compile Include="FoodSupplementsSytem.DataServices\TopicsServiceTests\Constructor_Should.cs" />
     <Compile Include="FoodSupplementsSytem.DataServices\TopicsServiceTests\Create_Should.cs" />
     <Compile Include="FoodSupplementsSytem.DataServices\TopicsServiceTests\Delete_Should.cs" />

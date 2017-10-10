@@ -31,6 +31,8 @@ namespace FoodSupplementsSystem.Services.Data
 
         public Supplement GetById(int id)
         {
+            Guard.WhenArgument(id, "id").IsLessThan(1).Throw();
+
             return this.supplements.GetById(id);
         }
 

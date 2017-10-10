@@ -29,7 +29,6 @@ namespace FoodSupplementsSystem.Controllers
             this.populator = populator;
         }
 
-        [HttpGet]
         public ActionResult All(int? category, int? brand, int? topic)
         {
             var filterSupplementsModel = new FilterSupplementsViewModel

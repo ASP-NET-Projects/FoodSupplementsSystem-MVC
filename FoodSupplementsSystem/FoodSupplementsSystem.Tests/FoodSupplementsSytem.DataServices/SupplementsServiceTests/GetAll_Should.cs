@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 
 using Moq;
 using NUnit.Framework;
@@ -7,6 +6,7 @@ using NUnit.Framework;
 using FoodSupplementsSystem.Data.Models;
 using FoodSupplementsSystem.Data.Repositories;
 using FoodSupplementsSystem.Services.Data;
+using FoodSupplementsSystem.Tests.DataHelpers;
 
 namespace FoodSupplementsSystem.Tests.FoodSupplementsSytem.DataServices.SupplementsServiceTests
 {
@@ -14,79 +14,87 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSytem.DataServices.Suppleme
     public class GetAll_Should
     {
         [Test]
-        public void Invoke_TheRepositoryMethodGetAll_Once()
+        public void ReturnCorrectInstance()
         {
             //Arrange
-            var supplementsMock = new Mock<IEfGenericRepository<Supplement>>();
-            SupplementsService SupplementsService = new SupplementsService(supplementsMock.Object);
+            var supplements = new Mock<IEfGenericRepository<Supplement>>();
+            var supplementsCollection = DataHelper.GetSupplements();
+            supplements.Setup(x => x.All()).Returns(supplementsCollection);
+            var supplementsService = new SupplementsService(supplements.Object);
 
             //Act
-            IQueryable<Supplement> supplementResult = SupplementsService.GetAll();
+            var result = supplementsService.GetAll();
 
             //Assert
-            supplementsMock.Verify(c => c.All(), Times.Once);
+            Assert.IsInstanceOf<IQueryable<Supplement>>(result);
         }
 
         [Test]
-        public void ReturnResult_WhenInvokingRepositoryMethod_GetAll()
+        public void ReturnCorrectModel()
         {
             //Arrange
-            var supplementsMock = new Mock<IEfGenericRepository<Supplement>>();
-            IQueryable<Supplement> expectedResultCollection = new List<Supplement>().AsQueryable();
-
-            supplementsMock.Setup(c => c.All()).Returns(() =>
-            {
-                return expectedResultCollection;
-            });
-
-            SupplementsService supplementsService = new SupplementsService(supplementsMock.Object);
+            var supplements = new Mock<IEfGenericRepository<Supplement>>();
+            var supplementsCollection = DataHelper.GetSupplements();
+            supplements.Setup(x => x.All()).Returns(supplementsCollection);
+            var supplementsService = new SupplementsService(supplements.Object);
 
             //Act
-            IQueryable<Supplement> supplementResult = supplementsService.GetAll();
+            var result = supplementsService.GetAll();
 
             //Assert
-            Assert.That(supplementResult, Is.EqualTo(expectedResultCollection));
+            Assert.IsNotNull(result);
+            Assert.AreEqual(result, supplementsCollection);
         }
 
         [Test]
-        public void ReturnResultOfCorrectType()
+        public void ReturnCorrectModelWithRightProperties()
         {
             //Arrange
-            var supplementsMock = new Mock<IEfGenericRepository<Supplement>>();
-
-            supplementsMock.Setup(c => c.All()).Returns(() =>
-            {
-                IQueryable<Supplement> expectedResultCollection = new List<Supplement>().AsQueryable();
-                return expectedResultCollection;
-            });
-
-            SupplementsService supplementsService = new SupplementsService(supplementsMock.Object);
+            var supplements = new Mock<IEfGenericRepository<Supplement>>();
+            var supplementsCollection = DataHelper.GetSupplements();
+            supplements.Setup(x => x.All()).Returns(supplementsCollection);
+            var supplementsService = new SupplementsService(supplements.Object);
 
             //Act
-            IQueryable<Supplement> supplementResult = supplementsService.GetAll();
+            var result = supplementsService.GetAll();
 
             //Assert
-            Assert.That(supplementResult, Is.InstanceOf<IQueryable<Supplement>>());
+            Assert.IsNotNull(result);
+            Assert.AreEqual(result, supplementsCollection);
+            Assert.AreEqual(result.FirstOrDefault().Id, supplementsCollection.FirstOrDefault().Id);
+            Assert.AreEqual(result.FirstOrDefault().Name, supplementsCollection.FirstOrDefault().Name);
+            Assert.AreEqual(result.FirstOrDefault().ImageUrl, supplementsCollection.FirstOrDefault().ImageUrl);
         }
 
         [Test]
-        public void ReturnNull_WhenReposityMethodGetAll_ReturnsNull()
+        public void ReturnNull_WhenRepositoryMethodAll_ReturnsNull()
         {
             //Arrange
-            var supplementsMock = new Mock<IEfGenericRepository<Supplement>>();
-
-            supplementsMock.Setup(c => c.All()).Returns(() =>
-            {
-                return null;
-            });
-
-            SupplementsService supplementsService = new SupplementsService(supplementsMock.Object);
+            var supplements = new Mock<IEfGenericRepository<Supplement>>();
+            supplements.Setup(x => x.All()).Returns(() => null);
+            var supplementsService = new SupplementsService(supplements.Object);
 
             //Act
-            IQueryable<Supplement> supplementResult = supplementsService.GetAll();
+            var result = supplementsService.GetAll();
 
             //Assert
-            Assert.IsNull(supplementResult);
+            Assert.IsNull(result);
+        }
+
+        [Test]
+        public void InvokeRepositoryMethosAllOnce()
+        {
+            //Arrange
+            var supplements = new Mock<IEfGenericRepository<Supplement>>();
+            var supplementsCollection = DataHelper.GetSupplements();
+            supplements.Setup(x => x.All()).Returns(supplementsCollection);
+            var supplementsService = new SupplementsService(supplements.Object);
+
+            //Act
+            var result = supplementsService.GetAll();
+
+            //Assert
+            supplements.Verify(x => x.All(), Times.Once);
         }
     }
 }
