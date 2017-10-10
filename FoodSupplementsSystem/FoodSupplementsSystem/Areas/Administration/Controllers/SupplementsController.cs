@@ -121,13 +121,5 @@ namespace FoodSupplementsSystem.Areas.Administration.Controllers
 
             return Json(new[] { supplement }.ToDataSourceResult(request, ModelState));
         }
-
-        [HttpPost]
-        public ActionResult Excel_Export_Save(string contentType, string base64, string fileName)
-        {
-            var fileContents = Convert.FromBase64String(base64);
-
-            return File(fileContents, contentType, fileName);
-        }
     }
 }

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
@@ -78,19 +77,5 @@ namespace FoodSupplementsSystem.Areas.Administration.Controllers
 
             return Json(new[] { topic }.ToDataSourceResult(request, ModelState));
         }
-
-        [HttpPost]
-        public ActionResult Excel_Export_Save(string contentType, string base64, string fileName)
-        {
-            var fileContents = Convert.FromBase64String(base64);
-
-            return File(fileContents, contentType, fileName);
-        }
-
-        //protected override void Dispose(bool disposing)
-        //{
-        //    db.Dispose();
-        //    base.Dispose(disposing);
-        //}
     }
 }

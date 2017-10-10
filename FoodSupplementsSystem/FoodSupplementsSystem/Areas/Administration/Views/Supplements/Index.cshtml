@@ -2,25 +2,26 @@
       .Name("grid")
       .Columns(columns =>
       {
-        columns.Bound(c => c.Name);
-        columns.Bound(c => c.ImageUrl);
-        columns.Bound(c => c.Ingredients);
-        columns.Bound(c => c.Use);
-        columns.Bound(c => c.Description);
-        columns.Bound(c => c.DateCreated);
-        columns.Bound(c => c.SupplementCategory);
-        columns.Bound(c => c.SupplementTopic);
-        columns.Bound(c => c.SupplementBrand);
-        columns.Command(command => { command.Edit(); command.Destroy(); }).Width(180);
+          columns.Bound(c => c.Name);
+          columns.Bound(c => c.ImageUrl);
+          columns.Bound(c => c.Ingredients);
+          columns.Bound(c => c.Use);
+          columns.Bound(c => c.Description);
+          columns.Bound(c => c.DateCreated);
+          columns.Bound(c => c.SupplementCategory);
+          columns.Bound(c => c.SupplementTopic);
+          columns.Bound(c => c.SupplementBrand);
+          columns.Command(command => { command.Edit(); command.Destroy(); }).Width(180);
       })
-      .ToolBar(toolbar => {
-            toolbar.Create();
-            toolbar.Excel();
+      .ToolBar(toolbar =>
+      {
+          toolbar.Create();
       })
       .ColumnMenu()
       .Editable(editable => editable.Mode(GridEditMode.PopUp))
       .Pageable()
-      .Sortable(sortable => {
+      .Sortable(sortable =>
+      {
           sortable.SortMode(GridSortMode.SingleColumn);
       })
       .Filterable()
