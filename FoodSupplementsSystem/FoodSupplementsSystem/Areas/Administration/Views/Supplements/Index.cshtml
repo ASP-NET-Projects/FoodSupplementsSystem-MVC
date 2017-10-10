@@ -15,11 +15,11 @@
       })
       .ToolBar(toolbar =>
       {
-          toolbar.Create();
+          toolbar.Create().Text("Add supplement");
       })
       .ColumnMenu()
       .Editable(editable => editable.Mode(GridEditMode.PopUp))
-      .Pageable()
+      .Pageable(pager => pager.Refresh(true))
       .Sortable(sortable =>
       {
           sortable.SortMode(GridSortMode.SingleColumn);

@@ -2,17 +2,19 @@
       .Name("grid")
       .Columns(columns =>
       {
-        columns.Bound(c => c.Name);
-        columns.Bound(c => c.WebSite);
-        columns.Command(command => { command.Edit(); command.Destroy(); }).Width(180);
+          columns.Bound(c => c.Name);
+          columns.Bound(c => c.WebSite);
+          columns.Command(command => { command.Edit(); command.Destroy(); }).Width(180);
       })
-      .ToolBar(toolbar => {
-            toolbar.Create();
+      .ToolBar(toolbar =>
+      {
+          toolbar.Create().Text("Add brand");
       })
       .ColumnMenu()
       .Editable(editable => editable.Mode(GridEditMode.PopUp))
-      .Pageable()
-      .Sortable(sortable => {
+      .Pageable(pager => pager.Refresh(true))
+      .Sortable(sortable =>
+      {
           sortable.SortMode(GridSortMode.SingleColumn);
       })
       .Filterable()
