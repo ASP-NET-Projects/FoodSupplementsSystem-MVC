@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 
 using Moq;
 using NUnit.Framework;
@@ -7,6 +6,7 @@ using NUnit.Framework;
 using FoodSupplementsSystem.Data.Models;
 using FoodSupplementsSystem.Data.Repositories;
 using FoodSupplementsSystem.Services.Data;
+using FoodSupplementsSystem.Tests.DataHelpers;
 
 namespace FoodSupplementsSystem.Tests.FoodSupplementsSytem.DataServices.BrandsServiceTests
 {
@@ -14,79 +14,87 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSytem.DataServices.BrandsSe
     public class GetAll_Should
     {
         [Test]
-        public void Invoke_TheRepositoryMethodGetAll_Once()
+        public void ReturnCorrectInstance()
         {
             //Arrange
-            var brandsMock = new Mock<IEfGenericRepository<Brand>>();
-            BrandsService brandsService = new BrandsService(brandsMock.Object);
+            var brands = new Mock<IEfGenericRepository<Brand>>();
+            var brandsCollection = DataHelper.GetBrands();
+            brands.Setup(x => x.All()).Returns(brandsCollection);
+            var brandsService = new BrandsService(brands.Object);
 
             //Act
-            IQueryable<Brand> brandResult = brandsService.GetAll();
+            var result = brandsService.GetAll();
 
             //Assert
-            brandsMock.Verify(c => c.All(), Times.Once);
+            Assert.IsInstanceOf<IQueryable<Brand>>(result);
         }
 
         [Test]
-        public void ReturnResult_WhenInvokingRepositoryMethod_GetAll()
+        public void ReturnCorrectModel()
         {
             //Arrange
-            var brandsMock = new Mock<IEfGenericRepository<Brand>>();
-            IQueryable<Brand> expectedResultCollection = new List<Brand>().AsQueryable();
-
-            brandsMock.Setup(c => c.All()).Returns(() =>
-            {
-                return expectedResultCollection;
-            });
-
-            BrandsService brandsService = new BrandsService(brandsMock.Object);
+            var brands = new Mock<IEfGenericRepository<Brand>>();
+            var brandsCollection = DataHelper.GetBrands();
+            brands.Setup(x => x.All()).Returns(brandsCollection);
+            var brandsService = new BrandsService(brands.Object);
 
             //Act
-            IQueryable<Brand> brandResult = brandsService.GetAll();
+            var result = brandsService.GetAll();
 
             //Assert
-            Assert.That(brandResult, Is.EqualTo(expectedResultCollection));
+            Assert.IsNotNull(result);
+            Assert.AreEqual(result, brandsCollection);
         }
 
         [Test]
-        public void ReturnResultOfCorrectType()
+        public void ReturnCorrectModelWithRightProperties()
         {
             //Arrange
-            var brandsMock = new Mock<IEfGenericRepository<Brand>>();
-
-            brandsMock.Setup(c => c.All()).Returns(() =>
-            {
-                IQueryable<Brand> expectedResultCollection = new List<Brand>().AsQueryable();
-                return expectedResultCollection;
-            });
-
-            BrandsService brandsService = new BrandsService(brandsMock.Object);
+            var brands = new Mock<IEfGenericRepository<Brand>>();
+            var brandsCollection = DataHelper.GetBrands();
+            brands.Setup(x => x.All()).Returns(brandsCollection);
+            var brandsService = new BrandsService(brands.Object);
 
             //Act
-            IQueryable<Brand> brandResult = brandsService.GetAll();
+            var result = brandsService.GetAll();
 
             //Assert
-            Assert.That(brandResult, Is.InstanceOf<IQueryable<Brand>>());
+            Assert.IsNotNull(result);
+            Assert.AreEqual(result, brandsCollection);
+            Assert.AreEqual(result.FirstOrDefault().Id, brandsCollection.FirstOrDefault().Id);
+            Assert.AreEqual(result.FirstOrDefault().Name, brandsCollection.FirstOrDefault().Name);
+            Assert.AreEqual(result.FirstOrDefault().WebSite, brandsCollection.FirstOrDefault().WebSite);
         }
 
         [Test]
-        public void ReturnNull_WhenReposityMethodGetAll_ReturnsNull()
+        public void ReturnNull_WhenRepositoryMethodAll_ReturnsNull()
         {
             //Arrange
-            var brandsMock = new Mock<IEfGenericRepository<Brand>>();
-
-            brandsMock.Setup(c => c.All()).Returns(() =>
-            {
-                return null;
-            });
-
-            BrandsService brandsService = new BrandsService(brandsMock.Object);
+            var brands = new Mock<IEfGenericRepository<Brand>>();
+            brands.Setup(x => x.All()).Returns(() => null);
+            var brandsService = new BrandsService(brands.Object);
 
             //Act
-            IQueryable<Brand> brandResult = brandsService.GetAll();
+            var result = brandsService.GetAll();
 
             //Assert
-            Assert.IsNull(brandResult);
+            Assert.IsNull(result);
+        }
+
+        [Test]
+        public void InvokeRepositoryMethosAllOnce()
+        {
+            //Arrange
+            var brands = new Mock<IEfGenericRepository<Brand>>();
+            var brandsCollection = DataHelper.GetBrands();
+            brands.Setup(x => x.All()).Returns(brandsCollection);
+            var brandsService = new BrandsService(brands.Object);
+
+            //Act
+            var result = brandsService.GetAll();
+
+            //Assert
+            brands.Verify(x => x.All(), Times.Once);
         }
     }
 }

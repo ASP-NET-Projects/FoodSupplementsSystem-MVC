@@ -289,5 +289,15 @@ namespace FoodSupplementsSystem.Tests.DataHelpers
                 ImageUrl = "supplement imageUrl"
             };
         }
+
+        internal static Brand GetBrand()
+        {
+            return new Brand
+            {
+                Id = 1,
+                Name = "brand name",
+                WebSite = "brand website"
+            };
+        }
     }
 }
