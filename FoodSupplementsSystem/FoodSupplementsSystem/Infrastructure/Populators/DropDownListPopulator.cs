@@ -2,6 +2,8 @@
 using System.Linq;
 using System.Web.Mvc;
 
+using Bytes2you.Validation;
+
 using FoodSupplementsSystem.Infrastructure.Caching;
 using FoodSupplementsSystem.Services.Data.Contracts;
 
@@ -16,6 +18,11 @@ namespace FoodSupplementsSystem.Infrastructure.Populators
 
         public DropDownListPopulator(ICategoriesService categories, IBrandsService brands, ITopicsService topics, ICacheService cache)
         {
+            Guard.WhenArgument(topics, "topics").IsNull().Throw();
+            Guard.WhenArgument(brands, "brands").IsNull().Throw();
+            Guard.WhenArgument(categories, "categories").IsNull().Throw();
+            Guard.WhenArgument(cache, "cache").IsNull().Throw();
+
             this.categories = categories;
             this.brands = brands;
             this.topics = topics;

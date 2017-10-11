@@ -370,5 +370,21 @@ namespace FoodSupplementsSystem.Tests.DataHelpers
 
             return supplements.AsQueryable();
         }
+
+        internal static IEnumerable<SelectListItem> GetSessionCategories()
+        {
+            IList<SelectListItem> sessionCategories = new List<SelectListItem>();
+
+            for (int i = 1; i <= 10; i++)
+            {
+                sessionCategories.Add(new SelectListItem
+                {
+                    Value = i.ToString(),
+                    Text = "test category session" + i
+                });
+            }
+
+            return sessionCategories;
+        }
     }
 }
