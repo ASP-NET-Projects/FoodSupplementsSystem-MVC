@@ -166,7 +166,9 @@
     <Compile Include="FoodSupplementsSystem\Controllers\TopicsControllerTests\Topics_Read_Should.cs" />
     <Compile Include="FoodSupplementsSystem\Controllers\TopicsControllerTests\Topics_Update_Should.cs" />
     <Compile Include="FoodSupplementsSystem\Infrastucture\Populators\DropDownListPopulatorTests\Constructor_Should.cs" />
+    <Compile Include="FoodSupplementsSystem\Infrastucture\Populators\DropDownListPopulatorTests\GetBrands_Should.cs" />
     <Compile Include="FoodSupplementsSystem\Infrastucture\Populators\DropDownListPopulatorTests\GetCategories_Should.cs" />
+    <Compile Include="FoodSupplementsSystem\Infrastucture\Populators\DropDownListPopulatorTests\GetTopics_Should.cs" />
     <Compile Include="FoodSupplementsSystem\Infrastucture\Services\HomeServiceTests\Constructor_Should.cs" />
     <Compile Include="FoodSupplementsSystem\Infrastucture\Services\HomeServiceTests\GetLastBrands_Should.cs" />
     <Compile Include="FoodSupplementsSystem\Infrastucture\Services\HomeServiceTests\GetLastCategories_Should.cs" />

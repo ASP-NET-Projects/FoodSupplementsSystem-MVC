@@ -380,11 +380,43 @@ namespace FoodSupplementsSystem.Tests.DataHelpers
                 sessionCategories.Add(new SelectListItem
                 {
                     Value = i.ToString(),
-                    Text = "test category session" + i
+                    Text = "test session category" + i
                 });
             }
 
             return sessionCategories;
+        }
+
+        internal static IEnumerable<SelectListItem> GetSessionTopics()
+        {
+            IList<SelectListItem> sessionTopics = new List<SelectListItem>();
+
+            for (int i = 1; i <= 10; i++)
+            {
+                sessionTopics.Add(new SelectListItem
+                {
+                    Value = i.ToString(),
+                    Text = "test session topic" + i
+                });
+            }
+
+            return sessionTopics;
+        }
+
+        internal static IEnumerable<SelectListItem> GetSessionBrands()
+        {
+            IList<SelectListItem> sessionBrands = new List<SelectListItem>();
+
+            for (int i = 1; i <= 10; i++)
+            {
+                sessionBrands.Add(new SelectListItem
+                {
+                    Value = i.ToString(),
+                    Text = "test session brand" + i
+                });
+            }
+
+            return sessionBrands;
         }
     }
 }
