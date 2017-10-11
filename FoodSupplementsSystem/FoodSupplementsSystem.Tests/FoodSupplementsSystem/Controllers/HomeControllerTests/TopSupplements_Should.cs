@@ -6,7 +6,7 @@ using TestStack.FluentMVCTesting;
 
 using FoodSupplementsSystem.App_Start;
 using FoodSupplementsSystem.Controllers;
-using FoodSupplementsSystem.Infrastructure.Services;
+using FoodSupplementsSystem.Infrastructure.Services.Contracts;
 using FoodSupplementsSystem.Tests.DataHelpers;
 
 namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.HomeControllerTests

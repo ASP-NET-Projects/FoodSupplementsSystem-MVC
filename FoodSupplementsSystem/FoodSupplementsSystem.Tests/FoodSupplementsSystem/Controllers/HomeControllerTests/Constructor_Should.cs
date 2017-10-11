@@ -4,7 +4,7 @@ using Moq;
 using NUnit.Framework;
 
 using FoodSupplementsSystem.Controllers;
-using FoodSupplementsSystem.Infrastructure.Services;
+using FoodSupplementsSystem.Infrastructure.Services.Contracts;
 
 namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.HomeControllerTests
 {

@@ -5,10 +5,11 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 
 using FoodSupplementsSystem.Controllers;
-using FoodSupplementsSystem.Infrastructure.Services;
+using FoodSupplementsSystem.Infrastructure.Services.Contracts;
 
 namespace FoodSupplementsSystem.UnitTests.Controllers
 {
+
     [TestClass]
     public class HomeControllerTest
     {

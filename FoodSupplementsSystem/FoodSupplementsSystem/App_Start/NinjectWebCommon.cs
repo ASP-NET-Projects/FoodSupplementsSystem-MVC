@@ -9,6 +9,7 @@ using Ninject.Extensions.Conventions;
 using FoodSupplementsSystem.Data;
 using FoodSupplementsSystem.Data.Repositories;
 using FoodSupplementsSystem.Infrastructure.Services;
+using FoodSupplementsSystem.Infrastructure.Services.Contracts;
 using FoodSupplementsSystem.Infrastructure.Caching;
 using FoodSupplementsSystem.Infrastructure.Populators;
 

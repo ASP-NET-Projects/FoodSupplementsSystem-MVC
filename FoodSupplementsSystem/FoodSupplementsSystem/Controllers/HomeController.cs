@@ -3,6 +3,7 @@
 using Bytes2you.Validation;
 
 using FoodSupplementsSystem.Infrastructure.Services;
+using FoodSupplementsSystem.Infrastructure.Services.Contracts;
 
 namespace FoodSupplementsSystem.Controllers
 {

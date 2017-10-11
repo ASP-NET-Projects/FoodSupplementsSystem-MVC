@@ -165,6 +165,11 @@
     <Compile Include="FoodSupplementsSystem\Controllers\TopicsControllerTests\Topics_Destroy_Should.cs" />
     <Compile Include="FoodSupplementsSystem\Controllers\TopicsControllerTests\Topics_Read_Should.cs" />
     <Compile Include="FoodSupplementsSystem\Controllers\TopicsControllerTests\Topics_Update_Should.cs" />
+    <Compile Include="FoodSupplementsSystem\Infrastucture\Services\HomeServiceTests\Constructor_Should.cs" />
+    <Compile Include="FoodSupplementsSystem\Infrastucture\Services\HomeServiceTests\GetLastBrands_Should.cs" />
+    <Compile Include="FoodSupplementsSystem\Infrastucture\Services\HomeServiceTests\GetLastCategories_Should.cs" />
+    <Compile Include="FoodSupplementsSystem\Infrastucture\Services\HomeServiceTests\GetLastSupplements_Should.cs" />
+    <Compile Include="FoodSupplementsSystem\Infrastucture\Services\HomeServiceTests\GetTopicViewModel_Should.cs" />
     <Compile Include="FoodSupplementsSytem.DataServices\BrandsServiceTests\Constructor_Should.cs" />
     <Compile Include="FoodSupplementsSytem.DataServices\BrandsServiceTests\Create_Should.cs" />
     <Compile Include="FoodSupplementsSytem.DataServices\BrandsServiceTests\Delete_Should.cs" />

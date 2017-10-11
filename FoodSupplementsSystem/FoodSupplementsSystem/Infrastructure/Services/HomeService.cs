@@ -2,12 +2,13 @@
 using System.Linq;
 
 using AutoMapper.QueryableExtensions;
+using Bytes2you.Validation;
 
+using FoodSupplementsSystem.Infrastructure.Services.Contracts;
 using FoodSupplementsSystem.Services.Data.Contracts;
 using FoodSupplementsSystem.ViewModels.AllBrands;
 using FoodSupplementsSystem.ViewModels.AllCategories;
 using FoodSupplementsSystem.ViewModels.AllSupplements;
-
 using FoodSupplementsSystem.ViewModels.Home;
 
 namespace FoodSupplementsSystem.Infrastructure.Services
@@ -24,19 +25,26 @@ namespace FoodSupplementsSystem.Infrastructure.Services
 
         public HomeService(ITopicsService topics, IBrandsService brands, ICategoriesService categories, ISupplementsService supplements)
         {
+            Guard.WhenArgument(topics, "topics").IsNull().Throw();
+            Guard.WhenArgument(brands, "brands").IsNull().Throw();
+            Guard.WhenArgument(categories, "categories").IsNull().Throw();
+            Guard.WhenArgument(supplements, "supplements").IsNull().Throw();
+
             this.supplements = supplements;
             this.categories = categories;
             this.brands = brands;
             this.topics = topics;
         }
 
-        public IList<TopicViewModel> GetTopicViewModel(int numberOfTopics)
+        public IList<HomeTopicViewModel> GetTopicViewModel(int numberOfTopics)
         {
+            Guard.WhenArgument(numberOfTopics, "numberOfTopics").IsLessThan(0).Throw();
+
             var topicViewModel = this.topics
                 .GetAll()
                 .OrderByDescending(t => t.Comments.Count())
                 .Take(numberOfTopics)
-                .ProjectTo<TopicViewModel>()
+                .ProjectTo<HomeTopicViewModel>()
                 .ToList();
 
             return topicViewModel;

@@ -3,7 +3,7 @@ using NUnit.Framework;
 using TestStack.FluentMVCTesting;
 
 using FoodSupplementsSystem.Controllers;
-using FoodSupplementsSystem.Infrastructure.Services;
+using FoodSupplementsSystem.Infrastructure.Services.Contracts;
 
 namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.HomeControllerTests
 {
