@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 
 using AutoMapper;
@@ -84,7 +85,8 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.Categori
             var expectedResult = Mapper.Map<List<CategoryViewModel>>(categories);
         
             //Assert
-            Assert.AreEqual(expectedResult, results);
+            Assert.AreEqual(expectedResult.FirstOrDefault().Id, results.FirstOrDefault().Id);
+            Assert.AreEqual(expectedResult.FirstOrDefault().Name, results.FirstOrDefault().Name);
         }
     }
 }

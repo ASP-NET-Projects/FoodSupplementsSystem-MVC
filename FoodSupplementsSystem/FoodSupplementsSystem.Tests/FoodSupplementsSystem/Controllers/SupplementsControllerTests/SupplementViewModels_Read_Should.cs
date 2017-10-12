@@ -40,30 +40,30 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.Suppleme
            controller.WithCallTo(c => c.SupplementViewModels_Read(kendoDataRequest)).ShouldReturnJson();
        }
 
-        [Test]
-        public void ReturnJsonResultWithCorrectModelInstance_WhenGetToSupplementViewModels_Read()
-        {
-            //Arrange
-            var supplementsService = new Mock<ISupplementsService>();
-            var dropDownListPopulator = new Mock<IDropDownListPopulator>();
-            var repoUser = new Mock<IEfGenericRepository<ApplicationUser>>();
-            var supplements = DataHelper.GetSupplements();
-            var kendoDataRequest = new DataSourceRequest();
-        
-            supplementsService.Setup(x => x.GetAll()).Returns(supplements);
-        
-            AutoMapperConfig.Config();
-        
-            var controller = new SupplementsController(supplementsService.Object, dropDownListPopulator.Object, repoUser.Object);
-        
-            //Act
-            var controllerResult = controller.SupplementViewModels_Read(kendoDataRequest);
-            var jsonResult = controllerResult as JsonResult;
-            dynamic kendoResultData = jsonResult.Data;
-            var results = kendoResultData.Data as IEnumerable<SupplementViewModel>;
-        
-            //Assert
-            Assert.IsInstanceOf<IList<SupplementViewModel>>(results);
-        }
+       [Test]
+       public void ReturnJsonResultWithCorrectModelInstance_WhenGetToSupplementViewModels_Read()
+       {
+           //Arrange
+           var supplementsService = new Mock<ISupplementsService>();
+           var dropDownListPopulator = new Mock<IDropDownListPopulator>();
+           var repoUser = new Mock<IEfGenericRepository<ApplicationUser>>();
+           var supplements = DataHelper.GetSupplements();
+           var kendoDataRequest = new DataSourceRequest();
+       
+           supplementsService.Setup(x => x.GetAll()).Returns(supplements);
+       
+           AutoMapperConfig.Config();
+       
+           var controller = new SupplementsController(supplementsService.Object, dropDownListPopulator.Object, repoUser.Object);
+       
+           //Act
+           var controllerResult = controller.SupplementViewModels_Read(kendoDataRequest);
+           var jsonResult = controllerResult as JsonResult;
+           dynamic kendoResultData = jsonResult.Data;
+           var results = kendoResultData.Data as IEnumerable<SupplementViewModel>;
+       
+           //Assert
+           Assert.IsInstanceOf<IList<SupplementViewModel>>(results);
+       }
     }
 }

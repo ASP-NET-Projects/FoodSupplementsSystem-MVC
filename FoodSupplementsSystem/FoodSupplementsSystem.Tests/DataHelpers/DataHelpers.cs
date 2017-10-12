@@ -78,7 +78,11 @@ namespace FoodSupplementsSystem.Tests.DataHelpers
                 {
                     Id = i,
                     Name = "supplement" + i,
-                    ImageUrl = "imageUrl" + i
+                    ImageUrl = "imageUrl" + i,
+                    Author = new ApplicationUser(),
+                    Brand = new Brand(),
+                    Category = new Category(),
+                    Topic = new Topic()
                 });
             }
 
