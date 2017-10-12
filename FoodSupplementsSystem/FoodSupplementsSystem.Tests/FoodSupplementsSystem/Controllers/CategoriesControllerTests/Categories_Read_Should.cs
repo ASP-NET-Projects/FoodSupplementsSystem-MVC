@@ -61,30 +61,30 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.Categori
             Assert.IsInstanceOf<IList<CategoryViewModel>>(results);
         }
 
-        //[Test]
-        //public void ReturnJsonResultWithCorrectModel_WhenGetToCategories_Read()
-        //{
-        //    //Arrange
-        //    var categoriesService = new Mock<ICategoriesService>();
-        //    var categories = DataHelper.GetCategories();
-        //    var kendoDataRequest = new DataSourceRequest();
-        //
-        //    categoriesService.Setup(x => x.GetAll()).Returns(categories);
-        //
-        //    AutoMapperConfig.Config();
-        //
-        //    var controller = new CategoriesController(categoriesService.Object);
-        //
-        //    //Act
-        //    var controllerResult = controller.Categories_Read(kendoDataRequest);
-        //    var jsonResult = controllerResult as JsonResult;
-        //    dynamic kendoResultData = jsonResult.Data;
-        //    var results = kendoResultData.Data as IEnumerable<CategoryViewModel>;
-        //
-        //    var expectedResult = Mapper.Map<List<CategoryViewModel>>(categories);
-        //
-        //    //Assert
-        //    Assert.AreEqual(expectedResult, results);
-        //}
+        [Test]
+        public void ReturnJsonResultWithCorrectModel_WhenGetToCategories_Read()
+        {
+            //Arrange
+            var categoriesService = new Mock<ICategoriesService>();
+            var categories = DataHelper.GetCategories();
+            var kendoDataRequest = new DataSourceRequest();
+        
+            categoriesService.Setup(x => x.GetAll()).Returns(categories);
+        
+            AutoMapperConfig.Config();
+        
+            var controller = new CategoriesController(categoriesService.Object);
+        
+            //Act
+            var controllerResult = controller.Categories_Read(kendoDataRequest);
+            var jsonResult = controllerResult as JsonResult;
+            dynamic kendoResultData = jsonResult.Data;
+            var results = kendoResultData.Data as IEnumerable<CategoryViewModel>;
+        
+            var expectedResult = Mapper.Map<List<CategoryViewModel>>(categories);
+        
+            //Assert
+            Assert.AreEqual(expectedResult, results);
+        }
     }
 }

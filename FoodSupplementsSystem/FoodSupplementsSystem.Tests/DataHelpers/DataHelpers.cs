@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web.Mvc;
 
 using FoodSupplementsSystem.Data.Models;
+using FoodSupplementsSystem.ViewModels.AllFeedbacks;
 using BrandViewModelAdmin = FoodSupplementsSystem.Areas.Administration.ViewModels.Brands.BrandViewModel;
 using BrandViewModel = FoodSupplementsSystem.ViewModels.AllBrands.BrandViewModel;
 using SupplementViewModelAdmin = FoodSupplementsSystem.Areas.Administration.ViewModels.Supplements.SupplementViewModel;
@@ -417,6 +418,15 @@ namespace FoodSupplementsSystem.Tests.DataHelpers
             }
 
             return sessionBrands;
+        }
+
+        internal static FeedbackViewModel GetFeedbackViewModel()
+        {
+            return new FeedbackViewModel
+            {
+                Title = "test feedback title",
+                Content = "test feedback content"
+            };
         }
     }
 }

@@ -2,6 +2,7 @@
 using System.Web.Mvc;
 
 using AutoMapper;
+using Bytes2you.Validation;
 
 using FoodSupplementsSystem.Data.Models;
 using FoodSupplementsSystem.Data.Repositories;
@@ -18,6 +19,8 @@ namespace FoodSupplementsSystem.Controllers
         public AllFeedbacksController(IFeedbacksService feedbacks, IEfGenericRepository<ApplicationUser> repoUser)
             : base(repoUser)
         {
+            Guard.WhenArgument(feedbacks, "feedbacks").IsNull().Throw();
+
             this.feedbacks = feedbacks;
         }
 

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 
@@ -23,8 +24,8 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Infrastucture.Popula
             var topics = new Mock<ITopicsService>();
             var categories = new Mock<ICategoriesService>();
             var cache = new Mock<ICacheService>();
-            var topicsCollection = DataHelper.GetTopicsSelectedCollection();
-            topics.Setup(x => x.GetAll()).Returns(topicsCollection);
+            var topicsCollection = DataHelper.GetSessionTopics();
+            cache.Setup(x => x.Get(It.IsAny<string>(), It.IsAny<Func<IEnumerable<SelectListItem>>>())).Returns(topicsCollection);
             var dropDownListPopulator = new DropDownListPopulator(categories.Object, brands.Object, topics.Object, cache.Object);
 
             //Act
@@ -43,12 +44,11 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Infrastucture.Popula
             var categories = new Mock<ICategoriesService>();
             var cache = new Mock<ICacheService>();
             var topicsCollection = DataHelper.GetSessionTopics();
-            //cache.Setup(x => x.Get("topics", () => topicsCollection));
-            cache.SetReturnsDefault(topicsCollection);
+            cache.Setup(x => x.Get(It.IsAny<string>(), It.IsAny<Func<IEnumerable<SelectListItem>>>())).Returns(topicsCollection);
             var dropDownListPopulator = new DropDownListPopulator(categories.Object, brands.Object, topics.Object, cache.Object);
 
             //Act
-            var result = dropDownListPopulator.GetCategories();
+            var result = dropDownListPopulator.GetTopics();
 
             //Assert
             Assert.IsNotNull(result);
