@@ -120,6 +120,9 @@
     <Compile Include="FoodSupplementsSystem\Controllers\AllCategoriesControllerTests\Constructor_Should.cs" />
     <Compile Include="FoodSupplementsSystem\Controllers\AllBrandsControllerTests\Constructor_Should.cs" />
     <Compile Include="FoodSupplementsSystem\Controllers\AllCategoriesControllerTests\Index_Should.cs" />
+    <Compile Include="FoodSupplementsSystem\Controllers\AllCommentsControllerTests\Class_Should.cs" />
+    <Compile Include="FoodSupplementsSystem\Controllers\AllCommentsControllerTests\Constructor_Should.cs" />
+    <Compile Include="FoodSupplementsSystem\Controllers\AllCommentsControllerTests\PostComment_Should.cs" />
     <Compile Include="FoodSupplementsSystem\Controllers\AllFeedbacksControllerTests\Class_Should.cs" />
     <Compile Include="FoodSupplementsSystem\Controllers\AllFeedbacksControllerTests\Constructor_Should.cs" />
     <Compile Include="FoodSupplementsSystem\Controllers\AllFeedbacksControllerTests\CreateGet_Should.cs" />

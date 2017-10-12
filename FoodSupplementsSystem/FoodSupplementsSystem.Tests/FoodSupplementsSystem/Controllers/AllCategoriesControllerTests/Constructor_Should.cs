@@ -15,17 +15,16 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.AllCateg
         public void ReturnsAnInstance_WhenParameterIsNotNull()
         {
             // Arrange
-            var categoriesServiceMock = new Mock<ICategoriesService>();
+            var categoriesService = new Mock<ICategoriesService>();
 
-            // Act
-            AllCategoriesController categoriesController = new AllCategoriesController(categoriesServiceMock.Object);
+            var controller = new AllCategoriesController(categoriesService.Object);
 
-            // Assert
-            Assert.IsInstanceOf<AllCategoriesController>(categoriesController);
+            //Act & Assert
+            Assert.IsInstanceOf<AllCategoriesController>(controller);
         }
 
         [Test]
-        public void ThrowException_WhenParametersAreNull()
+        public void ThrowException_WhenParameterIsNull()
         {
             // Arrange & Act & Assert
             Assert.Throws<ArgumentNullException>(() => new AllCategoriesController(null));

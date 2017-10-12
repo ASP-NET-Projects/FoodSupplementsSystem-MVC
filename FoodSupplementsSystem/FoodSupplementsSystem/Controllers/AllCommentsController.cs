@@ -3,6 +3,7 @@ using System.Web;
 using System.Web.Mvc;
 
 using AutoMapper;
+using Bytes2you.Validation;
 
 using FoodSupplementsSystem.Data.Models;
 using FoodSupplementsSystem.Data.Repositories;
@@ -21,6 +22,9 @@ namespace FoodSupplementsSystem.Controllers
         public AllCommentsController(ITopicsService topics, ICommentsService comments, IEfGenericRepository<ApplicationUser> repoUser) 
             : base(repoUser)
         {
+            Guard.WhenArgument(topics, "topics").IsNull().Throw();
+            Guard.WhenArgument(comments, "comments").IsNull().Throw();
+
             this.topics = topics;
             this.comments = comments;
         }

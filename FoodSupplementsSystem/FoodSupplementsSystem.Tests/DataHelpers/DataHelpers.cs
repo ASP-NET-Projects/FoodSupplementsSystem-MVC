@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web.Mvc;
 
 using FoodSupplementsSystem.Data.Models;
+using FoodSupplementsSystem.ViewModels.AllComments;
 using FoodSupplementsSystem.ViewModels.AllFeedbacks;
 using BrandViewModelAdmin = FoodSupplementsSystem.Areas.Administration.ViewModels.Brands.BrandViewModel;
 using BrandViewModel = FoodSupplementsSystem.ViewModels.AllBrands.BrandViewModel;
@@ -124,7 +125,7 @@ namespace FoodSupplementsSystem.Tests.DataHelpers
             return comments.AsQueryable();
         }
 
-        internal static IQueryable<Topic> GetTopicWithComments()
+        internal static IQueryable<Topic> GetTopicsWithComments()
         {
             List<Topic> topicWithComments = new List<Topic>();
 
@@ -289,6 +290,17 @@ namespace FoodSupplementsSystem.Tests.DataHelpers
             };
         }
 
+        internal static Topic GetTopicWithComments()
+        {
+            return new Topic
+            {
+                Id = 1,
+                Name = "topic name",
+                Description = "topic description",
+                Comments = new List<Comment>()
+            };
+        }
+
         internal static Supplement GetSupplement()
         {
             return new Supplement
@@ -430,6 +442,15 @@ namespace FoodSupplementsSystem.Tests.DataHelpers
             {
                 Title = "test feedback title",
                 Content = "test feedback content"
+            };
+        }
+
+        internal static PostCommentViewModel GetPostCommentViewModel()
+        {
+            return new PostCommentViewModel
+            {
+                TopicId = 1,
+                Content = "test comment content"
             };
         }
     }
