@@ -374,6 +374,7 @@
     <Content Include="Areas\Administration\Views\Brands\Index.cshtml" />
     <Content Include="Areas\Administration\Views\Supplements\Add.cshtml" />
     <Content Include="Areas\Administration\Views\PageableFeedbackList\Index.cshtml" />
+    <None Include="Properties\PublishProfiles\FoodSupplements - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\local.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
