@@ -11,7 +11,7 @@ namespace FoodSupplementsSystem.Controllers
     [HandleError]
     public class UserController : Controller
     {
-        protected IEfGenericRepository<ApplicationUser> repoUser;
+        protected readonly IEfGenericRepository<ApplicationUser> repoUser;
 
         protected ApplicationUser UserProfile { get; private set; }
 

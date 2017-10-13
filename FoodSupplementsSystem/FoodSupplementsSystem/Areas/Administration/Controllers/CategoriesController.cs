@@ -15,7 +15,7 @@ namespace FoodSupplementsSystem.Areas.Administration.Controllers
     [Authorize(Roles = "Admin")]
     public class CategoriesController : Controller
     {
-        private ICategoriesService categories;
+        private readonly ICategoriesService categories;
 
         public CategoriesController(ICategoriesService categories)
         {

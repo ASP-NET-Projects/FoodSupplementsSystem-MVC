@@ -1,6 +1,6 @@
 ﻿@model FoodSupplementsSystem.ViewModels.AllComments.CommentViewModel
 <div class="row" style="word-wrap: break-word">
-    @Model.Content
+    @Html.Raw(Model.SanitizedContent)
 </div>
 <div>
     <i>Created by: </i><strong>@Model.AuthorName</strong>

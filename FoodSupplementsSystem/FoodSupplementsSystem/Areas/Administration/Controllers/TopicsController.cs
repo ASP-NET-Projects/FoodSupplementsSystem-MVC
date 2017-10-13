@@ -15,7 +15,7 @@ namespace FoodSupplementsSystem.Areas.Administration.Controllers
     [Authorize(Roles = "Admin")]
     public class TopicsController : Controller
     {
-        private ITopicsService topics;
+        private readonly ITopicsService topics;
 
         public TopicsController(ITopicsService topics)
         {

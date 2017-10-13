@@ -9,7 +9,7 @@ namespace FoodSupplementsSystem.Controllers
 {
     public class HomeController : Controller
     {
-        private IHomeService homeServices;
+        private readonly IHomeService homeServices;
 
         public HomeController(IHomeService homeServices)
         {

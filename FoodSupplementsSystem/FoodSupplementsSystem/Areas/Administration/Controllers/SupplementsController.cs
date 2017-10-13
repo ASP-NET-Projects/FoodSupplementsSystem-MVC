@@ -20,8 +20,8 @@ namespace FoodSupplementsSystem.Areas.Administration.Controllers
     [Authorize(Roles = "Admin")]
     public class SupplementsController : UserController
     {
-        private ISupplementsService supplements;
-        private IDropDownListPopulator populator;
+        private readonly ISupplementsService supplements;
+        private readonly IDropDownListPopulator populator;
 
         public SupplementsController(ISupplementsService supplements, IDropDownListPopulator populator, IEfGenericRepository<ApplicationUser> repoUser)
             : base(repoUser)

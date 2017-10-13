@@ -15,9 +15,9 @@ namespace FoodSupplementsSystem.Controllers
     [Authorize]
     public class AllCommentsController : UserController
     {
-        private ITopicsService topics;
+        private readonly ITopicsService topics;
 
-        private ICommentsService comments;
+        private readonly ICommentsService comments;
 
         public AllCommentsController(ITopicsService topics, ICommentsService comments, IEfGenericRepository<ApplicationUser> repoUser) 
             : base(repoUser)

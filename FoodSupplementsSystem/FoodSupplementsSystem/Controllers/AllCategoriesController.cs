@@ -13,7 +13,7 @@ namespace FoodSupplementsSystem.Controllers
     [Authorize]
     public class AllCategoriesController : Controller
     {
-        private ICategoriesService categories;
+        private readonly ICategoriesService categories;
 
         public AllCategoriesController(ICategoriesService categories)
         {

@@ -14,7 +14,7 @@ namespace FoodSupplementsSystem.Areas.Administration.Controllers
     {
         const int ItemsPerPage = 6;
 
-        private IFeedbacksService feedbacks;
+        private readonly IFeedbacksService feedbacks;
 
         public PageableFeedbackListController(IFeedbacksService feedbacks)
         {

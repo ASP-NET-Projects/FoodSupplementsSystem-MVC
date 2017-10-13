@@ -14,9 +14,9 @@ namespace FoodSupplementsSystem.Controllers
 {
     public class AllTopicsController : Controller
     {
-        private ITopicsService topics;
+        private readonly ITopicsService topics;
 
-        private ICommentsService comments;
+        private readonly ICommentsService comments;
 
         public AllTopicsController(ITopicsService topics, ICommentsService comments)
         {

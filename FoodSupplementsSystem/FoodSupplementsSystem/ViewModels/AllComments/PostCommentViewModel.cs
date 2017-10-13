@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
 
 using FoodSupplementsSystem.Data.Models;
 using FoodSupplementsSystem.Infrastructure.Mapping;
@@ -12,7 +13,7 @@ namespace FoodSupplementsSystem.ViewModels.AllComments
 
         }
 
-        public PostCommentViewModel(int topicId)
+        public PostCommentViewModel(int topicId) 
         {
             this.TopicId = topicId;
         }
@@ -20,6 +21,7 @@ namespace FoodSupplementsSystem.ViewModels.AllComments
         public int TopicId { get; set; }
 
         [Required]
+        [AllowHtml]
         [UIHint("MultiLineText")]
         public string Content { get; set; }
     }

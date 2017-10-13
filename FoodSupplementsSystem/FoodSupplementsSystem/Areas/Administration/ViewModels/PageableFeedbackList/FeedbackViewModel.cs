@@ -10,7 +10,7 @@ namespace FoodSupplementsSystem.Areas.Administration.ViewModels.PageableFeedback
 {
     public class FeedbackViewModel : IMapFrom<Feedback>, IHaveCustomMappings
     {
-        private ISanitizer sanitizer;
+        private readonly ISanitizer sanitizer;
 
         public FeedbackViewModel()
         {

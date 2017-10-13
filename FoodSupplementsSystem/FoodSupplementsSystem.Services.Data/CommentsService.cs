@@ -10,7 +10,7 @@ namespace FoodSupplementsSystem.Services.Data
 {
     public class CommentsService : ICommentsService
     {
-        private IEfGenericRepository<Comment> comments;
+        private readonly IEfGenericRepository<Comment> comments;
 
         public CommentsService(IEfGenericRepository<Comment> comments)
         {

@@ -10,7 +10,7 @@ namespace FoodSupplementsSystem.Services.Data
 {
     public class BrandsService : IBrandsService
     {
-        private IEfGenericRepository<Brand> brands;
+        private readonly IEfGenericRepository<Brand> brands;
 
         public BrandsService(IEfGenericRepository<Brand> brands)
         {

@@ -16,9 +16,9 @@ namespace FoodSupplementsSystem.Controllers
     [Authorize]
     public class AllSupplementsController : Controller
     {
-        private ISupplementsService supplements;
+        private readonly ISupplementsService supplements;
 
-        private IDropDownListPopulator populator;
+        private readonly IDropDownListPopulator populator;
 
         public AllSupplementsController(ISupplementsService supplements, IDropDownListPopulator populator)
         {

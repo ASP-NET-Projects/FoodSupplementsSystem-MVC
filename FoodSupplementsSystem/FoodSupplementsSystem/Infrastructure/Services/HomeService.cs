@@ -15,13 +15,13 @@ namespace FoodSupplementsSystem.Infrastructure.Services
 {
     public class HomeService : IHomeService
     {
-        private ITopicsService topics;
+        private readonly ITopicsService topics;
 
-        private IBrandsService brands;
+        private readonly IBrandsService brands;
 
-        private ICategoriesService categories;
+        private readonly ICategoriesService categories;
 
-        private ISupplementsService supplements;
+        private readonly ISupplementsService supplements;
 
         public HomeService(ITopicsService topics, IBrandsService brands, ICategoriesService categories, ISupplementsService supplements)
         {

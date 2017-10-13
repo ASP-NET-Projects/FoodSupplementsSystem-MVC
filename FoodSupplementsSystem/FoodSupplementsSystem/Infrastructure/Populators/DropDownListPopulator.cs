@@ -11,10 +11,10 @@ namespace FoodSupplementsSystem.Infrastructure.Populators
 {
     public class DropDownListPopulator : IDropDownListPopulator
     {
-        private ICategoriesService categories;
-        private IBrandsService brands;
-        private ITopicsService topics;
-        private ICacheService cache;
+        private readonly ICategoriesService categories;
+        private readonly IBrandsService brands;
+        private readonly ITopicsService topics;
+        private readonly ICacheService cache;
 
         public DropDownListPopulator(ICategoriesService categories, IBrandsService brands, ITopicsService topics, ICacheService cache)
         {

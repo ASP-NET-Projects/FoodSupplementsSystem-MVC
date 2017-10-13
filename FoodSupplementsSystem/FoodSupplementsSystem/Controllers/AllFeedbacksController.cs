@@ -14,7 +14,7 @@ namespace FoodSupplementsSystem.Controllers
     [Authorize]
     public class AllFeedbacksController : UserController
     {
-        private IFeedbacksService feedbacks;
+        private readonly IFeedbacksService feedbacks;
 
         public AllFeedbacksController(IFeedbacksService feedbacks, IEfGenericRepository<ApplicationUser> repoUser)
             : base(repoUser)

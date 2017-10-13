@@ -15,7 +15,7 @@ namespace FoodSupplementsSystem.Areas.Administration.Controllers
     [Authorize(Roles = "Admin")]
     public class BrandsController : Controller
     {
-        private IBrandsService brands;
+        private readonly IBrandsService brands;
 
         public BrandsController(IBrandsService brands)
         {

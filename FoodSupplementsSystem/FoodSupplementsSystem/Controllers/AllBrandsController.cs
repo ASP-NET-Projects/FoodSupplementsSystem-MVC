@@ -13,7 +13,7 @@ namespace FoodSupplementsSystem.Controllers
     [Authorize]
     public class AllBrandsController : Controller
     {
-        private IBrandsService brands;
+        private readonly IBrandsService brands;
 
         public AllBrandsController(IBrandsService brands)
         {

@@ -10,7 +10,7 @@ namespace FoodSupplementsSystem.Services.Data
 {
     public class TopicsService : ITopicsService
     {
-        private IEfGenericRepository<Topic> topics;
+        private readonly IEfGenericRepository<Topic> topics;
 
         public TopicsService(IEfGenericRepository<Topic> topics)
         {

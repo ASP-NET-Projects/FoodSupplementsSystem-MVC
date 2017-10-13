@@ -10,7 +10,7 @@ namespace FoodSupplementsSystem.Services.Data
 {
     public class FeedbacksService : IFeedbacksService
     {
-        private IEfGenericRepository<Feedback> feedbacks;
+        private readonly IEfGenericRepository<Feedback> feedbacks;
 
         public FeedbacksService(IEfGenericRepository<Feedback> feedbacks)
         {
