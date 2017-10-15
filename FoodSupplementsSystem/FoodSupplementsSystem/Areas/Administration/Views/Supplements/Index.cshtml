@@ -1,4 +1,7 @@
-﻿@(Html.Kendo().Grid<FoodSupplementsSystem.Areas.Administration.ViewModels.Supplements.SupplementViewModel>()
+﻿<a href="supplements/add" class="btn btn-default">Add new Supplement</a>
+<br/>
+<br/>
+@(Html.Kendo().Grid<FoodSupplementsSystem.Areas.Administration.ViewModels.Supplements.SupplementViewModel>()
       .Name("grid")
       .Columns(columns =>
       {
@@ -11,11 +14,11 @@
           columns.Bound(c => c.SupplementCategory);
           columns.Bound(c => c.SupplementTopic);
           columns.Bound(c => c.SupplementBrand);
-          columns.Command(command => { command.Edit(); command.Destroy(); }).Width(180);
+          columns.Command(command => { @*command.Edit();*@ command.Destroy(); }).Width(180);
       })
       .ToolBar(toolbar =>
       {
-          toolbar.Create().Text("Add supplement");
+          @*toolbar.Create().Text("Add supplement");*@
       })
       .ColumnMenu()
       .Editable(editable => editable.Mode(GridEditMode.PopUp))
@@ -31,7 +34,7 @@
           .Model(model => model.Id(p => p.Id))
           .Read(read => read.Action("SupplementViewModels_Read", "Supplements"))
           .Create(create => create.Action("SupplementViewModels_Create", "Supplements"))
-          .Update(update => update.Action("SupplementViewModels_Update", "Supplements"))
+          @*.Update(update => update.Action("SupplementViewModels_Update", "Supplements"))*@
           .Destroy(destroy => destroy.Action("SupplementViewModels_Destroy", "Supplements"))
       )
 )
