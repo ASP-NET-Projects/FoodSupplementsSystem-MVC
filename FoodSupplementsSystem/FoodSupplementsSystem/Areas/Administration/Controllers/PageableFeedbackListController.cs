@@ -3,6 +3,7 @@ using System.Linq;
 using System.Web.Mvc;
 
 using AutoMapper.QueryableExtensions;
+using Bytes2you.Validation;
 
 using FoodSupplementsSystem.Areas.Administration.ViewModels.PageableFeedbackList;
 using FoodSupplementsSystem.Services.Data.Contracts;
@@ -18,6 +19,8 @@ namespace FoodSupplementsSystem.Areas.Administration.Controllers
 
         public PageableFeedbackListController(IFeedbacksService feedbacks)
         {
+            Guard.WhenArgument(feedbacks, "feedbacks").IsNull().Throw();
+
             this.feedbacks = feedbacks;
         }
 

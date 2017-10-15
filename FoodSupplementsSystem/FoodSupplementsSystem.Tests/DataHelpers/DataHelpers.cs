@@ -14,6 +14,7 @@ using TopicViewModelAdmin = FoodSupplementsSystem.Areas.Administration.ViewModel
 using TopicViewModel = FoodSupplementsSystem.ViewModels.AllTopics.TopicViewModel;
 using CategoryViewModelAdmin = FoodSupplementsSystem.Areas.Administration.ViewModels.Categories.CategoryViewModel;
 using CategoryViewModel = FoodSupplementsSystem.ViewModels.AllCategories.CategoryViewModel;
+using FoodSupplementsSystem.ViewModels.Home;
 
 namespace FoodSupplementsSystem.Tests.DataHelpers
 {
@@ -452,6 +453,23 @@ namespace FoodSupplementsSystem.Tests.DataHelpers
                 TopicId = 1,
                 Content = "test comment content"
             };
+        }
+
+        internal static IList<HomeTopicViewModel> GetHomeTopicViewModelCollection()
+        {
+            IList<HomeTopicViewModel> topicsCollection = new List<HomeTopicViewModel>();
+
+            for (int i = 1; i <= 10; i++)
+            {
+                topicsCollection.Add(new HomeTopicViewModel
+                {
+                    Id = i,
+                    Name = "home topic name" + i,
+                    Description = "home topic description" + i
+                });
+            }
+
+            return topicsCollection;
         }
     }
 }
