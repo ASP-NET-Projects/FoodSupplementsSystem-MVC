@@ -17,9 +17,10 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.AllCateg
             // Arrange
             var categoriesService = new Mock<ICategoriesService>();
 
+            //Act
             var controller = new AllCategoriesController(categoriesService.Object);
 
-            //Act & Assert
+            //Assert
             Assert.IsInstanceOf<AllCategoriesController>(controller);
         }
 

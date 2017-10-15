@@ -8,18 +8,28 @@ using Moq;
 using NUnit.Framework;
 using TestStack.FluentMVCTesting;
 
-using FoodSupplementsSystem.App_Start;
 using FoodSupplementsSystem.Controllers;
 using FoodSupplementsSystem.Infrastructure.Populators;
 using FoodSupplementsSystem.Services.Data.Contracts;
 using FoodSupplementsSystem.Tests.DataHelpers;
 using FoodSupplementsSystem.ViewModels.AllSupplements;
+using FoodSupplementsSystem.Data.Models;
 
 namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.AllSupplementsControllerTests
 {
     [TestFixture]
     public class ReadSupplements_Should
     {
+        [TestFixtureSetUp]
+        public void Init()
+        {
+            Mapper.Initialize(cfg =>
+            {
+                cfg.CreateMap<Supplement, ListSupplementViewModel>();
+                cfg.CreateMap<ListSupplementViewModel, Supplement>();
+            });
+        }
+
         [Test]
         public void ReturnJsonResult_WhenGetToReadSupplements()
         {
@@ -33,8 +43,6 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.AllSuppl
             var kendoDataRequest = new DataSourceRequest();
 
             supplementsService.Setup(x => x.GetAll()).Returns(supplements);
-
-            AutoMapperConfig.Config();
 
             var controller = new AllSupplementsController(supplementsService.Object, dropDownListPopulator.Object);
 
@@ -55,8 +63,6 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.AllSuppl
             var kendoDataRequest = new DataSourceRequest();
 
             supplementsService.Setup(x => x.GetAll()).Returns(supplements);
-
-            AutoMapperConfig.Config();
 
             var controller = new AllSupplementsController(supplementsService.Object, dropDownListPopulator.Object);
 
@@ -83,8 +89,6 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.AllSuppl
             var kendoDataRequest = new DataSourceRequest();
 
             supplementsService.Setup(x => x.GetAll()).Returns(supplements);
-
-            AutoMapperConfig.Config();
 
             var controller = new AllSupplementsController(supplementsService.Object, dropDownListPopulator.Object);
 

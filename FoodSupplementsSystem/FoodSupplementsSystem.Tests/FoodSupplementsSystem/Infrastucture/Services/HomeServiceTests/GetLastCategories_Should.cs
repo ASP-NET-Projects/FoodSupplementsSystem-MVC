@@ -6,17 +6,30 @@ using AutoMapper;
 using Moq;
 using NUnit.Framework;
 
-using FoodSupplementsSystem.App_Start;
 using FoodSupplementsSystem.Infrastructure.Services;
 using FoodSupplementsSystem.Services.Data.Contracts;
 using FoodSupplementsSystem.Tests.DataHelpers;
 using FoodSupplementsSystem.ViewModels.AllCategories;
+using FoodSupplementsSystem.ViewModels.AllSupplements;
+using FoodSupplementsSystem.Data.Models;
 
 namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Infrastucture.Services.HomeServiceTests
 { 
     [TestFixture]
     public class GetLastCategories_Should
     {
+        [TestFixtureSetUp]
+        public void Init()
+        {
+            Mapper.Initialize(cfg =>
+            {
+                cfg.CreateMap<Category, CategoryViewModel>();
+                cfg.CreateMap<CategoryViewModel, Category>();
+                cfg.CreateMap<Supplement, SupplementViewModel>();
+                cfg.CreateMap<SupplementViewModel, Supplement>();
+            });
+        }
+
         [Test]
         public void ReturnCorrectModelInstance()
         {
@@ -27,8 +40,6 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Infrastucture.Servic
             var supplements = new Mock<ISupplementsService>();
             var categoriesCollection = DataHelper.GetCategories().Take(3);
             categories.Setup(x => x.GetLast3()).Returns(categoriesCollection);
-
-            AutoMapperConfig.Config();
 
             var homeService = new HomeService(topics.Object, brands.Object, categories.Object, supplements.Object);
 
@@ -49,8 +60,6 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Infrastucture.Servic
             var supplements = new Mock<ISupplementsService>();
             var categoriesCollection = DataHelper.GetCategories().Take(3);
             categories.Setup(x => x.GetLast3()).Returns(categoriesCollection);
-
-            AutoMapperConfig.Config();
 
             var homeService = new HomeService(topics.Object, brands.Object, categories.Object, supplements.Object);
             var expectedResult = Mapper.Map<IList<CategoryViewModel>>(categoriesCollection);
@@ -74,8 +83,6 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Infrastucture.Servic
             var categories = new Mock<ICategoriesService>();
             var supplements = new Mock<ISupplementsService>();
             categories.Setup(x => x.GetLast3()).Returns(() => null);
-
-            AutoMapperConfig.Config();
 
             var homeService = new HomeService(topics.Object, brands.Object, categories.Object, supplements.Object);
 

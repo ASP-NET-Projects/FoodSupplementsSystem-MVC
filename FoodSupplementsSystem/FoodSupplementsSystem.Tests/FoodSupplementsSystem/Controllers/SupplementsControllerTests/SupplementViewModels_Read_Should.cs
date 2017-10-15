@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Web.Mvc;
 
+using AutoMapper;
 using Moq;
 using NUnit.Framework;
 using Kendo.Mvc.UI;
 using TestStack.FluentMVCTesting;
 
-using FoodSupplementsSystem.App_Start;
 using FoodSupplementsSystem.Areas.Administration.Controllers;
 using FoodSupplementsSystem.Areas.Administration.ViewModels.Supplements;
 using FoodSupplementsSystem.Data.Models;
@@ -20,7 +20,17 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.Suppleme
     [TestFixture]
     public class SupplementViewModels_Read_Should
     {
-       [Test]
+        [TestFixtureSetUp]
+        public void Init()
+        {
+            Mapper.Initialize(cfg =>
+            {
+                cfg.CreateMap<Supplement, SupplementViewModel>();
+                cfg.CreateMap<SupplementViewModel, Supplement>();
+            });
+        }
+
+        [Test]
        public void ReturnJsonResult_WhenGetToSupplementViewModels_Read()
        {
            //Arrange
@@ -31,8 +41,6 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.Suppleme
            var kendoDataRequest = new DataSourceRequest();
        
            supplementsService.Setup(x => x.GetAll()).Returns(supplements);
-       
-           AutoMapperConfig.Config();
        
            var controller = new SupplementsController(supplementsService.Object, dropDownListPopulator.Object, repoUser.Object);
        
@@ -51,8 +59,6 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.Suppleme
            var kendoDataRequest = new DataSourceRequest();
        
            supplementsService.Setup(x => x.GetAll()).Returns(supplements);
-       
-           AutoMapperConfig.Config();
        
            var controller = new SupplementsController(supplementsService.Object, dropDownListPopulator.Object, repoUser.Object);
        

@@ -1,10 +1,10 @@
 ﻿using System.Web.Mvc;
 
+using AutoMapper;
 using Moq;
 using NUnit.Framework;
 using TestStack.FluentMVCTesting;
 
-using FoodSupplementsSystem.App_Start;
 using FoodSupplementsSystem.Controllers;
 using FoodSupplementsSystem.Data.Models;
 using FoodSupplementsSystem.Data.Repositories;
@@ -17,6 +17,16 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.AllFeedb
     [TestFixture]
     public class CreatePost_Should
     {
+        [TestFixtureSetUp]
+        public void Init()
+        {
+            Mapper.Initialize(cfg =>
+            {
+                cfg.CreateMap<Feedback, FeedbackViewModel>();
+                cfg.CreateMap<FeedbackViewModel, Feedback>();
+            });
+        }
+
         [Test]
         public void RunDefaultView_WhenModelStateIsNotValid()
         {
@@ -56,8 +66,6 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.AllFeedb
             var feedback = DataHelper.GetFeedbackViewModel();
             feedbacksService.Setup(x => x.Create(It.IsAny<Feedback>())).Verifiable();
 
-            AutoMapperConfig.Config();
-
             var controller = new AllFeedbacksController(feedbacksService.Object, repoUser.Object);
 
             //Act & Assert
@@ -72,8 +80,6 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.AllFeedb
             var repoUser = new Mock<IEfGenericRepository<ApplicationUser>>();
             var feedback = DataHelper.GetFeedbackViewModel();
             feedbacksService.Setup(x => x.Create(It.IsAny<Feedback>())).Verifiable();
-
-            AutoMapperConfig.Config();
 
             var controller = new AllFeedbacksController(feedbacksService.Object, repoUser.Object);
 

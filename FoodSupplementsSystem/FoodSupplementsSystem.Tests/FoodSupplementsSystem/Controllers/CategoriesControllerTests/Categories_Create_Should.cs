@@ -1,24 +1,37 @@
-﻿using System.Web.Mvc;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Web.Mvc;
 
+using AutoMapper;
 using Kendo.Mvc.UI;
 using Moq;
 using NUnit.Framework;
 using TestStack.FluentMVCTesting;
 
-using FoodSupplementsSystem.App_Start;
 using FoodSupplementsSystem.Areas.Administration.Controllers;
 using FoodSupplementsSystem.Data.Models;
 using FoodSupplementsSystem.Services.Data.Contracts;
 using FoodSupplementsSystem.Tests.DataHelpers;
 using FoodSupplementsSystem.Areas.Administration.ViewModels.Categories;
-using System.Collections.Generic;
-using System.Linq;
+using FoodSupplementsSystem.Areas.Administration.ViewModels.Supplements;
 
 namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.CategoriesControllerTests
 {
     [TestFixture]
     public class Categories_Create_Should
     {
+        [TestFixtureSetUp]
+        public void Init()
+        {
+            Mapper.Initialize(cfg =>
+            {
+                cfg.CreateMap<Category, CategoryViewModel>();
+                cfg.CreateMap<CategoryViewModel, Category>();
+                cfg.CreateMap<Supplement, SupplementViewModel>();
+                cfg.CreateMap<SupplementViewModel, Supplement>();
+            });
+        }
+
         [Test]
         public void ReturnJsonResult_WhenGetToCategories_Create()
         {
@@ -26,8 +39,6 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.Categori
             var categoriesService = new Mock<ICategoriesService>();
             var categoryViewModel = DataHelper.GetAdminCategoryViewModel();
             var kendoDataRequest = new DataSourceRequest();
-
-            AutoMapperConfig.Config();
 
             categoriesService.Setup(x => x.Create(It.IsAny<Category>())).Verifiable();
 
@@ -44,8 +55,6 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.Categori
             var categoriesService = new Mock<ICategoriesService>();
             var categoryViewModel = DataHelper.GetAdminCategoryViewModel();
             var kendoDataRequest = new DataSourceRequest();
-
-            AutoMapperConfig.Config();
 
             categoriesService.Setup(x => x.Create(It.IsAny<Category>())).Verifiable();
 
@@ -68,8 +77,6 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.Categori
             var categoriesService = new Mock<ICategoriesService>();
             var categoryViewModel = DataHelper.GetAdminCategoryViewModel();
             var kendoDataRequest = new DataSourceRequest();
-
-            AutoMapperConfig.Config();
 
             categoriesService.Setup(x => x.Create(It.IsAny<Category>())).Verifiable();
 

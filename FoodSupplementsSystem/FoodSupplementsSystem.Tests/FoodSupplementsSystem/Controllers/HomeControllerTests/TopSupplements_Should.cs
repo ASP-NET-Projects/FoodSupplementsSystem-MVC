@@ -4,7 +4,6 @@ using Moq;
 using NUnit.Framework;
 using TestStack.FluentMVCTesting;
 
-using FoodSupplementsSystem.App_Start;
 using FoodSupplementsSystem.Controllers;
 using FoodSupplementsSystem.Infrastructure.Services.Contracts;
 using FoodSupplementsSystem.Tests.DataHelpers;
@@ -21,8 +20,6 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.HomeCont
             var homeService = new Mock<IHomeService>();
             var supplementsLast3 = DataHelper.GetCommonSupplementsCollection().Take(3).ToList();
             homeService.Setup(x => x.GetLastSupplements()).Returns(supplementsLast3);
-
-            AutoMapperConfig.Config();
 
             var controller = new HomeController(homeService.Object);
 

@@ -1,16 +1,11 @@
-﻿using FoodSupplementsSystem.App_Start;
+﻿using Moq;
+using NUnit.Framework;
+using TestStack.FluentMVCTesting;
+
 using FoodSupplementsSystem.Controllers;
 using FoodSupplementsSystem.Infrastructure.Populators;
 using FoodSupplementsSystem.Services.Data.Contracts;
 using FoodSupplementsSystem.ViewModels.AllSupplements;
-using Moq;
-using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TestStack.FluentMVCTesting;
 
 namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.AllSupplementsControllerTests
 {
@@ -26,8 +21,6 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.AllSuppl
             var selectedBrnadId = 1;
             var selectedTopicId = 1;
             var selectedCategoryId = 1;
-
-            AutoMapperConfig.Config();
 
             var supplementsController = new AllSupplementsController(supplementsService.Object, dropDownListPopulator.Object);
 
@@ -46,8 +39,6 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.AllSuppl
             var selectedTopicId = 1;
             var selectedCategoryId = 1;
 
-            AutoMapperConfig.Config();
-
             var supplementsController = new AllSupplementsController(supplementsService.Object, dropDownListPopulator.Object);
 
             //Act & Assert
@@ -64,8 +55,6 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.AllSuppl
             var selectedBrnadId = 1;
             var selectedTopicId = 1;
             var selectedCategoryId = 1;
-
-            AutoMapperConfig.Config();
 
             var supplementsController = new AllSupplementsController(supplementsService.Object, dropDownListPopulator.Object);
             var expectedResult = new FilterSupplementsViewModel { Category = selectedCategoryId, Brand = selectedBrnadId, Topic = selectedTopicId };
@@ -86,8 +75,6 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.AllSuppl
             //Arrange
             var supplementsService = new Mock<ISupplementsService>();
             var dropDownListPopulator = new Mock<IDropDownListPopulator>();
-
-            AutoMapperConfig.Config();
 
             var supplementsController = new AllSupplementsController(supplementsService.Object, dropDownListPopulator.Object);
 

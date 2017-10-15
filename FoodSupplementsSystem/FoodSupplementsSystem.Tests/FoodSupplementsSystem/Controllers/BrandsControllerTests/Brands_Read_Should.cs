@@ -1,22 +1,36 @@
 ﻿using System.Collections.Generic;
 using System.Web.Mvc;
 
+using AutoMapper;
 using Moq;
 using NUnit.Framework;
 using Kendo.Mvc.UI;
 using TestStack.FluentMVCTesting;
 
-using FoodSupplementsSystem.App_Start;
 using FoodSupplementsSystem.Areas.Administration.Controllers;
 using FoodSupplementsSystem.Areas.Administration.ViewModels.Brands;
 using FoodSupplementsSystem.Services.Data.Contracts;
 using FoodSupplementsSystem.Tests.DataHelpers;
+using FoodSupplementsSystem.Data.Models;
+using FoodSupplementsSystem.Areas.Administration.ViewModels.Supplements;
 
 namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.BrandsControllerTests
 {
     [TestFixture]
     public class Brands_Read_Should
     {
+        [TestFixtureSetUp]
+        public void Init()
+        {
+            Mapper.Initialize(cfg =>
+            {
+                cfg.CreateMap<Brand, BrandViewModel>();
+                cfg.CreateMap<BrandViewModel, Brand>();
+                cfg.CreateMap<Supplement, SupplementViewModel>();
+                cfg.CreateMap<SupplementViewModel, Supplement>();
+            });
+        }
+
         [Test]
         public void ReturnJsonResult_WhenGetToBrands_Read()
         {
@@ -26,8 +40,6 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.BrandsCo
             var kendoDataRequest = new DataSourceRequest();
 
             brandsService.Setup(x => x.GetAll()).Returns(brands);
-
-            AutoMapperConfig.Config();
 
             var controller = new BrandsController(brandsService.Object);
 
@@ -44,8 +56,6 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.BrandsCo
             var kendoDataRequest = new DataSourceRequest();
 
             brandsService.Setup(x => x.GetAll()).Returns(brands);
-
-            AutoMapperConfig.Config();
 
             var controller = new BrandsController(brandsService.Object);
 

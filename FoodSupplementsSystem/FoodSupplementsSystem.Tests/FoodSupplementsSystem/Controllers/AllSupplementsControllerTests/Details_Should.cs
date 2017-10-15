@@ -5,19 +5,29 @@ using Moq;
 using NUnit.Framework;
 using TestStack.FluentMVCTesting;
 
-using FoodSupplementsSystem.App_Start;
 using FoodSupplementsSystem.Controllers;
 using FoodSupplementsSystem.Infrastructure.Populators;
 using FoodSupplementsSystem.Services.Data.Contracts;
 using FoodSupplementsSystem.Tests.DataHelpers;
 using FoodSupplementsSystem.ViewModels.AllSupplements;
+using FoodSupplementsSystem.Data.Models;
 
 namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.AllSupplementsControllerTests
 {
     [TestFixture]
     public class Details_Should
     {
-      [Test]
+        [TestFixtureSetUp]
+        public void Init()
+        {
+           Mapper.Initialize(cfg =>
+           {
+               cfg.CreateMap<Supplement, DetailsSupplementViewModel>();
+               cfg.CreateMap<DetailsSupplementViewModel, Supplement>();
+           });
+        }
+
+        [Test]
       public void RunDefaultView_WhenGetToDetails_WithValidSupplementId()
       {
           //Arrange
@@ -27,8 +37,6 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.AllSuppl
           var supplementId = 1;
       
           supplementsService.Setup(x => x.GetAll()).Returns(supplements);
-      
-          AutoMapperConfig.Config();
       
           var supplementsController = new AllSupplementsController(supplementsService.Object, dropDownListPopulator.Object);
       
@@ -49,8 +57,6 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.AllSuppl
      
          supplementsService.Setup(x => x.GetAll()).Returns(supplements);
      
-         AutoMapperConfig.Config();
-     
          var supplementsController = new AllSupplementsController(supplementsService.Object, dropDownListPopulator.Object);
      
          //Act & Assert
@@ -67,8 +73,6 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.AllSuppl
           var supplementId = supplements.FirstOrDefault().Id;
       
           supplementsService.Setup(x => x.GetAll()).Returns(supplements);
-      
-          AutoMapperConfig.Config();
       
           var supplementsController = new AllSupplementsController(supplementsService.Object, dropDownListPopulator.Object);
           var expectedResult = Mapper.Map<DetailsSupplementViewModel>(supplements.Where(s=>s.Id==supplementId).FirstOrDefault());

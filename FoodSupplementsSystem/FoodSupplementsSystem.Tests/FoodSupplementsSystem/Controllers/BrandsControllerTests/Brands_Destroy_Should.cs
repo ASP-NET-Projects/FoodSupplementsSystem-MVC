@@ -2,23 +2,36 @@
 using System.Linq;
 using System.Web.Mvc;
 
+using AutoMapper;
 using Moq;
 using NUnit.Framework;
 using Kendo.Mvc.UI;
 using TestStack.FluentMVCTesting;
 
-using FoodSupplementsSystem.App_Start;
 using FoodSupplementsSystem.Areas.Administration.Controllers;
 using FoodSupplementsSystem.Areas.Administration.ViewModels.Brands;
 using FoodSupplementsSystem.Data.Models;
 using FoodSupplementsSystem.Services.Data.Contracts;
 using FoodSupplementsSystem.Tests.DataHelpers;
+using FoodSupplementsSystem.Areas.Administration.ViewModels.Supplements;
 
 namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.BrandsControllerTests
 {
     [TestFixture]
     public class Brands_Destroy_Should
     {
+        [TestFixtureSetUp]
+        public void Init()
+        {
+            Mapper.Initialize(cfg =>
+            {
+                cfg.CreateMap<Brand, BrandViewModel>();
+                cfg.CreateMap<BrandViewModel, Brand>();
+                cfg.CreateMap<Supplement, SupplementViewModel>();
+                cfg.CreateMap<SupplementViewModel, Supplement>();
+            });
+        }
+
         [Test]
         public void ReturnJsonResult_WhenGetToBrands_Destroy()
         {
@@ -26,8 +39,6 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.BrandsCo
             var brandsService = new Mock<IBrandsService>();
             var brandViewModel = DataHelper.GetAdminBrandViewModel();
             var kendoDataRequest = new DataSourceRequest();
-
-            AutoMapperConfig.Config();
 
             brandsService.Setup(x => x.Delete(It.IsAny<Brand>())).Verifiable();
 
@@ -44,8 +55,6 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.BrandsCo
             var brandsService = new Mock<IBrandsService>();
             var brandViewModel = DataHelper.GetAdminBrandViewModel();
             var kendoDataRequest = new DataSourceRequest();
-
-            AutoMapperConfig.Config();
 
             brandsService.Setup(x => x.Delete(It.IsAny<Brand>())).Verifiable();
 
@@ -68,8 +77,6 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.BrandsCo
             var brandsService = new Mock<IBrandsService>();
             var brandViewModel = DataHelper.GetAdminBrandViewModel();
             var kendoDataRequest = new DataSourceRequest();
-
-            AutoMapperConfig.Config();
 
             brandsService.Setup(x => x.Delete(It.IsAny<Brand>())).Verifiable();
 

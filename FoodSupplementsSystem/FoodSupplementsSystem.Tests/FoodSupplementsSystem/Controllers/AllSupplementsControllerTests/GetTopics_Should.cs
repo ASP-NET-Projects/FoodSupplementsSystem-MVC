@@ -2,7 +2,6 @@
 using NUnit.Framework;
 using TestStack.FluentMVCTesting;
 
-using FoodSupplementsSystem.App_Start;
 using FoodSupplementsSystem.Controllers;
 using FoodSupplementsSystem.Infrastructure.Populators;
 using FoodSupplementsSystem.Services.Data.Contracts;
@@ -25,8 +24,6 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.AllSuppl
             topicsService.Setup(x => x.GetAll()).Returns(topics);
             dropDownListPopulator.Setup(x => x.GetTopics()).Returns(topicsPopulator);
 
-            AutoMapperConfig.Config();
-
             var controller = new AllSupplementsController(supplementsService.Object, dropDownListPopulator.Object);
 
             //Act & Assert
@@ -44,8 +41,6 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.AllSuppl
             var topicsPopulator = DataHelper.GetSelectListItemCollection();
             topicsService.Setup(x => x.GetAll()).Returns(topics);
             dropDownListPopulator.Setup(x => x.GetTopics()).Returns(topicsPopulator);
-
-            AutoMapperConfig.Config();
 
             var controller = new AllSupplementsController(supplementsService.Object, dropDownListPopulator.Object);
 

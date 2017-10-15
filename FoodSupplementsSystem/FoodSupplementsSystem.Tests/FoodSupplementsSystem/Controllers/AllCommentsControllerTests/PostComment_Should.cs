@@ -3,7 +3,6 @@ using Moq;
 using NUnit.Framework;
 using TestStack.FluentMVCTesting;
 
-using FoodSupplementsSystem.App_Start;
 using FoodSupplementsSystem.Controllers;
 using FoodSupplementsSystem.Data.Models;
 using FoodSupplementsSystem.Data.Repositories;
@@ -16,6 +15,18 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.AllComme
     [TestFixture]
     public class PostComment_Should
     {
+        [TestFixtureSetUp]
+        public void Init()
+        {
+            Mapper.Initialize(cfg =>
+            {
+                cfg.CreateMap<Comment, CommentViewModel>();
+                cfg.CreateMap<CommentViewModel, Comment>();
+                cfg.CreateMap<Comment, PostCommentViewModel>();
+                cfg.CreateMap<PostCommentViewModel, Comment>();
+            });
+        }
+
         [Test]
         public void RenderCorrectPartialView_WhenParametersAreValid()
         {
@@ -27,8 +38,6 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.AllComme
             var comment = DataHelper.GetPostCommentViewModel();
             comments.Setup(x => x.Create(It.IsAny<Comment>())).Verifiable();
             topics.Setup(x => x.GetById(It.IsAny<int>())).Returns(dbTopic);
-
-            AutoMapperConfig.Config();
 
             var controller = new AllCommentsController(topics.Object, comments.Object, repoUser.Object);
 
@@ -50,8 +59,6 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.AllComme
             comments.Setup(x => x.Create(It.IsAny<Comment>())).Verifiable();
             topics.Setup(x => x.GetById(It.IsAny<int>())).Returns(dbTopic);
 
-            AutoMapperConfig.Config();
-
             var controller = new AllCommentsController(topics.Object, comments.Object, repoUser.Object);
 
             //Act
@@ -72,8 +79,6 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.AllComme
             var comment = DataHelper.GetPostCommentViewModel();
             comments.Setup(x => x.Create(It.IsAny<Comment>())).Verifiable();
             topics.Setup(x => x.GetById(It.IsAny<int>())).Returns(dbTopic);
-
-            AutoMapperConfig.Config();
 
             var controller = new AllCommentsController(topics.Object, comments.Object, repoUser.Object);
             var dbComment = Mapper.Map<Comment>(comment);

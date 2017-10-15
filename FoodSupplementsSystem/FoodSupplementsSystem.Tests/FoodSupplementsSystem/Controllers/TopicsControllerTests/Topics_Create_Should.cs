@@ -2,12 +2,12 @@
 using System.Linq;
 using System.Web.Mvc;
 
+using AutoMapper;
 using Moq;
 using NUnit.Framework;
 using Kendo.Mvc.UI;
 using TestStack.FluentMVCTesting;
 
-using FoodSupplementsSystem.App_Start;
 using FoodSupplementsSystem.Areas.Administration.Controllers;
 using FoodSupplementsSystem.Areas.Administration.ViewModels.Topics;
 using FoodSupplementsSystem.Data.Models;
@@ -19,6 +19,16 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.TopicsCo
     [TestFixture]
     public class Topics_Create_Should
     {
+        [TestFixtureSetUp]
+        public void Init()
+        {
+            Mapper.Initialize(cfg =>
+            {
+                cfg.CreateMap<Topic, TopicViewModel>();
+                cfg.CreateMap<TopicViewModel, Topic>();
+            });
+        }
+
         [Test]
         public void ReturnJsonResult_WhenGetToTopics_Create()
         {
@@ -26,8 +36,6 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.TopicsCo
             var topicsService = new Mock<ITopicsService>();
             var topicViewModel = DataHelper.GetAdminTopicViewModel();
             var kendoDataRequest = new DataSourceRequest();
-
-            AutoMapperConfig.Config();
 
             topicsService.Setup(x => x.Create(It.IsAny<Topic>())).Verifiable();
 
@@ -44,8 +52,6 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.TopicsCo
             var topicsService = new Mock<ITopicsService>();
             var topicViewModel = DataHelper.GetAdminTopicViewModel();
             var kendoDataRequest = new DataSourceRequest();
-
-            AutoMapperConfig.Config();
 
             topicsService.Setup(x => x.Create(It.IsAny<Topic>())).Verifiable();
 
@@ -68,8 +74,6 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.TopicsCo
             var topicsService = new Mock<ITopicsService>();
             var topicViewModel = DataHelper.GetAdminTopicViewModel();
             var kendoDataRequest = new DataSourceRequest();
-
-            AutoMapperConfig.Config();
 
             topicsService.Setup(x => x.Create(It.IsAny<Topic>())).Verifiable();
 

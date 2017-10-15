@@ -2,12 +2,12 @@
 using System.Linq;
 using System.Web.Mvc;
 
+using AutoMapper;
 using Moq;
 using NUnit.Framework;
 using Kendo.Mvc.UI;
 using TestStack.FluentMVCTesting;
 
-using FoodSupplementsSystem.App_Start;
 using FoodSupplementsSystem.Areas.Administration.Controllers;
 using FoodSupplementsSystem.Areas.Administration.ViewModels.Supplements;
 using FoodSupplementsSystem.Data.Models;
@@ -21,6 +21,16 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.Suppleme
     [TestFixture]
     public class SupplementViewModels_Destroy_Should
     {
+        [TestFixtureSetUp]
+        public void Init()
+        {
+            Mapper.Initialize(cfg =>
+            {
+                cfg.CreateMap<Supplement, SupplementViewModel>();
+                cfg.CreateMap<SupplementViewModel, Supplement>();
+            });
+        }
+
         [Test]
         public void ReturnJsonResult_WhenGetToSupplementViewModels_Destroy()
         {
@@ -30,8 +40,6 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.Suppleme
             var repoUser = new Mock<IEfGenericRepository<ApplicationUser>>();
             var supplementViewModel = DataHelper.GetAdminSupplementViewModel();
             var kendoDataRequest = new DataSourceRequest();
-
-            AutoMapperConfig.Config();
 
             supplementsService.Setup(x => x.Delete(It.IsAny<Supplement>())).Verifiable();
 
@@ -50,8 +58,6 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.Suppleme
             var repoUser = new Mock<IEfGenericRepository<ApplicationUser>>();
             var supplementViewModel = DataHelper.GetAdminSupplementViewModel();
             var kendoDataRequest = new DataSourceRequest();
-
-            AutoMapperConfig.Config();
 
             supplementsService.Setup(x => x.Delete(It.IsAny<Supplement>())).Verifiable();
 
@@ -76,8 +82,6 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.Suppleme
             var repoUser = new Mock<IEfGenericRepository<ApplicationUser>>();
             var supplementViewModel = DataHelper.GetAdminSupplementViewModel();
             var kendoDataRequest = new DataSourceRequest();
-
-            AutoMapperConfig.Config();
 
             supplementsService.Setup(x => x.Delete(It.IsAny<Supplement>())).Verifiable();
 

@@ -1,22 +1,36 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
+using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using Moq;
 using NUnit.Framework;
 using TestStack.FluentMVCTesting;
 
-using FoodSupplementsSystem.App_Start;
 using FoodSupplementsSystem.Controllers;
 using FoodSupplementsSystem.Services.Data.Contracts;
 using FoodSupplementsSystem.ViewModels.AllCategories;
+using FoodSupplementsSystem.ViewModels.AllSupplements;
 using FoodSupplementsSystem.Tests.DataHelpers;
+using FoodSupplementsSystem.Data.Models;
 
 namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.AllCategoriesControllerTests
 {
     [TestFixture]
     public class Index_Should
     {
+        [TestFixtureSetUp]
+        public void Init()
+        {
+            Mapper.Initialize(cfg =>
+            {
+                cfg.CreateMap<Category, CategoryViewModel>();
+                cfg.CreateMap<CategoryViewModel, Category>();
+                cfg.CreateMap<Supplement, SupplementViewModel>();
+                cfg.CreateMap<SupplementViewModel, Supplement>();
+            });
+        }
+
         [Test]
         public void RunDefaultView_WhenGetToIndex()
         {
@@ -26,8 +40,6 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.AllCateg
 
             categoriesServiceMock.Setup(x => x.GetAll())
                 .Returns(categories);
-
-            AutoMapperConfig.Config();
 
             var controller = new AllCategoriesController(categoriesServiceMock.Object);
 
@@ -45,8 +57,6 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.AllCateg
 
             categoriesServiceMock.Setup(s => s.GetAll()).Returns(categories);
 
-            AutoMapperConfig.Config();
-
             var categoriesController = new AllCategoriesController(categoriesServiceMock.Object);
 
             //Act & Assert
@@ -61,8 +71,6 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.AllCateg
             var categories = DataHelper.GetCategories();
 
             categoriesServiceMock.Setup(s => s.GetAll()).Returns(categories);
-
-            AutoMapperConfig.Config();
 
             var categoriesController = new AllCategoriesController(categoriesServiceMock.Object);
             var expectedResult = categories.ProjectTo<CategoryViewModel>().ToList();

@@ -8,18 +8,30 @@ using NUnit.Framework;
 using Kendo.Mvc.UI;
 using TestStack.FluentMVCTesting;
 
-
-using FoodSupplementsSystem.App_Start;
 using FoodSupplementsSystem.Areas.Administration.Controllers;
 using FoodSupplementsSystem.Areas.Administration.ViewModels.Categories;
 using FoodSupplementsSystem.Services.Data.Contracts;
 using FoodSupplementsSystem.Tests.DataHelpers;
+using FoodSupplementsSystem.Data.Models;
+using FoodSupplementsSystem.Areas.Administration.ViewModels.Supplements;
 
 namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.CategoriesControllerTests
 {
     [TestFixture]
     public class Categories_Read_Should
     {
+        [TestFixtureSetUp]
+        public void Init()
+        {
+            Mapper.Initialize(cfg =>
+            {
+                cfg.CreateMap<Category, CategoryViewModel>();
+                cfg.CreateMap<CategoryViewModel, Category>();
+                cfg.CreateMap<Supplement, SupplementViewModel>();
+                cfg.CreateMap<SupplementViewModel, Supplement>();
+            });
+        }
+
         [Test]
         public void ReturnJsonResult_WhenGetToCategories_Read()
         {
@@ -29,8 +41,6 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.Categori
             var kendoDataRequest = new DataSourceRequest();
 
             categoriesService.Setup(x => x.GetAll()).Returns(categories);
-
-            AutoMapperConfig.Config();
 
             var controller = new CategoriesController(categoriesService.Object);
 
@@ -47,8 +57,6 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.Categori
             var kendoDataRequest = new DataSourceRequest();
 
             categoriesService.Setup(x => x.GetAll()).Returns(categories);
-
-            AutoMapperConfig.Config();
 
             var controller = new CategoriesController(categoriesService.Object);
 
@@ -71,8 +79,6 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.Categori
             var kendoDataRequest = new DataSourceRequest();
         
             categoriesService.Setup(x => x.GetAll()).Returns(categories);
-        
-            AutoMapperConfig.Config();
         
             var controller = new CategoriesController(categoriesService.Object);
         

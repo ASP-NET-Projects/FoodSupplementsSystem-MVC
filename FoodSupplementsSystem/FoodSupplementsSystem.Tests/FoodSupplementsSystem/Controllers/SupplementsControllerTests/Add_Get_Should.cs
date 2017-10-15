@@ -2,7 +2,6 @@
 using NUnit.Framework;
 using TestStack.FluentMVCTesting;
 
-using FoodSupplementsSystem.App_Start;
 using FoodSupplementsSystem.Areas.Administration.Controllers;
 using FoodSupplementsSystem.Areas.Administration.ViewModels.Supplements;
 using FoodSupplementsSystem.Data.Models;
@@ -23,8 +22,6 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.Suppleme
             var dropDownListPopulator = new Mock<IDropDownListPopulator>();
             var repoUser = new Mock<IEfGenericRepository<ApplicationUser>>();
 
-            AutoMapperConfig.Config();
-
             var controller = new SupplementsController(supplementsService.Object, dropDownListPopulator.Object, repoUser.Object);
 
             //Act & Assert
@@ -38,8 +35,6 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.Suppleme
             var supplementsService = new Mock<ISupplementsService>();
             var dropDownListPopulator = new Mock<IDropDownListPopulator>();
             var repoUser = new Mock<IEfGenericRepository<ApplicationUser>>();
-
-            AutoMapperConfig.Config();
 
             var controller = new SupplementsController(supplementsService.Object, dropDownListPopulator.Object, repoUser.Object);
 

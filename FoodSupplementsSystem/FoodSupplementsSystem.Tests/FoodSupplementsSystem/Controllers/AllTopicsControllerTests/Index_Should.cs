@@ -1,22 +1,36 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
+using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using Moq;
 using NUnit.Framework;
 using TestStack.FluentMVCTesting;
 
-using FoodSupplementsSystem.App_Start;
 using FoodSupplementsSystem.Controllers;
 using FoodSupplementsSystem.Services.Data.Contracts;
 using FoodSupplementsSystem.ViewModels.AllTopics;
 using FoodSupplementsSystem.Tests.DataHelpers;
+using FoodSupplementsSystem.Data.Models;
+using FoodSupplementsSystem.ViewModels.AllSupplements;
 
 namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.AllTopicsControllerTests
 {
     [TestFixture]
     public class Index_Should
     {
+        [TestFixtureSetUp]
+        public void Init()
+        {
+            Mapper.Initialize(cfg =>
+            {
+                cfg.CreateMap<Topic, TopicViewModel>();
+                cfg.CreateMap<TopicViewModel, Topic>();
+                cfg.CreateMap<Supplement, SupplementViewModel>();
+                cfg.CreateMap<SupplementViewModel, Supplement>();
+            });
+        }
+
         [Test]
         public void RunDefaultView_WhenGetToIndex()
         {
@@ -26,8 +40,6 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.AllTopic
             var topics = DataHelper.GetTopics();
 
             topicsService.Setup(x => x.GetAll()).Returns(topics);
-
-            AutoMapperConfig.Config();
 
             var topicsController = new AllTopicsController(topicsService.Object, commentsService.Object);
 
@@ -46,8 +58,6 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.AllTopic
 
             topicsService.Setup(x => x.GetAll()).Returns(topics);
 
-            AutoMapperConfig.Config();
-
             var topicsController = new AllTopicsController(topicsService.Object, commentsService.Object);
 
             //Act & Assert
@@ -63,8 +73,6 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.AllTopic
             var topics = DataHelper.GetTopics();
 
             topicsService.Setup(x => x.GetAll()).Returns(topics);
-
-            AutoMapperConfig.Config();
 
             var topicsController = new AllTopicsController(topicsService.Object, commentsService.Object);
             var expectedResult = topics.ProjectTo<TopicViewModel>().ToList();

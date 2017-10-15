@@ -6,17 +6,27 @@ using AutoMapper;
 using Moq;
 using NUnit.Framework;
 
-using FoodSupplementsSystem.App_Start;
 using FoodSupplementsSystem.Infrastructure.Services;
 using FoodSupplementsSystem.Services.Data.Contracts;
 using FoodSupplementsSystem.Tests.DataHelpers;
 using FoodSupplementsSystem.ViewModels.Home;
+using FoodSupplementsSystem.Data.Models;
 
 namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Infrastucture.Services.HomeServiceTests
 {
     [TestFixture]
     public class GetTopicViewModel_Should
     {
+        [TestFixtureSetUp]
+        public void Init()
+        {
+            Mapper.Initialize(cfg =>
+            {
+                cfg.CreateMap<Topic, HomeTopicViewModel>();
+                cfg.CreateMap<HomeTopicViewModel, Topic>();
+            });
+        }
+
         [Test]
         public void Throw_WhenPassedParameterIsNotValid()
         {
@@ -26,8 +36,6 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Infrastucture.Servic
             var categories = new Mock<ICategoriesService>();
             var supplements = new Mock<ISupplementsService>();
             var numberOfTopics = -1;
-
-            AutoMapperConfig.Config();
 
             var homeService = new HomeService(topics.Object, brands.Object, categories.Object, supplements.Object);
 
@@ -46,8 +54,6 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Infrastucture.Servic
             var numberOfTopics = 6;
             var topicsCollection = DataHelper.GetTopics();
             topics.Setup(x => x.GetAll()).Returns(topicsCollection);
-
-            AutoMapperConfig.Config();
 
             var homeService = new HomeService(topics.Object, brands.Object, categories.Object, supplements.Object);
 
@@ -69,8 +75,6 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Infrastucture.Servic
             var numberOfTopics = 6;
             var topicsCollection = DataHelper.GetTopics();
             topics.Setup(x => x.GetAll()).Returns(topicsCollection);
-
-            AutoMapperConfig.Config();
 
             var homeService = new HomeService(topics.Object, brands.Object, categories.Object, supplements.Object);
 
@@ -100,8 +104,6 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Infrastucture.Servic
             var supplements = new Mock<ISupplementsService>();
             var numberOfTopics = 6;
             topics.Setup(x => x.GetAll()).Returns(() => null);
-
-            AutoMapperConfig.Config();
 
             var homeService = new HomeService(topics.Object, brands.Object, categories.Object, supplements.Object);
 

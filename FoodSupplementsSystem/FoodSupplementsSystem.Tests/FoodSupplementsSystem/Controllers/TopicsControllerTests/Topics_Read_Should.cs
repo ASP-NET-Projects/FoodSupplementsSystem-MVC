@@ -6,7 +6,6 @@ using NUnit.Framework;
 using Kendo.Mvc.UI;
 using TestStack.FluentMVCTesting;
 
-using FoodSupplementsSystem.App_Start;
 using FoodSupplementsSystem.Areas.Administration.Controllers;
 using FoodSupplementsSystem.Areas.Administration.ViewModels.Topics;
 using FoodSupplementsSystem.Services.Data.Contracts;
@@ -27,8 +26,6 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.TopicsCo
 
             topicsService.Setup(x => x.GetAll()).Returns(topics);
 
-            AutoMapperConfig.Config();
-
             var controller = new TopicsController(topicsService.Object);
 
             //Act & Assert
@@ -44,8 +41,6 @@ namespace FoodSupplementsSystem.Tests.FoodSupplementsSystem.Controllers.TopicsCo
             var kendoDataRequest = new DataSourceRequest();
 
             topicsService.Setup(x => x.GetAll()).Returns(topics);
-
-            AutoMapperConfig.Config();
 
             var controller = new TopicsController(topicsService.Object);
 
